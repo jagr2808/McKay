@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, norsk]{article}
+\documentclass[11pt, a4paper, english]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{babel, amsmath, amsthm, amssymb, amsfonts, enumitem, mathtools, centernot}
 \usepackage{tikz-cd}
@@ -17,6 +17,17 @@
 \title{McKay correspondence}
 \author{Jacob Fjeld Grevstad}
 \maketitle
+
+\begin{abstract}
+The goal of this thesis is to establish a 1-1 correspondence between quivers created from the four following sets whenever $G$ is a finite subgroup of $SL(2,\C)$ and $S$ is the power series ring $\C \llbracket x, y \rrbracket$
+\begin{itemize}
+\item The Maximal Cohen-Macaulay modules of the fixed ring $S^G$.
+\item The indecomposable projective modules of the skew group algerba $S\#G$.
+\item The indecomposable projective modules of $End_{S^G}(S)$.
+\item The irreducible representations of $G$ (indecomposable $\C G$-modules).
+\end{itemize}
+Much of the thesis will be used to define these four quivers and to develope tools to establish such a correspondence. A similar correspondence can be established for a general field $k$ and a finite subgroup of $GL(n, k)$ with order nonzero in $k$, but the case for $SL(2,\C)$ is the most interesting as the quivers will be extended Dynkin diagrams.
+\end{abstract}
 
 \section*{Finite subgroups of SL(2,C)}
 
@@ -39,17 +50,6 @@ In (*) we use the fact that $tr(AB)=tr(BA)$.
 \end{proof}
 \end{prop}
 
-\begin{prop}
-The dimension of the representation with character $\chi$ is $\chi(1)$.
-\begin{proof}
-$$\chi(1) = tr\left(\begin{bmatrix}
-1 & \cdots & 0\\
-\vdots & \ddots & \vdots\\
-0 & \cdots & 1
-\end{bmatrix}\right) = n$$
-\end{proof}
-\end{prop}
-
 \begin{lemma}
 For a finite abelian group $G$ any irreducible representation must be 1-dimensional.
 \begin{proof}
@@ -57,7 +57,36 @@ Let $\rho: G \to GL(V)$ be an irreducible representation. Since $G$ is abelian w
 \end{proof}
 \end{lemma}
 
+\begin{prop}
+If $\chi$ is the character of a representation, $\rho$, with dimension $n$ of a group $G$, and $g$ is an element of $G$ with order $m$, then the following holds
+\begin{itemize}
+ \item[(1)] $\chi(1) = n$
+ \item[(2)] $\chi(g)$ is the sum of $m$-th roots of unity.
+ \item[(3)] $chi(g^{-1}) = \overline{\chi(g)}$
+\end{itemize}
+\begin{proof}
+
+\begin{itemize}
+\item[]
+\item[(1)]
+The first result is immidiate.
+$$\chi(1) = tr\left(\begin{bmatrix}
+1 & \cdots & 0\\
+\vdots & \ddots & \vdots\\
+0 & \cdots & 1
+\end{bmatrix}\right) = n$$
+\item[(2)]
+Since $\langle g \rangle$ is an abelian group, $rho$ decomposes into $n$ 1-dimensional $\langle g \rangle$-representations. Then there is a basis such that $\rho(g)$ is diagonal. Since $g$ has order $m$ it follows that the diagonal entries of $\rho(g)$ must be $m$-th roots of unity. Thus $\chi(g) = tr(\rho(g))$ must be the sum of $m$-th roots of unity.
+\item[(3)]
+Using the same basis as above and the fact that $\omega^{-1} = \overline{\omega}$ when $\omega$ is a root of unity we see that $\chi(g^{-1}) = tr(\rho(g)^{-1}) = \overline{tr(\rho(g))} = \overline{\chi(g)}$.
+\end{itemize}
+\end{proof}
+\end{prop}
+
 \section*{The McKay quiver}
+\begin{defin}
+Let $G$ be a finite subgroup of $GL(n, \C)$, and let $V$ be the cannonical representation (the one that sends $g$ to $g$). Then we define the \underline{McKay quiver} of $G$ to be the quiver with verticies the irreducible representations of $G$, denoted $V_i$. For two irreducible representations $V_i$ and $V_j$ we say there is an arrow from the former to the latter if and only if $V_j$ is a direct summand of $V \otimes V_i$. 
+\end{defin}
 
 \section*{Skew algebra S\#G indecomposable projectives}
 \begin{defin}
@@ -76,6 +105,15 @@ Let $f^g$ denote the image of $f$ under the action of $g$. Then if we let $f(x,y
 \end{proof}
 \end{theorem}
 
-\section*{$S^G$-direct summands of $End_{S^G}(S)$}
+\section*{$End_{S^G}(S)$}
+
+\section{MCM modules}
+\begin{defin}
+If $R$ is a local ring with residual field $k$ we define the \underline{depth} of a module, $M$, to be the minimal $n$ such that the extension $Ext^n_R(k, M)$ is non-zero.
+\end{defin}
+
+\begin{defin}
+If $M$ is a module over a local ring $R$ with Krull-dimension $d$ we say that $M$ is \underline{maximal Cohen Macaulay (MCM)} if the depth of $M$ equals $d$.
+\end{defin}
 
 \end{document}
