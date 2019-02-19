@@ -20,18 +20,19 @@
 \newcommand{\C}{\mathbb{C}}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\End}{End}
 
 \begin{document}
 \title{McKay correspondence}
 \author{Jacob Fjeld Grevstad}
 \maketitle
 
-\begin{abstract}
+\begin{abstract} %Be less vauge on GLn or drop it entirely.
 The goal of this thesis is to establish a 1-1 correspondence between quivers created from the four following sets whenever $G$ is a finite subgroup of $SL(2,\C)$ and $S$ is the power series ring $\C \llbracket x, y \rrbracket$
 \begin{itemize}
 \item The Maximal Cohen-Macaulay modules of the fixed ring $S^G$.
 \item The indecomposable projective modules of the skew group algerba $S\#G$.
-\item The indecomposable projective modules of $End_{S^G}(S)$.
+\item The indecomposable projective modules of $\End_{S^G}(S)$.
 \item The irreducible representations of $G$ (indecomposable $\C G$-modules).
 \end{itemize}
 Much of the thesis will be used to define these four quivers and to develope tools to establish such a correspondence. A similar correspondence can be established for a general field $k$ and a finite subgroup of $GL(n, k)$ with order nonzero in $k$, but the case for $SL(2,\C)$ is the most interesting as the quivers will be extended Dynkin diagrams.
@@ -39,11 +40,12 @@ Much of the thesis will be used to define these four quivers and to develope too
 
 \section{Finite subgroups of SL(2,C)}
 
-\section{characters and irreducible representations}
-Recall that the trace of a matrix is defined to be the sum of its diagonal element and that the trace satisfies two important equations. Namely
-$$tr(A+B)=tr(A)+tr(B) \text{  and  } tr(AB)=tr(BA)$$
+\section{Characters and irreducible representations}
+Sorcue: Representations and characters of groups - Gordon James, Martin Lieback
 
-For a given representation of $G$, $\rho: G \to GL_n(\mathbb{C})$ we define its characther by $\chi_\rho : G \to \mathbb{C}$, $\chi_\rho(g) = tr(\rho(g))$.
+Recall that the trace of a matrix is defined to be the sum of its diagonal elements and that the trace satisfies two important equations. Namely
+$$tr(A+B)=tr(A)+tr(B) \text{  and  } tr(AB)=tr(BA)$$
+For a given representation of $G$, $\rho: G \to GL_n(\mathbb{C})$, we define its character by $\chi_\rho : G \to \mathbb{C}$, $\chi_\rho(g) = tr(\rho(g))$.
 
 \begin{prop}
 Conjugate elements in $G$ take the same value under a character.
@@ -61,7 +63,7 @@ In (*) we use the fact that $tr(AB)=tr(BA)$.
 \begin{lemma}
 For a finite abelian group $G$ any irreducible representation must be 1-dimensional.
 \begin{proof}
-Let $\rho: G \to GL(V)$ be an irreducible representation. Since $G$ is abelian we have that $\rho(g)\rho(h)v = \rho(h)\rho(g)v$, and thus $\rho(g)$ is a homomorphism of $G$-representations. Then by Schur's lemma $\rho(g)$ must be a scalar multiplication. This implies that $\rho$ can be written as a direct sum of 1-dimensional representations, but since $\rho$ is irreducible $\rho$ must be 1-dimensional.
+Let $\rho: G \to GL(V)$ be an irreducible representation. Since $G$ is abelian we have that $\rho(g)\rho(h)v = \rho(h)\rho(g)v$. Thus multiplication by $\rho(g)$ respects the action of $G$ and we have that $\rho(g)$ is a homomorphism of $G$-representations between $\rho$ and itself. Then by Schur's lemma $\rho(g)$ must be a scalar multiplication. In other words every matrix $\rho(g)$ for $g \in G$ is diagonal (it is a scaling of identity). This implies that $\rho$ can be written as a direct sum of 1-dimensional representations, but since $\rho$ is irreducible $\rho$ must be 1-dimensional.
 \end{proof}
 \end{lemma}
 
@@ -70,7 +72,7 @@ If $\chi$ is the character of a representation, $\rho$, with dimension $n$ of a 
 \begin{itemize}
  \item[(1)] $\chi(1) = n$
  \item[(2)] $\chi(g)$ is the sum of $m$-th roots of unity.
- \item[(3)] $chi(g^{-1}) = \overline{\chi(g)}$
+ \item[(3)] $\chi(g^{-1}) = \overline{\chi(g)}$
 \end{itemize}
 \begin{proof}
 
@@ -84,7 +86,7 @@ $$\chi(1) = tr\left(\begin{bmatrix}
 0 & \cdots & 1
 \end{bmatrix}\right) = n$$
 \item[(2)]
-Since $\langle g \rangle$ is an abelian group, $rho$ decomposes into $n$ 1-dimensional $\langle g \rangle$-representations. Then there is a basis such that $\rho(g)$ is diagonal. Since $g$ has order $m$ it follows that the diagonal entries of $\rho(g)$ must be $m$-th roots of unity. Thus $\chi(g) = tr(\rho(g))$ must be the sum of $m$-th roots of unity.
+Since $\langle g \rangle$ is an abelian group, $\rho$ decomposes into $n$ 1-dimensional $\langle g \rangle$-representations. Then there is a basis such that $\rho(g)$ is diagonal. Since $g$ has order $m$ it follows that the diagonal entries of $\rho(g)$ must be $m$-th roots of unity. Thus $\chi(g) = tr(\rho(g))$ must be the sum of $m$-th roots of unity.
 \item[(3)]
 Using the same basis as above and the fact that $\omega^{-1} = \overline{\omega}$ when $\omega$ is a root of unity we see that $\chi(g^{-1}) = tr(\rho(g)^{-1}) = \overline{tr(\rho(g))} = \overline{\chi(g)}$.
 \end{itemize}
@@ -110,9 +112,10 @@ V_3 && V_2 \arrow[<->]{ull}
 $$
 \end{example}
 
-\section{Skew algebra S\#G indecomposable projectives}
+\section{Skew group algebra S\#G indecomposable projectives}
+Source Cohen-Macaulay representations - Graham J Leuschke, Roger Wiegand
 \begin{defin}
-If $G$ is a subgroup of $GL_n(\C)$, we can extend the group action of $G$ to $\C\llbracket x_1, \cdots, x_n\rrbracket$. We then define the \underline{skew algebra $\C \llbracket x_1, \cdots, x_n \rrbracket \# G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in \C\llbracket x_1, \cdots, x_n\rrbracket$ and $g \in G$, and we define the multiplication by
+If $G$ is a subgroup of $GL_n(\C)$, we can extend the group action of $G$ to $\C\llbracket x_1, \cdots, x_n\rrbracket$. We then define the \underline{skew group algebra $\C \llbracket x_1, \cdots, x_n \rrbracket \# G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in \C\llbracket x_1, \cdots, x_n\rrbracket$ and $g \in G$, and we define the multiplication by
 $$ (f_1 \cdot g_1) \cdot (f_2 \cdot g_2) = (f_1 \cdot f_2^{g_1}) \cdot (g_1 \cdot g_2) $$
 Where $f^g$ denotes the image of $f$ under the action of $g$.
 \end{defin}
@@ -123,17 +126,19 @@ $$ e \C\llbracket x, y \rrbracket \# G e \simeq \C\llbracket x, y \rrbracket^G $
 where $e = \frac{1}{|G|} \sum_{g \in G} g$.
 
 \begin{proof}
-Let $f^g$ denote the image of $f$ under the action of $g$. Then if we let $f(x,y)g$ be an element of the skew algebra we get that $e f(x,y)g e = f(x, y)^e \cdot ege = f(x, y)^e \cdot e$. It then follows that $  e \C\llbracket x, y\rrbracket \# G e$ is isomorphic to the image of $e$. Since $ge=g$ for all $g\in G$ it is clear that the image of $e$ is contained in the fixed ring. For the converse you just need to notice that the fixed ring is fixed under $e$ and thus is contained in the image.
+Let $f^g$ denote the image of $f$ under the action of $g$. Then if we let $f(x,y)g$ be an element of the skew algebra we get that $e f(x,y)g e = f(x, y)^e \cdot ege = f(x, y)^e \cdot e = e \cdot f(x, y)$. It then follows that $  e \C\llbracket x, y\rrbracket \# G e$ is isomorphic to the image of $\C\llbracket x, y \rrbracket$ under the action of $e$. Since $ge=g$ for all $g\in G$ it is clear that the image of $e$ is contained in the fixed ring. For the converse you just need to notice that the fixed ring is fixed under $e$ and thus is contained in the image.
 \end{proof}
 \end{theorem}
 
 \begin{lemma}
 \label{lem:S proj => SG proj}
-Let $S = \C\llbracket x, y \rrbracket$. An $S\#G$-modulo is projective if it is projective as an $S$-module.
+Let $S = \C\llbracket x, y \rrbracket$. An $S\#G$-module is projective if and only if it is projective as an $S$-module.
 
 \begin{proof}
-First we need to see that an $S\#G$-linear map is just an $S$-linear map such that $f(g(m))=g(f(m))$ for all $g \in G$. Equivalently $f(m) = g(f(g^{-1}(m)))$. This allows us to define a group action $f^g(m) = g(f(g^{-1}(m)))$. Then we can restate it as $$ \Hom_{S\#G}(M,N) = \Hom_S(M,N)^G$$
-Clearly if $f$ is $S\#G$-linear then it's in $\Hom_S(M,N)^G$. To see the other inclusion, let $f$ be an $S$-linear map such that fixed under $G$. Then $f(s\cdot g m) = s f(g m) = s\cdot g(f(g^{-1} g m)) = s \cdot g f(m) $, and hence $f$ is $S\#G$-linear. Nextly I want to show that $-^G$ is an exact functor.
+Onlyifity follows from $S\#G$ being a free $S$-module, it is isomorphic to $\bigoplus_{g \in G} S$. Thus we need only show ifity.
+
+First we need to see that an $S\#G$-linear map is just an $S$-linear map such that $f(g(m))=g(f(m))$ for all $g \in G$. Equivalently $f(m) = g(f(g^{-1}(m)))$. This allows us to define a group action on $S$-linear maps by $f^g(m) = g(f(g^{-1}(m)))$. Then we can restate it as $$ \Hom_{S\#G}(M,N) = \Hom_S(M,N)^G$$
+Clearly if $f$ is $S\#G$-linear then it's in $\Hom_S(M,N)^G$. To see the other inclusion, let $f$ be an $S$-linear map that is fixed under $G$. Then $f(s\cdot g m) = s f(g m) = s\cdot g(f(g^{-1} g m)) = s \cdot g f(m) $, and hence $f$ is $S\#G$-linear. Nextly I want to show that $-^G$ is an exact functor.
 
 If $K$ is the kernel of a map $f: M \to N$, then the kernel of the inuced map $f^G : M^G \to N^G$ is of course just $K \cap M^G$ which equals $K^G$. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$.
 
@@ -142,32 +147,51 @@ This implies that if $\Hom_S(P, -)$ is exact then $\Hom_S(P, -)^G = \Hom_{S\#G}(
 \end{lemma}
 
 \begin{theorem}
-Let $S = \C\llbracket x, y \rrbracket$ and let $\mathfrak{m} = \langle x, y \rangle_S$. Then there are bijections between the indecomposable projective $S\#G$-modules and the indecomposable $\C G$-modules given by
-\begin{equation*}
-\begin{split}
-\mathcal{F}: P &\mapsto P/\mathfrak{m}P\\
-\mathcal{G}: W &\mapsto S \otimes_\C W
-\end{split}
-\end{equation*}
+Let $S = \C\llbracket x, y \rrbracket$ and let $\mathfrak{m} = \langle x, y \rangle_S$ be the radical of $S$. Then there are bijections between the indecomposable projective $S\#G$-modules and the indecomposable $\C G$-modules given by
+
+\begin{tikzcd}
+\left\lbrace \begin{matrix}
+\text{indecomposable projective}\\
+S\#G\text{-modules}
+\end{matrix} \right\rbrace 
+& 
+\left\lbrace \begin{matrix}
+\text{indecomposable}\\
+\C G\text{-modules}
+\end{matrix} \right\rbrace\\
+\mathcal{F}: P \arrow[mapsto]{r} & P/\mathfrak{m}P\\
+\mathcal{G}: S \otimes_\C W & W \arrow[mapsto]{l}
+\end{tikzcd}
+\\
 Where the $S\#G$-module structure on $S \otimes_\C W$ is given by $(s \cdot g) \cdot f \otimes v = sf^g \otimes v^g$.
 
 \begin{proof}
-First we should show that $P/\mathfrak{m}P$ is infact an irreducible $\C G$-module and that $S \otimes_\C W$ is an irreducible projective $S\#G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from lemma \ref{lem:S proj => SG proj} that it is projective. Irreducible????
+First we should show that $S \otimes_\C W$ is an irreducible projective $S\#G$-module and that $P/\mathfrak{m}P$ is infact an irreducible $\C G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from lemma \ref{lem:S proj => SG proj} that it is projective. To see that it is irreducible we will first study it as an $S$-module and exploit the fact that $\Hom_{S\#G}(M,N) \subseteq \Hom_S(M,N)$. 
 
-To see that this are bijections we will show that they are mutuall inverses. First to see that $\mathcal{F}(\mathcal{G}(W)) \cong W$ we simply look at the definition
+Since $\mathfrak{m}$ is the radical of $S$ we have that 
+\begin{align*}
+\frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
+\end{align*}
+$W$ is the top of $S \otimes_\C W$. Further since the projection is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Then since $W$ is simple it follows that $S \otimes_\C W$ is an indecomposable projective.
+
+It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will first show that it's indecomposable as an $S\#G$-module. By considering $P$ and $P/\mathfrak{m}P$ as $S$-modules and using the same argument as above we see that $P$ is the projective cover of $P/\mathfrak{m}P$. Then since $P$ is indecomposable $P/\mathfrak{m}P$ must also be indecomposable as an $S\#G$-module.
+
+To see that this implies $P/\mathfrak{m}P$ is indecomposable as a $\C G$-module notice that $P/\mathfrak{m}P$ is annihilated by the ideal $\langle \mathfrak{m} \rangle$. This means it's an indecomposable as $S\#G$-module if and only if it's indecomposable as an $S\#G/\langle \mathfrak{m} \rangle$-module. Then since $S\#G/\langle \mathfrak{m} \rangle \cong \C G$ it follows that $P/\mathfrak{m}P$ is an indecomposable $\C G$-module.
+
+To see that the given maps are bijections we will show that they are mutual inverses. First to see that $\mathcal{F}(\mathcal{G}(W)) \cong W$ we simply look at the definition
 \begin{equation*}
 \begin{split}
 \frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
 \end{split}
 \end{equation*}
-Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. We have already seen that it's projective. Both $P$ and $S \otimes_\C P/\mathfrak{m}P$ have a natural projection onto $P/\mathfrak{m}P$, and by projectivity we get an induced map from $S \otimes_\C P/\mathfrak{m}P$ to $P$:
+Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. We have already seen that it's projective. Both $P$ and $S \otimes_\C P/\mathfrak{m}P$ have a natural projection onto $P/\mathfrak{m}P$, and by projectivity we get an induced $S\#G$-linear map from $S \otimes_\C P/\mathfrak{m}P$ to $P$:
 \begin{center}
 \begin{tikzcd}
 & S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \arrow[dashrightarrow]{dl}\\
 P \arrow[->>]{r} & P/\mathfrak{m}P
 \end{tikzcd}
 \end{center}
-Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$. This means that the map is an isomorphism of $S$-modules, and therefor it is also an isomorphism of $S\#G$-modules.
+Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$ (as $S$-modules). This means that the map is an isomorphism of $S$-modules, and therefor it is also an isomorphism of $S\#G$-modules.
 \end{proof}
 
 \iffalse
