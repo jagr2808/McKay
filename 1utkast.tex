@@ -22,6 +22,7 @@
 \newcommand{\C}{\mathbb{C}}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Image}{Im}
 \DeclareMathOperator{\Ker}{Ker}
@@ -211,7 +212,7 @@ Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. W
 P \arrow[->>]{r} & P/\mathfrak{m}P
 \end{tikzcd}
 \end{center}
-Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$ (as $S$-modules). This means that the map is an isomorphism of $S$-modules, and therefor it is also an isomorphism of $S\#G$-modules.
+Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$ (as $S$-modules). This means that the map is an isomorphism of $S$-modules {\color{red}{(am I assuming fintie length here????????????????)}}, and therefor it is also an isomorphism of $S\#G$-modules.
 \end{proof}
 
 \iffalse
@@ -247,9 +248,11 @@ We say there is an arrow from $P$ to $P'$ if $P'$ appears as a direct summand of
 \end{defin}
 
 \begin{defin}
-Exterior algebra 
-.............................
+Let $V$ be a vector space. We then define the exterior algebra $\bigwedge V$ as the associative unital graded algebra such that the multiplication is bilinear and satisfies $x \wedge y = -y \wedge x$ for any $x$ and $y$ in $V$. 
 \end{defin}
+Some key properties of the exterior algebra is that $x \wedge x = 0$, and more generally that $x_1 \wedge \cdots \wedge x_p = 0$ whenever $\{x_i\}_{i=1}^p$ are linearly dependent.
+
+The $p$th exterior power of $V$, denoted $\bigwedge\limits^p V$ is the vector space of all elements that are the product of $p$ vectors in $V$. If $\{ x_i \}_{i=1}^n$ is a basis for $V$, then $x_{i_1} \wedge \cdots \wedge x_{i_p}$ where $i_1 < i_2 < \cdots < i_p$ and $1 \leq i_j \leq n$ forms a basis for $\bigwedge\limits^p V$, thus it is ${n \choose p}$-dimensional.  
 
 \begin{prop}
 If $S$ is the ring of formal power series over $\C$ in $n$ variables, and $G$ is a finite group acting on $S$, let $V=\mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C \cong S/\mathfrak{m}$ is given by
@@ -285,8 +288,35 @@ First some notation: let $\mathfrak{I}_p$ be the set of all tuples $(i_1, i_2, \
 
 Maybe just prove n=2, its simpler....
 
+Secondly want to show that this resolution is minimal. To do this we will show that $\Tor^n_S(\C, \C) \neq 0$. Then since Tor is independent of projective resolution, there cannot be a projective resolution of $\C$ with 0 in $n$-th degree. To calculate Tor we use our resolution
+\begin{center}
+\begin{tikzcd}
+0  \arrow{r} & \C \otimes_S S \otimes_\C \bigwedge\limits^n V  \arrow{r}{\C \otimes_S \partial_n} &  \C \otimes_S S \otimes_\C \bigwedge\limits^{n-1} V \\
+0  \arrow{r} & \C \otimes_\C \bigwedge\limits^n V  \arrow{r}{\C \otimes_S \partial_n} &  \C \otimes_\C \bigwedge\limits^{n-1} V 
+\end{tikzcd}
+\end{center}
+Since $\partial_n$ involves multiplication by $x_i$ and $\C x_i = 0$ ($\C = S/\langle x_i \rangle_{i=1}^n$), we have that $\C \otimes_S \partial_n = 0$ and $\Tor^n_S(\C, \C) = \C \otimes_C \bigwedge\limits^n V $ which certainly is non-zero. 
 \end{proof}
 \end{prop}
+
+\begin{theorem}
+If $S$ is the complex power series ring in $n$ variables and $G$ is a fintie subgroup of $GL_n(\C)$, then the McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic.
+\begin{proof}
+We have already seen that they have the same vertices, namely if $V_i$ are the irreducible representations of $G$, then $S \otimes_\C V_i$ are the indecomposable projectives of $S\#G$. To see that they have the same arrows consider as above the minimal resolution of $\C$.
+\begin{center}
+\begin{tikzcd}
+0  \arrow{r} & S \otimes_\C \bigwedge\limits^n V  \arrow{r}{\partial_n} & \cdots \arrow{r}{\partial_2} & S \otimes_\C \bigwedge\limits^{1} V \arrow{r}{\partial_1} & S \arrow{r} & 0
+\end{tikzcd}
+\end{center}
+If we tensor with $V_i$ on the right we will get a minimal resolution of $V_i$ (you can see that is minimal by using the exact same argumant above and prove that $\Tor^n_S(\C, V_i)$ is non-zero).
+\begin{center}
+\begin{tikzcd}
+\cdots \arrow{r}{\partial_2 \otimes_\C V_i} & S \otimes_\C \bigwedge\limits^{1} V \otimes_\C V_i \arrow{r}{\partial_1 \otimes_\C V_i} & S \otimes_\C V_i \arrow{r} & 0
+\end{tikzcd}
+\end{center}
+From here, since $\bigwedge\limits^{1} V = V$, we see that $P_j = S \otimes_\C V_j$ appears as a direct summand of $S \otimes_\C V \otimes_\C V_i$ exactly when $V_j$ appears as a direct summand of $V \otimes_\C V_i$.
+\end{proof}
+\end{theorem}
 
 \section{The endomorphism ring of $S$ as an $S^G$-module}
 Isomorphism to $S\#G$ implies proj SG <-> $S^G$ direct summands of $S$.
@@ -364,13 +394,15 @@ indec proj = summand of ring = idempotent of ring
 
 projective resolution
 
-Ext
+Ext + Tor
 \end{appendices}
 
 \section{Random Thoughts I need to figure out}
-I R=S then they have the same depth meaning M is cohen macaulay iff it's projective dimension is 0 (Auslander-Buschsbauw), but that means its a direct summand of S as S(=R)-module, which make sense. If I can show that R = S/(f) fro some polynomial f, can I show R-direct summands of S have projective dimension 1 over S? Can I show R has depth depth(S)-1? Then I also need to prove Auslander-Buschsbauw... 
+I R=S then they have the same depth meaning M is cohen macaulay iff it's projective dimension is 0 (Auslander-Buschsbauw), but that means its a direct summand of S as S(=R)-module, which make sense. If I can show that R = S/(f) fro some polynomial f, can I show R-direct summands of S have projective dimension 1 over S? Can I show R has depth depth(S)-1? Then I also need to prove Auslander-Buschsbauw... Need to show some relation between dimension and depth.
 
-If P is indec projective then it is teh direct summand of a free module. Then there is a non-zero map to the ring. If P is not a summand of the ring then P decomposes, contradiction. Why do we need KRS???????
+If P is indec finitely generated projective then it is direct summand of $S^n$, then P must either be a direct summand of S or $S^n-1$ then by induction P is a  summand of S. Can I assume P to be finitely generated?????
+
+$P/mP = sum V_i -> P = sum SV_i$, means  all projective $S\#G$-modules can be broken down into sums. 
 
 \nocite{*}
 \bibliography{mybib}
