@@ -9,4 +9,4 @@
 \contentsline {section}{\numberline {7}Maximal Cohen-Macaulay modules of $S^G$}{10}
 \contentsline {section}{Appendices}{10}
 \contentsline {section}{\numberline {A}Representation theory}{10}
-\contentsline {section}{\numberline {8}Random Thoughts I need to figure out}{11}
+\contentsline {section}{\numberline {8}Random Thoughts I need to figure out}{12}

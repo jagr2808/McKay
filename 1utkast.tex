@@ -4,6 +4,7 @@
 \usepackage{tikz-cd}
 \usepackage{stmaryrd}
 \usepackage{cite}
+\usepackage{cleveref}
 \usepackage[toc,page]{appendix}
 \newcommand\tab[1][1cm]{\hspace*{1}}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -24,6 +25,7 @@
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Image}{Im}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Cok}{Cok}
@@ -33,15 +35,15 @@
 \author{Jacob Fjeld Grevstad}
 \maketitle
 
-\begin{abstract} %Be less vague on GLn or drop it entirely.
-The goal of this thesis is to establish a 1-1 correspondence between quivers created from the four following sets whenever $G$ is a finite subgroup of $SL(2,\C)$ and $S$ is the power series ring $\C \llbracket x, y \rrbracket$
+\begin{abstract}
+The goal of this thesis is to establish a 1-1 correspondence between quivers created from the four following sets whenever $S$ is the power series ring $\C \llbracket x, y \rrbracket$ and $G$ is a finite subgroup of $SL(2,\C)$ acting on $S$
 \begin{itemize}
 \item The Maximal Cohen-Macaulay modules of the fixed ring $S^G$.
-\item The indecomposable projective modules of the skew group algerba $S\#G$.
+\item The indecomposable projective modules of the skew group algebra $S\#G$.
 \item The indecomposable projective modules of $\End_{S^G}(S)$.
 \item The irreducible representations of $G$ (indecomposable $\C G$-modules).
 \end{itemize}
-Much of the thesis will be used to define these four quivers and to develope tools to establish such a correspondence. A similar correspondence can be established for a general field $k$ and a finite subgroup of $GL(n, k)$ with order nonzero in $k$, but the case for $SL(2,\C)$ is the most interesting as the quivers will be extended Dynkin diagrams.
+Much of the thesis will be used to define these four quivers and to develope tools to establish such a correspondence. A similar correspondence can be established for a general field $k$ and a finite subgroup of $GL(n, k)$ with order nonzero in $k$, but in the general case we will only attain the MCM-modules that apear as $S^G$-direct summands of $S$. $SL(2, \C)$ is also especially interesting because the quivers are exactly the Dynkin diagrams.
 \end{abstract}
 
 \tableofcontents
@@ -71,7 +73,7 @@ In (*) we use the fact that $tr(AB)=tr(BA)$.
 \begin{lemma}
 For a finite abelian group $G$ any irreducible representation must be 1-dimensional.
 \begin{proof}
-Let $\rho: G \to GL(V)$ be an irreducible representation. Since $G$ is abelian we have that $\rho(g)\rho(h)v = \rho(h)\rho(g)v$. Thus multiplication by $\rho(g)$ respects the action of $G$ and we have that $\rho(g)$ is a homomorphism of $G$-representations between $\rho$ and itself. Then by Schur's lemma\footnote{Statement and proof of Schur's lemma can be found in the appendix \ref{schur}} $\rho(g)$ must be a scalar multiplication. In other words every matrix $\rho(g)$ for $g \in G$ is diagonal (it is a scaling of identity). This implies that $\rho$ can be written as a direct sum of 1-dimensional representations, but since $\rho$ is irreducible $\rho$ must be 1-dimensional.
+Let $\rho: G \to GL(V)$ be an irreducible representation. Since $G$ is abelian we have that $\rho(g)\rho(h)v = \rho(h)\rho(g)v$. Thus multiplication by $\rho(g)$ respects the action of $G$ and we have that $\rho(g)$ is a homomorphism of $G$-representations between $\rho$ and itself. Then by Schur's lemma\footnote{Statement and proof of Schur's lemma can be found in the appendix on page \pageref{schur} as \cref{schur}.} $\rho(g)$ must be a scalar multiplication. In other words every matrix $\rho(g)$ for $g \in G$ is diagonal (it is a scaling of identity). This implies that $\rho$ can be written as a direct sum of 1-dimensional representations, but since $\rho$ is irreducible $\rho$ must be 1-dimensional.
 \end{proof}
 \end{lemma}
 
@@ -87,7 +89,7 @@ If $\chi$ is the character of a representation, $\rho$, with dimension $n$ of a 
 \begin{itemize}
 \item[]
 \item[(1)]
-The first result is immidiate.
+The first result is immediate.
 $$\chi(1) = tr\left(\begin{bmatrix}
 1 & \cdots & 0\\
 \vdots & \ddots & \vdots\\
@@ -103,14 +105,14 @@ Using the same basis as above and the fact that $\omega^{-1} = \overline{\omega}
 
 \section{The McKay quiver}
 \begin{defin}
-Let $G$ be a finite subgroup of $GL(n, \C)$, and let $V$ be the cannonical representation (the one that sends $g$ to $g$). Then we define the \underline{McKay quiver} of $G$ to be the quiver with verticies the irreducible representations of $G$, denoted $V_i$. For two irreducible representations $V_i$ and $V_j$ we say there is an arrow from the former to the latter if and only if $V_j$ is a direct summand of $V \otimes V_i$. 
+Let $G$ be a finite subgroup of $GL(n, \C)$, and let $V$ be the canonical representation (the one that sends $g$ to $g$). Then we define the \underline{McKay quiver} of $G$ to be the quiver with verticies the irreducible representations of $G$, denoted $V_i$. For two irreducible representations $V_i$ and $V_j$ there is an arrow from the former to the latter if and only if $V_j$ is a direct summand of $V \otimes V_i$. 
 \end{defin}
 
 \begin{example}
 Let $G$ be the group generated by $g =\begin{bmatrix}
 \omega^2 & 0\\
 0 & \omega^{3}
-\end{bmatrix}$, where $\omega$ is the primitive fifth root of unity. Then there are five different irreducible representations, the one sending $g$ to $\omega$, $\omega^2$, $\omega^3$, $\omega^4$ respectively, and the trivial representation. Denote the representation sending $g$ to $\omega^i$ by $V_i$, and let $V = V_2 \oplus V_3$ be the cannonical representation. Note that $V_i \otimes V_j = V_{i+j}$, where $i+j$ is understood to be modulo 5. Then we get the following McKay-quiver
+\end{bmatrix}$, where $\omega$ is a primitive fifth root of unity. Then there are five different irreducible representations, the one sending $g$ to $\omega$, $\omega^2$, $\omega^3$, $\omega^4$ respectively, and the trivial representation. Denote the representation sending $g$ to $\omega^i$ by $V_i$, and let $V = V_2 \oplus V_3$ be the cannonical representation. Note that $V_i \otimes V_j = V_{i+j}$, where $i+j$ is understood to be modulo 5. Then we get the following McKay-quiver
 $$
 \begin{tikzcd}
 & V_0 \arrow[<->]{ddr} \arrow[<->]{ddl} & \\
@@ -131,12 +133,13 @@ We say a ring satisfies Krull-Remack-Schmidt if the following condition holds:
 	for indecomposable $M_i$'s and $N_j$'s, then $m=n$ and there is a permutation, $\sigma \in S_n$, such that $M_i \cong N_{\sigma(i)}$ for all $i=1,2, \cdots, n$.  
 \end{itemize}
 
-It's clear that (i) golds for any noetherian ring, since any decomposition of a noetherian module must eventually reach an indecomposable. In this chapter we will focus on proving (ii).
+It's clear that (i) holds for any noetherian ring, since any decomposition of a noetherian module must eventually reach an indecomposable. In this chapter we will focus on proving (ii).
 
 \section{Skew group algebra S\#G indecomposable projectives}
 This section is largely based on the book by \cite{CMR}. This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - homological algebra. Since I do not assume knowledge of this I have created appendix \ref{appendix}. I will try to use footnotes to indicate where such theorems are used.
+
 \begin{defin}
-If $G$ is a subgroup of $GL_n(\C)$, we can extend the group action of $G$ to $\C\llbracket x_1, \cdots, x_n\rrbracket$. We then define the \underline{skew group algebra $\C \llbracket x_1, \cdots, x_n \rrbracket \# G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in \C\llbracket x_1, \cdots, x_n\rrbracket$ and $g \in G$, and we define the multiplication by
+If $G$ is a subgroup of $GL_n(\C)$, we can extend the group action of $G$ to $\C\llbracket x_1, \cdots, x_n\rrbracket$. More explicitely $G$ acts on $x_i$ as it would the $i$th basis vector of $\C^n$, and acts on products and sums by acting on each component seperatley. We then define the \underline{skew group algebra $\C \llbracket x_1, \cdots, x_n \rrbracket \# G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in \C\llbracket x_1, \cdots, x_n\rrbracket$ and $g \in G$, and we define the multiplication by
 $$ (f_1 \cdot g_1) \cdot (f_2 \cdot g_2) = (f_1 \cdot f_2^{g_1}) \cdot (g_1 \cdot g_2) $$
 Where $f^g$ denotes the image of $f$ under the action of $g$.
 \end{defin}
@@ -161,7 +164,7 @@ Onlyifity follows from $S\#G$ being a free $S$-module, it is isomorphic to $\big
 First we need to see that an $S\#G$-linear map is just an $S$-linear map such that $f(g(m))=g(f(m))$ for all $g \in G$. Equivalently $f(m) = g(f(g^{-1}(m)))$. This allows us to define a group action on $S$-linear maps by $f^g(m) = g(f(g^{-1}(m)))$. Then we can restate it as $$ \Hom_{S\#G}(M,N) = \Hom_S(M,N)^G$$
 Clearly if $f$ is $S\#G$-linear then it's in $\Hom_S(M,N)^G$. To see the other inclusion, let $f$ be an $S$-linear map that is fixed under $G$. Then $f(s\cdot g m) = s f(g m) = s\cdot g(f(g^{-1} g m)) = s \cdot g f(m) $, and hence $f$ is $S\#G$-linear. Nextly I want to show that $-^G$ is an exact functor.
 
-If $K$ is the kernel of a map $f: M \to N$, then the kernel of the inuced map $f^G : M^G \to N^G$ is of course just $K \cap M^G$ which equals $K^G$. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$.
+If $K$ is the kernel of a map $f: M \to N$, then the kernel of the induced map $f^G : M^G \to N^G$ is of course just $K \cap M^G$ which equals $K^G$. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$.
 
 This implies that if $\Hom_S(P, -)$ is exact then $\Hom_S(P, -)^G = \Hom_{S\#G}(P, -)$ is exact and our lemma follows.
 \end{proof}
@@ -187,13 +190,13 @@ S\#G\text{-modules}
 Where the $S\#G$-module structure on $S \otimes_\C W$ is given by $(s \cdot g) \cdot f \otimes v = sf^g \otimes v^g$.
 
 \begin{proof}
-First we should show that $S \otimes_\C W$ is an irreducible projective $S\#G$-module and that $P/\mathfrak{m}P$ is infact an irreducible $\C G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from lemma \ref{lem:S proj => SG proj} that it is projective. To see that it is irreducible we will first study it as an $S$-module and exploit the fact that $\Hom_{S\#G}(M,N) \subseteq \Hom_S(M,N)$. 
+First we should show that $S \otimes_\C W$ is an indecomposable projective $S\#G$-module and that $P/\mathfrak{m}P$ is infact an indecomposable $\C G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from lemma \ref{lem:S proj => SG proj} that it is projective. To see that it is indecomposable we will first study it as an $S$-module and exploit the fact that $\Hom_{S\#G}(M,N) \subseteq \Hom_S(M,N)$. 
 
 Since $\mathfrak{m}$ is the radical of $S$ we have that 
 \begin{align*}
 \frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
 \end{align*}
-$W$ is the top of $S \otimes_\C W$. Further since the projection is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Then since $W$ is simple it follows that $S \otimes_\C W$ is an indecomposable projective.
+$W$ is the top of $S \otimes_\C W$. Further since the projection $S \otimes_\C W \to W$ is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Then since $W$ is simple it follows that $S \otimes_\C W$ is an indecomposable projective.
 
 It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will first show that it's indecomposable as an $S\#G$-module. By considering $P$ and $P/\mathfrak{m}P$ as $S$-modules and using the same argument as above we see that $P$ is the projective cover of $P/\mathfrak{m}P$. Then since $P$ is indecomposable $P/\mathfrak{m}P$ must also be indecomposable as an $S\#G$-module.
 
@@ -212,7 +215,7 @@ Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. W
 P \arrow[->>]{r} & P/\mathfrak{m}P
 \end{tikzcd}
 \end{center}
-Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$ (as $S$-modules). This means that the map is an isomorphism of $S$-modules {\color{red}{(am I assuming fintie length here????????????????)}}, and therefor it is also an isomorphism of $S\#G$-modules.
+Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$ (as $S$-modules). This means that the map is an isomorphism of $S$-modules {\color{red}{Why is P the projective cover of P/mP, is mP the radical of P? radical is small when P noetherian. mP is in the radical when S or P artinian. Im lost!}}, and therefor it is also an isomorphism of $S\#G$-modules.
 \end{proof}
 
 \iffalse
@@ -254,6 +257,8 @@ Some key properties of the exterior algebra is that $x \wedge x = 0$, and more g
 
 The $p$th exterior power of $V$, denoted $\bigwedge\limits^p V$ is the vector space of all elements that are the product of $p$ vectors in $V$. If $\{ x_i \}_{i=1}^n$ is a basis for $V$, then $x_{i_1} \wedge \cdots \wedge x_{i_p}$ where $i_1 < i_2 < \cdots < i_p$ and $1 \leq i_j \leq n$ forms a basis for $\bigwedge\limits^p V$, thus it is ${n \choose p}$-dimensional.  
 
+%Also need projective cover of kernels
+%show that the kernels are small by showing that theyre contained in the radical
 \begin{prop}
 If $S$ is the ring of formal power series over $\C$ in $n$ variables, and $G$ is a finite group acting on $S$, let $V=\mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C \cong S/\mathfrak{m}$ is given by
 \begin{center}
@@ -287,6 +292,7 @@ First some notation: let $\mathfrak{I}_p$ be the set of all tuples $(i_1, i_2, \
 
 
 Maybe just prove n=2, its simpler....
+proof by induction on n on wikipedia %https://en.wikipedia.org/wiki/Koszul_complex#Properties_of_a_Koszul_homology
 
 Secondly want to show that this resolution is minimal. To do this we will show that $\Tor^n_S(\C, \C) \neq 0$. Then since Tor is independent of projective resolution, there cannot be a projective resolution of $\C$ with 0 in $n$-th degree. To calculate Tor we use our resolution
 \begin{center}
@@ -329,7 +335,7 @@ To see this we will define an injective $R$-linear map from $S$ to $S\#G$ and sh
 \begin{align*}
 \rho(s) = \sum_{g \in G} s^g \cdot g.
 \end{align*}
-It's clear that it's injective and it is $R$-linear because $$\rho(rs) = \sum_{g \in G} r^gs^g \cdot g = r\sum_{g \in G} s^g \cdot g.$$ It should also be clear that the image is contained in $(S\#G)^G$ becuase
+It's clear that it's injective and it is $R$-linear because $$\rho(rs) = \sum_{g \in G} r^gs^g \cdot g = r\sum_{g \in G} s^g \cdot g.$$ It should also be clear that the image is contained in $(S\#G)^G$ because
 \begin{align*}
 h \cdot \rho(s) = \sum_{g \in G} h \cdot s^g \cdot g = \sum_{g \in G} s^{hg} \cdot hg = \rho(s).
 \end{align*}
@@ -351,7 +357,7 @@ If $R$ is a local ring with residual field $k$ we define the \underline{depth} o
 \end{defin}
 
 \begin{defin}
-If $R$ is a commutative ring and $M$ is an $R$-module, a \underline{regular sequence} is a sequence of elements of $R$, $r_1, r_2, \cdots r_n$ such that $M/\langle r_1, \cdots, r_i \rangle M$ is non-zero and multiplication by $r_i$ is injective on $M/\langle r_1, \cdots, r_{i-1} \rangle M$.
+If $R$ is a commutative ring and $M$ is an $R$-module, an \underline{$R$-regular sequence on $M$} is a sequence of elements of $R$, $r_1, r_2, \cdots r_n$ such that $M/\langle r_1, \cdots, r_i \rangle M$ is non-zero and multiplication by $r_i$ is injective on $M/\langle r_1, \cdots, r_{i-1} \rangle M$.
 \end{defin}
 
 \begin{defin}
@@ -359,14 +365,14 @@ If $M$ is a module over a local ring $R$ with Krull-dimension $d$ we say that $M
 \end{defin}
 
 \begin{theorem}
-If $G$ is a finite subgroup of $GL_n(\C)$, $S$ is the formal power series ring in $n$ variables and $R = S^G$ is the ring fixed under the action of $G$, then $R$ is a sirect summand of $S$ as $R$-modules.
+If $G$ is a finite subgroup of $GL_n(\C)$, $S$ is the formal power series ring in $n$ variables and $R = S^G$ is the ring fixed under the action of $G$, then $R$ is a direct summand of $S$ as $R$-modules.
 
 \begin{proof}
 Consider the map $\pi: S \to R$ given by
 \begin{align*}
 \pi(s) = \frac{1}{|G|} \sum_{g\in G} s^g
 \end{align*}
-It's clear that the image of $\pi$ is in $R$ becuase an action from $G$ wil just permute the order of teh sum. Further \begin{align*}
+It's clear that the image of $\pi$ is in $R$ because an action from $G$ will just permute the order of the sum. Further \begin{align*}
 \pi(r) = \frac{1}{|G|} \sum_{g\in G} r^g = \frac{1}{|G|} \sum_{g\in G} r = r,
 \end{align*}
 so $\pi$ splits the inclusion $R \hookrightarrow S$ which shows that $R$ is a direct summand of $S$.
@@ -376,19 +382,66 @@ so $\pi$ splits the inclusion $R \hookrightarrow S$ which shows that $R$ is a di
 \begin{appendices}
 \section{Representation theory}
 \label{appendix}
-Define rep of ring
 
-Define group representation
-this is the same as $\C G$-rep
+\begin{defin}
+If $R$ is a ring and $M$ is an abelian group, we define a \underline{representation of $R$} to be a ring-map, $\varphi$, from $R$ to $\End(M)$. We say that $M$ is a (left) $R$-module, and we write $rm$ with $r \in R$ and $m \in M$ to mean $\varphi(r)(m)$. Similarly we define a right $R$-module if $\varphi$ goes from $R$ to $\End(M)^{op}$ and we write $mr$ for $\varphi(r)(m)$.
+\end{defin}
+
+\begin{defin}
+If $G$ is a group and $V$ a complex vectorspace, we define a \underline{representation of $G$} to be a group-map, $\rho$, from $G$ to $\Aut_\C(V)$. When $\rho$ is infered we say that $V$ is a representation of $G$ and we write $gv$ to mean $\rho(g)(v)$. Note that representations of $G$ exactly corresponds to representations of the ring $\C G$ of formal linear combinations of elements of $G$ with multiplication given by $\lambda g \cdot \lambda' g' = (\lambda \cdot \lambda')gg'$.
+\end{defin}
+
+\begin{defin}
+If $R$ is a ring and $M_1$ and $M_2$ are two modules we define their \underline{direct sum}, $M_1 \oplus M_2$ to be the module consisting of all pairs $(m_1, m_2)$ (usually written $m_1 + m_2$), where addition and scalar multiplication is pointwise. If a non-zero module cannot be written as the direct sum of two non-zero modules we call it \underline{indecomposable}.
+\end{defin}
+
+\begin{defin}
+A \underline{submodule} is a subset of a module which is also a module. A non-zero module with no non-trivial proper submodules is called \underline{simple} or \underline{irreducible}\footnote{The word simple is used for representations of rings while irreducible is used for representations of groups. Note that for finite groups irreducible and indecomposable are equivalent.}.
+\end{defin}
 
 \begin{theorem}
 \label{schur}
+(Schur's Lemma) Let $G$ be a group and $V$ and $W$ be two irreducible representations of $G$. If $f:V \to W$ is a $G$-linear map then $f$ is a 0 if $V$ and $W$ are not isomorphic, and a scaling of identity (up to change of basis) if they are isomorphic.
+\begin{proof}
+Start by assuming $f$ is non-zero. Then we will show that $V$ and $W$ are isomorphic. Since the image of $f$ is a non-zero subrepresentation of $W$ and $W$ is irreducible, we have that $\Image f = W$ and $f$ is surjective. Sicne the kernel of $f$ is a proper subrepresentation of $V$ we must have that the kernel is 0, and that $f$ is injective. Thus $f$ is an isomorphism.
+Now assume $f: V \to V$ is a $G$-linear map. then we want to show that $f$ is simply a scaling of identity. Since $f$ is a linear map on a complex vector space it must have at least one eigen value, say $\lambda \in \C$. Let $v$ be in the eigenspace $\lambda$. Sicne $f(gv) = g f(v) = \lambda gv$ for all $g$ in $G$ we have that $gv$ is also in the eigenspace. This means the eigenspace is a subrepresentation, and since $V$ is irreducible it must equal all of $V$. This means that $f$ is just scaling by $\lambda$.
+\end{proof}
 \end{theorem}
-Schur's lemma
 
-Projective module + exact hom
+\begin{defin}
+We call a functor \underline{left exact} if for any short exact sequence
+\begin{center}
+\begin{tikzcd}
+0 \arrow{r} & A \arrow{r}{f} & B \arrow{r}{g} & C
+\end{tikzcd}
+\end{center}
+the image of the sequence under the functor is also exact. For example for any module $M$ the functor $\Hom(M, -)$ is left exact. That is the sequnce
+\begin{center}
+\begin{tikzcd}
+0 \arrow{r} & \Hom(M,A) \arrow{r}{f \circ -} & \Hom(M,B) \arrow{r}{g \circ -} & C
+\end{tikzcd}
+\end{center}
+is exact. Dually we call a functor \underline{right exact} if short exact sequnces of the form
+\begin{center}
+\begin{tikzcd}
+A \arrow{r} & B \arrow{r} & C \arrow{r} & 0
+\end{tikzcd}
+\end{center}
+is mapped to an exact sequence. A functor that is both left exact and right exact is called \underline{exact}.
+\end{defin}
 
-indec module + direct sum
+\begin{defin}
+We say that a module, $P$, is \underline{projective} if for any epimorphism $f: M \twoheadrightarrow N$, and any map $g: P \to N$, there is a map $\varphi: P \to M$ such that $f \varphi = g$. Said another way, the diagram below induces the dotted arrow making the diagram commute
+\begin{center}
+\begin{tikzcd}
+& P \arrow{d}{g} \arrow[dl, dotted, swap]{}{\varphi} \\
+M \arrow[twoheadrightarrow, swap]{r}{f} & N
+\end{tikzcd}
+\end{center} 
+Note that $P$ being projective is equivalent to $\Hom(P, -)$ being right exact (i.e. exact).
+\end{defin}
+
+Projective cover + radical is  small for noetherian modules
 
 indec proj = summand of ring = idempotent of ring
 
@@ -402,7 +455,20 @@ I R=S then they have the same depth meaning M is cohen macaulay iff it's project
 
 If P is indec finitely generated projective then it is direct summand of $S^n$, then P must either be a direct summand of S or $S^n-1$ then by induction P is a  summand of S. Can I assume P to be finitely generated?????
 
-$P/mP = sum V_i -> P = sum SV_i$, means  all projective $S\#G$-modules can be broken down into sums. 
+$P/mP = sum V_i -> P = sum SV_i$, means  all projective $S\#G$-modules can be broken down into sums.
+
+\section{questions}
+Why does $0 \to J \to S \otimes_R S \to S \to 0$ split?
+
+Is it true that $dim R \leq dim S$ (this is not true for $\mathbb{Z} \subset \mathbb{Q}$), alternatively how to show that $S$ is MCM?
+
+Direct summand of MCM is MCM?
+
+Is $\mathfrak{m} P$ small for all fin.gen. $S$-modules $P$? What about projectives?
+
+Are indec proj $S\#G$-modules fin.gen.?
+
+
 
 \nocite{*}
 \bibliography{mybib}
