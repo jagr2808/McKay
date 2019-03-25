@@ -170,6 +170,15 @@ This implies that if $\Hom_S(P, -)$ is exact then $\Hom_S(P, -)^G = \Hom_{S\#G}(
 \end{proof}
 \end{lemma}
 
+\begin{lemma}
+\label{lem:radical small}
+Let $S$ be the complex power series ring in $n$ variables, and $\mathfrak{m} = \langle x_i \rangle_{i=1}^n$ the radical of $S$. Then for any free $S$-module $N$, $\mathfrak{m}N$ is \underline{small} in $N$. That is if $X$ is  a submodule of $N$ such that $X + \mathfrak{m}N = N$, then $X = N$.
+
+\begin{proof}
+Let $N$ be the free module $S^{(I)} := \bigoplus\limits_{i \in I} S_i$, where $S_i \cong S$. Assume that $X$ is a submodule such that $X + \mathfrak{m}N = N$. We denote by $1_i$ the elements that is 1 at index $i$ and 0 elsewhere. Since $\{ 1_i \}$ generate $N$, it is enough to show that $X$ contains all of them. Since $X + \mathfrak{m}N = N$, we know that there is an $m_i \in \mathfrak{m}N$ and an $x_i \in X$ such that $x_i + m_i = 1_i$. Then we have that $x_i = 1_i - m_i$. Since the power series at index $i$ of $x_i$ has constant coefficient 1 it is invertible. If we multiply $x_i$ by its inverse we get $\tilde{x}_i$ which is 1 at index $i$ and some elemeent of $\mathfrak{m}$ at index $j \neq i$, say $m_{ij}$. Then $\tilde{x}_i - \sum\limits_{j \neq i} m_{ij}\tilde{x}_j$ has a unit in index $i$ and 0 at all other indicies. Thus $X$ contains $1_i$ for all $i$, and $X = N$.
+\end{proof}
+\end{lemma}
+
 \begin{theorem}
 Let $S = \C\llbracket x, y \rrbracket$ and let $\mathfrak{m} = \langle x, y \rangle_S$ be the radical of $S$. Then there are bijections between the indecomposable projective $S\#G$-modules and the indecomposable $\C G$-modules given by
 
@@ -190,15 +199,15 @@ S\#G\text{-modules}
 Where the $S\#G$-module structure on $S \otimes_\C W$ is given by $(s \cdot g) \cdot f \otimes v = sf^g \otimes v^g$.
 
 \begin{proof}
-First we should show that $S \otimes_\C W$ is an indecomposable projective $S\#G$-module and that $P/\mathfrak{m}P$ is infact an indecomposable $\C G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from lemma \ref{lem:S proj => SG proj} that it is projective. To see that it is indecomposable we will first study it as an $S$-module and exploit the fact that $\Hom_{S\#G}(M,N) \subseteq \Hom_S(M,N)$. 
+First we should show that $S \otimes_\C W$ is an indecomposable projective $S\#G$-module and that $P/\mathfrak{m}P$ is infact an indecomposable $\C G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from \cref{lem:S proj => SG proj} that it is projective. To see that it is indecomposable we will first study it as an $S$-module and exploit the fact that $\Hom_{S\#G}(M,N) \subseteq \Hom_S(M,N)$. 
 
 Since $\mathfrak{m}$ is the radical of $S$ we have that 
 \begin{align*}
 \frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
 \end{align*}
-$W$ is the top of $S \otimes_\C W$. Further since the projection $S \otimes_\C W \to W$ is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Then since $W$ is simple it follows that $S \otimes_\C W$ is an indecomposable projective.
+$W$ is the top of $S \otimes_\C W$. Further since the projection $S \otimes_\C W \to W$ is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Then since $W$ is simple it follows that $S \otimes_\C W$ is an indecomposable projective. {\color{red} Does it follow?}
 
-It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will first show that it's indecomposable as an $S\#G$-module. By considering $P$ and $P/\mathfrak{m}P$ as $S$-modules and using the same argument as above we see that $P$ is the projective cover of $P/\mathfrak{m}P$. Then since $P$ is indecomposable $P/\mathfrak{m}P$ must also be indecomposable as an $S\#G$-module.
+It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will first show that it's indecomposable as an $S\#G$-module. By considering $P$ and $P/\mathfrak{m}P$ as $S$-modules and using the same argument as above we see that $P$ is the projective cover of $P/\mathfrak{m}P$. Then since $P$ is indecomposable $P/\mathfrak{m}P$ {\color{red} Is this true in general?} must also be indecomposable as an $S\#G$-module.
 
 To see that this implies $P/\mathfrak{m}P$ is indecomposable as a $\C G$-module notice that $P/\mathfrak{m}P$ is annihilated by the ideal $\langle \mathfrak{m} \rangle$. This means it's an indecomposable as $S\#G$-module if and only if it's indecomposable as an $S\#G/\langle \mathfrak{m} \rangle$-module. Then since $S\#G/\langle \mathfrak{m} \rangle \cong \C G$ it follows that $P/\mathfrak{m}P$ is an indecomposable $\C G$-module.
 
@@ -215,7 +224,7 @@ Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. W
 P \arrow[->>]{r} & P/\mathfrak{m}P
 \end{tikzcd}
 \end{center}
-Further since $\mathfrak{m}$ is the radical of $S$, both $P$ and $S \otimes_\C P/\mathfrak{m}P$ are projective covers of $P/\mathfrak{m}P$ (as $S$-modules). This means that the map is an isomorphism of $S$-modules {\color{red}{Why is P the projective cover of P/mP, is mP the radical of P? radical is small when P noetherian. mP is in the radical when S or P artinian. Im lost!}}, and therefor it is also an isomorphism of $S\#G$-modules.
+Now by \cref{lem:radical small} we have that $\mathfrak{m}P$ is small and that therefor the induced map is an epimorphism. Similarly we get an epimorphism in the other direction. Since $S \otimes_\C P/\mathfrak{m}P$ has finite $S$-rank ($P$ finitely generated {\color{red}{Why is P finitely generated? This would be true if P/mP is indec CG-module, so if thats clear this should be clear}}), it follows that the map is an isomorphism of $S$-modules. Since the map is $S\#G$-linear it is tehrefor also an isomorphism of $S\#G$-modules.
 \end{proof}
 
 \iffalse
@@ -232,7 +241,7 @@ The only thing that remains to show is that $\mathcal{F}$ and $\mathcal{G}$ are 
 
 Since $P$ is an indecomposable projective we have that $\mathcal{F}(P)$ is a simple $S\#G$-module. By the natural inclusion $\C G \hookrightarrow S\#G$ $\mathcal{F}(P)$ becomes a $\C G$-module. Assume that $\mathcal{F}(P)$ decomposes as $P_1 \oplus P_2$ as a $\C G$-module. Then since the action of $x$ and $y$ are trivial on $\mathcal{F}(P)$, $P_1 \oplus P_2$ is a decomposition of $S\#G$-modules. This implies that $P_1 = 0$ or $P_2=0$, and we have that $\mathcal{F}(P)$ is indecomposable.
 
-Lastly we want to show that $\mathcal{G}(W)$ is projective and indecomposable. Since $S \otimes_\C W$ is free as an $S$-module it follows from lemma \ref{lem:S proj => SG proj}, that it is a projective $S\#G$-module. To see that it is indecomposable, we just need to notice that its top, $S/\mathfrak{m} \otimes W \cong W$, is simple.
+Lastly we want to show that $\mathcal{G}(W)$ is projective and indecomposable. Since $S \otimes_\C W$ is free as an $S$-module it follows from \cref{lem:S proj => SG proj}, that it is a projective $S\#G$-module. To see that it is indecomposable, we just need to notice that its top, $S/\mathfrak{m} \otimes W \cong W$, is simple.
 \end{proof}
 \fi
 
@@ -293,7 +302,10 @@ First some notation: let $\mathfrak{I}_p$ be the set of all tuples $(i_1, i_2, \
 
 Maybe just prove n=2, its simpler....
 proof by induction on n on wikipedia %https://en.wikipedia.org/wiki/Koszul_complex#Properties_of_a_Koszul_homology
+{\color{red}Maybe refferencing the proof will be better... or make an appendix on homological algebra}
 
+Secondly we want to show that the resolution is minimal. To do this it is enough to show that for each $k \geq 1$ $\partial_k$ is a projective cover of its image, and that $S \to k$ is a projective cover. To this all we have to show is that the kernels of the maps are small. Since $\Image \partial_{k+1} = \Ker \partial_k$ and $\Image \partial_{k+1} \subseteq \mathfrak{m} \otimes_\C \bigwedge\limits^{k+1}V$ it follows from \cref{lem:radical small} that the resolution is minimal.
+\iffalse
 Secondly want to show that this resolution is minimal. To do this we will show that $\Tor^n_S(\C, \C) \neq 0$. Then since Tor is independent of projective resolution, there cannot be a projective resolution of $\C$ with 0 in $n$-th degree. To calculate Tor we use our resolution
 \begin{center}
 \begin{tikzcd}
@@ -302,6 +314,7 @@ Secondly want to show that this resolution is minimal. To do this we will show t
 \end{tikzcd}
 \end{center}
 Since $\partial_n$ involves multiplication by $x_i$ and $\C x_i = 0$ ($\C = S/\langle x_i \rangle_{i=1}^n$), we have that $\C \otimes_S \partial_n = 0$ and $\Tor^n_S(\C, \C) = \C \otimes_C \bigwedge\limits^n V $ which certainly is non-zero. 
+\fi
 \end{proof}
 \end{prop}
 
@@ -361,11 +374,28 @@ If $R$ is a commutative ring and $M$ is an $R$-module, an \underline{$R$-regular
 \end{defin}
 
 \begin{defin}
+If $R$ is a ring, we say that $\mathfrak{p}$ is  a \underline{prime ideal} in $R$ if
+\begin{enumerate}
+\item $\mathfrak{p}$ is a proper ideal of $R$.
+\item For any two elements $a,b \in R$ such that $ab \in \mathfrak{p}$ we must have that either $a$ is in $\mathfrak{p}$ or $b$ is.
+\end{enumerate}
+\end{defin}
+
+\begin{defin}
+If $R$ is a ring we define its \underline{Krull-dimesnion} to be the maximum length of a chain of prime ideals in $R$. For example the polynomial ring $\C[x_1, \cdots, x_n]$ has Krull-dimension $n$ given by the chain
+\begin{equation*}
+\begin{tikzcd}
+0 \subseteq \langle x_1 \rangle \subseteq \langle x_1, x_2 \rangle \subseteq \cdots \subseteq \langle x_1, \cdots, x_n \rangle
+\end{tikzcd}
+\end{equation*}
+\end{defin}
+
+\begin{defin}
 If $M$ is a module over a local ring $R$ with Krull-dimension $d$ we say that $M$ is \underline{maximal Cohen Macaulay (MCM)} if the depth of $M$ equals $d$.
 \end{defin}
 
 \begin{theorem}
-If $G$ is a finite subgroup of $GL_n(\C)$, $S$ is the formal power series ring in $n$ variables and $R = S^G$ is the ring fixed under the action of $G$, then $R$ is a direct summand of $S$ as $R$-modules.
+If $G$ is a finite subgroup of $GL_n(\C)$, $S$ is the complex power series ring in $n$ variables and $R = S^G$ is the ring fixed under the action of $G$, then $R$ is a direct summand of $S$ as $R$-modules.
 
 \begin{proof}
 Consider the map $\pi: S \to R$ given by
@@ -462,13 +492,9 @@ Why does $0 \to J \to S \otimes_R S \to S \to 0$ split?
 
 Is it true that $dim R \leq dim S$ (this is not true for $\mathbb{Z} \subset \mathbb{Q}$), alternatively how to show that $S$ is MCM?
 
-Direct summand of MCM is MCM?
+Direct summand of MCM is MCM? I have read that this is "known", but I can't find a proof.
 
-Is $\mathfrak{m} P$ small for all fin.gen. $S$-modules $P$? What about projectives?
-
-Are indec proj $S\#G$-modules fin.gen.?
-
-
+Are indec proj $S\#G$-modules fin.gen.? Can I state the correspondance in terms of fin.gen, indec projctives instead?
 
 \nocite{*}
 \bibliography{mybib}
