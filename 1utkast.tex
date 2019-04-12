@@ -49,6 +49,7 @@ Much of the thesis will be used to define these four quivers and to develope too
 
 \tableofcontents
 
+\iffalse
 \section{Finite subgroups of SL(2,C)}
 
 \section{Characters and irreducible representations}
@@ -104,6 +105,8 @@ Using the same basis as above and the fact that $\omega^{-1} = \overline{\omega}
 \end{proof}
 \end{prop}
 
+\fi
+
 \section{The McKay quiver}
 \begin{defin}
 Let $G$ be a finite subgroup of $GL(n, \C)$, and let $V$ be the canonical representation (the one that sends $g$ to $g$). Then we define the \underline{McKay quiver} of $G$ to be the quiver with verticies the irreducible representations of $G$, denoted $V_i$. For two irreducible representations $V_i$ and $V_j$ there is an arrow from the former to the latter if and only if $V_j$ is a direct summand of $V \otimes V_i$. 
@@ -123,6 +126,8 @@ V_3 && V_2 \arrow[<->]{ull}
 $$
 \end{example}
 
+\iffalse
+
 \section{Krull-Remack-Schmidt}
 This section is largely based on the book by \cite{CMR}.
 Here we will prove the Krull-Remack-Schmidt theorem for complete local noetherian rings.
@@ -135,6 +140,8 @@ We say a ring satisfies Krull-Remack-Schmidt if the following condition holds:
 \end{itemize}
 
 It's clear that (i) holds for any noetherian ring, since any decomposition of a noetherian module must eventually reach an indecomposable. In this chapter we will focus on proving (ii).
+
+\fi
 
 \section{Skew group algebra S\#G indecomposable projectives}
 This section is largely based on the book by \cite{CMR}. This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - homological algebra. Since I do not assume knowledge of this I have created appendix \ref{appendix}. I will try to use footnotes to indicate where such theorems are used.
@@ -181,7 +188,7 @@ Let $N$ be the free module $S^{(I)} := \bigoplus\limits_{i \in I} S_i$, where $S
 \end{lemma}
 
 \begin{theorem}
-Let $S = \C\llbracket x, y \rrbracket$ and let $\mathfrak{m} = \langle x, y \rangle_S$ be the radical of $S$. Then there are bijections between the indecomposable projective $S\#G$-modules and the indecomposable $\C G$-modules given by
+Let $S = \C\llbracket x, y \rrbracket$ and let $\mathfrak{m} = \langle x, y \rangle_S$ be the radical of $S$. Then there are bijections between the indecomposable finitely generated projective $S\#G$-modules and the indecomposable $\C G$-modules given by
 
 \begin{tikzcd}
 \left\lbrace \begin{matrix}
@@ -202,15 +209,22 @@ Where the $S\#G$-module structure on $S \otimes_\C W$ is given by $(s \cdot g) \
 \begin{proof}
 First we should show that $S \otimes_\C W$ is an indecomposable projective $S\#G$-module and that $P/\mathfrak{m}P$ is infact an indecomposable $\C G$-module. Since $S \otimes_\C W$ is a free $S$-module it follows from \cref{lem:S proj => SG proj} that it is projective. To see that it is indecomposable we will first study it as an $S$-module and exploit the fact that $\Hom_{S\#G}(M,N) \subseteq \Hom_S(M,N)$. 
 
-Since $\mathfrak{m}$ is the radical of $S$ we have that 
+Using \cref{lem:radical small} we get that $\mathfrak{m}S \otimes_\C W$ is small in $S\otimes_\C W$. This means that we get that 
 \begin{align*}
 \frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
 \end{align*}
-$W$ is the top of $S \otimes_\C W$. Further since the projection $S \otimes_\C W \to W$ is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Then since $W$ is simple it follows that $S \otimes_\C W$ is an indecomposable projective. {\color{red} Does it follow?}
+is the top of $S \otimes_\C W$ as an $S$-module. Further since the projection $S \otimes_\C W \to W$ is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Assume for the sake of contradiction that $S \otimes_\C W$ decomposes as $M \oplus N$ for non-zero $M$ and $N$. Then $W$ would equal $M/\mathfrak{m}M \oplus N/\mathfrak{m}N$ as an $S\#G/ \langle \mathfrak{m} \rangle$-module. Since $S\#G/ \langle \mathfrak{m} \rangle \cong \C G$ and $W$ is indecomposable we must have that either $M/\mathfrak{m}M$ or $N/\mathfrak{m}N$ is 0. This then gives a contradiction because $\mathfrak{m}M$ and $\mathfrak{m}N$ are small in $M$ and $N$. Hence we must have that $S \otimes_\C W$ is indecomposable.
 
-It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will first show that it's indecomposable as an $S\#G$-module. By considering $P$ and $P/\mathfrak{m}P$ as $S$-modules and using the same argument as above we see that $P$ is the projective cover of $P/\mathfrak{m}P$. Then since $P$ is indecomposable $P/\mathfrak{m}P$ {\color{red} Is this true in general?} must also be indecomposable as an $S\#G$-module.
+It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will first show that it's indecomposable we will use a similar argument as above. Assume $P/\mathfrak{m}P$ decomposes as $V \oplus W$. Then both $P$ and $S\otimes_\C V \oplus S \otimes_\C W$ are projective covers of $\mathfrak{m}P = V\oplus W$ we get induced $S\#G$-linear epiomorphisms between them.
 
-To see that this implies $P/\mathfrak{m}P$ is indecomposable as a $\C G$-module notice that $P/\mathfrak{m}P$ is annihilated by the ideal $\langle \mathfrak{m} \rangle$. This means it's an indecomposable as $S\#G$-module if and only if it's indecomposable as an $S\#G/\langle \mathfrak{m} \rangle$-module. Then since $S\#G/\langle \mathfrak{m} \rangle \cong \C G$ it follows that $P/\mathfrak{m}P$ is an indecomposable $\C G$-module.
+\begin{center}
+\begin{tikzcd}
+& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \arrow[dashed, two heads, bend right=20]{dl}\\
+P \arrow[->>]{r} \arrow[dashed, two heads, bend right=5]{ur} & P/\mathfrak{m}P
+\end{tikzcd}
+\end{center}
+
+Now we use the fact that $P$ is finitely generated. Since there can only be an epimorphism from a module with more or equal amount of generators $P$ and $S\otimes_\C \mathfrak{m}P$ must have the same amount of generators and teh induced maps are in fact isomorphisms of $S$-modules. Since the maps are also $S\#G$-linear we have that $P$ decomposes as $S\otimes_\C V \oplus S \otimes_\C W$. Then since $P$ is indecomposable we must have that either $S \otimes_\C V$ or $S\otimes\C W$ is 0. That means that either $V$ or $W$ is 0, and we have shown that $P/\mathfrak{m}P$ is an indecomposable $\C G$-module.
 
 To see that the given maps are bijections we will show that they are mutual inverses. First to see that $\mathcal{F}(\mathcal{G}(W)) \cong W$ we simply look at the definition
 \begin{equation*}
@@ -218,6 +232,18 @@ To see that the given maps are bijections we will show that they are mutual inve
 \frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
 \end{split}
 \end{equation*}
+
+Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. We have already seen that the induced map
+\begin{center}
+\begin{tikzcd}
+& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \arrow[dashrightarrow]{dl}\\
+P \arrow[->>]{r} & P/\mathfrak{m}P
+\end{tikzcd}
+\end{center}
+is an isomorphism, and thus $P \cong \mathcal{G}(\mathcal{F}(P))$.
+\end{proof}
+
+\iffalse
 Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. We have already seen that it's projective. Both $P$ and $S \otimes_\C P/\mathfrak{m}P$ have a natural projection onto $P/\mathfrak{m}P$, and by projectivity we get an induced $S\#G$-linear map from $S \otimes_\C P/\mathfrak{m}P$ to $P$:
 \begin{center}
 \begin{tikzcd}
@@ -228,7 +254,7 @@ P \arrow[->>]{r} & P/\mathfrak{m}P
 Now by \cref{lem:radical small} we have that $\mathfrak{m}P$ is small and that therefor the induced map is an epimorphism. Similarly we get an epimorphism in the other direction. Since $S \otimes_\C P/\mathfrak{m}P$ has finite $S$-rank ($P$ finitely generated {\color{red}{Why is P finitely generated? This would be true if P/mP is indec CG-module, so if thats clear this should be clear}}), it follows that the map is an isomorphism of $S$-modules. Since the map is $S\#G$-linear it is tehrefor also an isomorphism of $S\#G$-modules.
 \end{proof}
 
-\iffalse
+
 \begin{proof}
 To see that this are bijections we will show that they are mutuall inverses. First to see that $\mathcal{F}(\mathcal{G}(W)) \cong W$ we simply look at the definition
 \begin{equation*}
@@ -267,8 +293,6 @@ Some key properties of the exterior algebra is that $x \wedge x = 0$, and more g
 
 The $p$th exterior power of $V$, denoted $\bigwedge\limits^p V$ is the vector space of all elements that are the product of $p$ vectors in $V$. If $\{ x_i \}_{i=1}^n$ is a basis for $V$, then $x_{i_1} \wedge \cdots \wedge x_{i_p}$ where $i_1 < i_2 < \cdots < i_p$ and $1 \leq i_j \leq n$ forms a basis for $\bigwedge\limits^p V$, thus it is ${n \choose p}$-dimensional.  
 
-%Also need projective cover of kernels
-%show that the kernels are small by showing that theyre contained in the radical
 \begin{prop}
 If $S$ is the ring of formal power series over $\C$ in $n$ variables, and $G$ is a finite group acting on $S$, let $V=\mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C \cong S/\mathfrak{m}$ is given by
 \begin{center}
@@ -283,6 +307,8 @@ Where $\partial_p$ is the $S\#G$-linear map defined by
 Where $x_{i_1} \wedge x_{i_2} \wedge \cdots \wedge x_{i_p}$ is one of the standard basis vectors for $\bigwedge\limits^n V$, namely $i_1 < i_2 < \cdots < i_p$, and  $\hat{x}_j$ means that $x_j$ is ommited.
 
 \begin{proof}
+Firts we should show that this is a projective resolution of $\C$. In fact the complex described above is the Koszul complex of the regular sequence\footnote{Regular sequences are defined on page \pageref{def:regular_seq} in \cref{def:regular_seq}.} $(x_i)_{i=1}^n$. It's a general fact of homological algebra that the Koszul complex of a regular sequence is a projective resolution of the ring modulo the ideal generated by the regular sequence, which in this case equals $S/\langle x_i \rangle_{i=1}^n = \C$. {\color{red} refference yes/no?}
+\iffalse
 First we should show that this is a projective resolution. Note that since the maps are $S\#G$-linear, showing that it's a minimal free resolution as an $S$-module implies it is a minimal projective resolution as an $S\#G$-module. Then what we need to show is 
 \begin{itemize}
 \item[(i)] $\Cok \partial_1 = \C$
@@ -304,18 +330,9 @@ First some notation: let $\mathfrak{I}_p$ be the set of all tuples $(i_1, i_2, \
 Maybe just prove n=2, its simpler....
 proof by induction on n on wikipedia %https://en.wikipedia.org/wiki/Koszul_complex#Properties_of_a_Koszul_homology
 {\color{red}Maybe refferencing the proof will be better... or make an appendix on homological algebra}
-
-Secondly we want to show that the resolution is minimal. To do this it is enough to show that for each $k \geq 1$ $\partial_k$ is a projective cover of its image, and that $S \to k$ is a projective cover. To this all we have to show is that the kernels of the maps are small. Since $\Image \partial_{k+1} = \Ker \partial_k$ and $\Image \partial_{k+1} \subseteq \mathfrak{m} \otimes_\C \bigwedge\limits^{k+1}V$ it follows from \cref{lem:radical small} that the resolution is minimal.
-\iffalse
-Secondly want to show that this resolution is minimal. To do this we will show that $\Tor^n_S(\C, \C) \neq 0$. Then since Tor is independent of projective resolution, there cannot be a projective resolution of $\C$ with 0 in $n$-th degree. To calculate Tor we use our resolution
-\begin{center}
-\begin{tikzcd}
-0  \arrow{r} & \C \otimes_S S \otimes_\C \bigwedge\limits^n V  \arrow{r}{\C \otimes_S \partial_n} &  \C \otimes_S S \otimes_\C \bigwedge\limits^{n-1} V \\
-0  \arrow{r} & \C \otimes_\C \bigwedge\limits^n V  \arrow{r}{\C \otimes_S \partial_n} &  \C \otimes_\C \bigwedge\limits^{n-1} V 
-\end{tikzcd}
-\end{center}
-Since $\partial_n$ involves multiplication by $x_i$ and $\C x_i = 0$ ($\C = S/\langle x_i \rangle_{i=1}^n$), we have that $\C \otimes_S \partial_n = 0$ and $\Tor^n_S(\C, \C) = \C \otimes_C \bigwedge\limits^n V $ which certainly is non-zero. 
 \fi
+
+Secondly we want to show that the resolution is minimal. To do this it is enough to show that for each $k \geq 1$ $\partial_k$ is a projective cover of its image, and that $S \to \C$ is a projective cover. In other words we have to show is that the kernels of the maps are small. Since $\Image \partial_{k+1} = \Ker \partial_k$ and $\Image \partial_{k+1} \subseteq \mathfrak{m} \otimes_\C \bigwedge\limits^{k+1}V$ it follows from \cref{lem:radical small} that the resolution is minimal.
 \end{proof}
 \end{prop}
 
@@ -328,7 +345,7 @@ We have already seen that they have the same vertices, namely if $V_i$ are the i
 0  \arrow{r} & S \otimes_\C \bigwedge\limits^n V  \arrow{r}{\partial_n} & \cdots \arrow{r}{\partial_2} & S \otimes_\C \bigwedge\limits^{1} V \arrow{r}{\partial_1} & S \arrow{r} & 0
 \end{tikzcd}
 \end{center}
-If we tensor with $V_i$ on the right we will get a minimal resolution of $V_i$ (you can see that is minimal by using the exact same argumant above and prove that $\Tor^n_S(\C, V_i)$ is non-zero).
+If we tensor with $V_i$ on the right we will get a minimal resolution of $V_i$ (you can see that is minimal by using the exact same argumant as above).
 \begin{center}
 \begin{tikzcd}
 \cdots \arrow{r}{\partial_2 \otimes_\C V_i} & S \otimes_\C \bigwedge\limits^{1} V \otimes_\C V_i \arrow{r}{\partial_1 \otimes_\C V_i} & S \otimes_\C V_i \arrow{r} & 0
@@ -340,6 +357,64 @@ From here, since $\bigwedge\limits^{1} V = V$, we see that $P_j = S \otimes_\C V
 
 \section{The endomorphism ring of $S$ as an $S^G$-module}
 Isomorphism to $S\#G$ implies proj SG <-> $S^G$ direct summands of $S$.
+
+In this section we will show that $S\#G$ is isomorphic to $\End_R(S)$ as rings, where $R = S^G$ is the fixed ring of $S$ by $G$ (and we have some additional assumptions on $S$ and $G$). This will be the longest proof of this thesis and I have therefor decided to split it up into several steps. The proof will be done by constructing an explicit isomorphism.
+\begin{center}
+\begin{tikzcd}
+S\#G & \End_R(S)\\
+s \cdot g & (t \mapsto s \cdot t^g)
+\end{tikzcd}
+\end{center}
+We can easily show that this is an injective ring-homomorphism. The meat of the proof is to consider the map as a morphism of $S$-modules, and then using ramification theory to show that it is an epimorphism. To do this we will show that for every height one prime ideal $\mathfrak{p}$ of $S$ if we localize at $\mathfrak{p}$ we get a socalled unramified extension of rings.
+\begin{center}
+\begin{tikzcd}
+R_{\mathfrak{p} \cap R} \ar[hook, r] & S_\mathfrak{p}
+\end{tikzcd}
+\end{center}
+We will use this to show that the short exact sequence
+\begin{center}
+\begin{tikzcd}
+I \ar[hook, r] & S_\mathfrak{p} \otimes_{R_{\mathfrak{p} \cap R}} S_\mathfrak{p} \ar[two heads, r]{}{m} & S_\mathfrak{p}
+\end{tikzcd}
+\end{center}
+where $m$ is the multiplication map and $I$ is the kernel, has a splitting. Whenever this happens we say the extension is seperable. We will use this splitting to construct an inverse for $S_\mathfrak{p}\#G \to \End_{R_{\mathfrak{p} \cap R}}(S_\mathfrak{p})$. Finally we will show that since we get an isomorphism whenever we localize at a height one prime ideal this means that the original map is an isomorphism.
+
+Let us first begin with some definitions
+\begin{defin}
+Let $A$ and $B$ be two local commutative rings with maximal ideal $\mathfrak{n}$ and $\mathfrak{m}$ respectively, and let 
+\begin{tikzcd}
+A \ar[hook, r] & B
+\end{tikzcd}
+be an extension of rings. We say that the extension is \underline{unramified} if the following conditions hold:
+\begin{itemize}
+\item $B$ is a finitely generated $A$-module.
+\item \begin{tikzcd}
+A/\mathfrak{n} \ar[hook, r] & B/\mathfrak{m}
+\end{tikzcd}
+is a seperable field extension.
+\item $\mathfrak{n}B = \mathfrak{m}$
+\end{itemize}
+If the two first conditions are met, and there is a positive integer $e$ such that $\mathfrak{n}^e B = \mathfrak{m}$, we say the extension has \underline{ramification index} $e$. Note that being unramified is then equivalent to having ramification index 1. 
+\end{defin}
+
+In order to show that unramified implies seperable we must first take a small detour.
+
+\begin{defin}
+Let $A \to B$ be an extension of rings. We then define the \underline{derivation module} $\Omega_{B | A}$ as the $B$-module with forrmal generators $db$ for all $b \in B$ and with the following relations:
+\begin{itemize}
+\item[$A$-linearity:] $d(ab + a'b') = adb + a'db'$ for all $a, a' \in A$ and $b, b' \in B$.
+\item[Leibniz rule:] $d(bc) = bdc + cdb$ for all $b,c \in B$.
+\end{itemize} 
+\end{defin}
+Note that for any polynomial expression $f(b)$ we have that $df(b) = f'(b)db$ where $f'$ is the formal derivative of $f$. Now we will show how the derivation module make a link between unramified and seperable extensions.
+
+\begin{prop}
+Let $A \to B$ be an unramified extension of local rings. Then $\Omega_{B|A}$ is 0.
+
+\begin{proof}
+
+\end{proof}
+\end{prop}
 
 \begin{theorem}
 Let $S$ be the complex power series ring in two variables, $G$ be a finite subgroup of $GL_2(\C)$, $R = S^G$ the fixed ring of $S$ under the action of $G$, and $(S\#G)^G$ be the fixed ring of $S\#G$ under left multiplication by $G$. Then $S$ is isomorphic to $(S\#G)^G$ as $R$-modules.
@@ -371,6 +446,7 @@ If $R$ is a local ring with residual field $k$ we define the \underline{depth} o
 \end{defin}
 
 \begin{defin}
+\label{def:regular_seq}
 If $R$ is a commutative ring and $M$ is an $R$-module, an \underline{$R$-regular sequence on $M$} is a sequence of elements of $R$, $r_1, r_2, \cdots r_n$ such that $M/\langle r_1, \cdots, r_i \rangle M$ is non-zero and multiplication by $r_i$ is injective on $M/\langle r_1, \cdots, r_{i-1} \rangle M$.
 \end{defin}
 
@@ -575,6 +651,26 @@ Is it true that $dim R \leq dim S$ (this is not true for $\mathbb{Z} \subset \ma
 Direct summand of MCM is MCM?  Use Koszul complex + Ext preserves direct sums.
 
 Are indec proj $S\#G$-modules fin.gen.? Can I state the correspondance in terms of fin.gen, indec projctives instead?
+
+\section{Disposisjon}
+Define McKay quiver [check]
+
+Define $S\#G$ [check]
+
+Correspondance with projectives [put in finitely generated to fix argument]
+
+Gabriel Quiver [Make Koszul complex a refference]
+
+$\End_R(S) \cong S\#G$ [understand the proof]
+$q \in S$ height one prime implies $q = (f)$ for a homogenous polynomial? Why homogenous?
+If $T(q)$ is nontrivial then it acts non-trivially on $S/qS$ if $f$ has degree bigger than 1, then all degree 1 polynomials survive in $S/qS$ and are acted upon trivialy by $T(q)$. Therefor $T(q)$ would be trivial, so $f$ is homogenous of degree 1.
+Since the group operations preseve degree $\sigma(f) = a_\sigma f$ for a nonzero constant $a_\sigma$. All finite matrix groups diagonalizeable implies $\sigma = diag(1,1, \cdots a_\sigma)$. Therefor $T(q)$ is iso to finite subgroup of $\C^*$, hence cyclic.
+Then $p=q \cap R = (f^n)$ where $n$ is the order of $T(q)$. Thus $q = pS_q$ if and only if $T(q)$ is trivial.
+$I/I^2 = \Omega_{S|R}$ is 0 iff $pS = q$, $I/I^2 = 0$ implies idempotent implies spliting.
+Why is $\End_R(S)$ reflexive? or rather why does height one iso imply iso.
+
+MCM $R$-summands of $S$ 
+[$S$ is MCM using dimension argument, summands are MCM using depth $\leq$ dim]
 
 \nocite{*}
 \bibliography{mybib}
