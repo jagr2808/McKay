@@ -3,9 +3,9 @@
 \contentsline {section}{\numberline {2}Skew group algebra S\#G indecomposable projectives}{2}
 \contentsline {subsection}{\numberline {2.1}The Gabriel quiver}{5}
 \contentsline {section}{\numberline {3}The endomorphism ring of $S$ as an $S^G$-module}{7}
-\contentsline {section}{\numberline {4}Maximal Cohen-Macaulay modules of $S^G$}{9}
-\contentsline {section}{Appendices}{12}
-\contentsline {section}{\numberline {A}Representation theory}{12}
-\contentsline {section}{\numberline {5}Random Thoughts I need to figure out}{14}
-\contentsline {section}{\numberline {6}questions}{14}
-\contentsline {section}{\numberline {7}Disposisjon}{14}
+\contentsline {section}{\numberline {4}Maximal Cohen-Macaulay modules of $S^G$}{15}
+\contentsline {section}{Appendices}{18}
+\contentsline {section}{\numberline {A}Representation theory}{18}
+\contentsline {section}{\numberline {5}Random Thoughts I need to figure out}{20}
+\contentsline {section}{\numberline {6}questions}{20}
+\contentsline {section}{\numberline {7}Disposisjon}{21}
