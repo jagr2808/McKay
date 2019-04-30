@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.21)  26 APR 2019 13:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.3.21)  30 APR 2019 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,20 +958,20 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
  (./1utkast.aux)
 \openout1 = `1utkast.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
 ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1002,7 +1002,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1012,36 +1012,36 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count149
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 36.
+LaTeX Info: Redefining \pageref on input line 36.
+LaTeX Info: Redefining \nameref on input line 36.
 
 (./1utkast.out) (./1utkast.out)
 \@outlinefile=\write4
 \openout4 = `1utkast.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 39.
+LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 39.
+LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 39.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 43.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 44.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
 
-Overfull \hbox (11.01004pt too wide) in paragraph at lines 46--47
+Overfull \hbox (11.01004pt too wide) in paragraph at lines 47--48
 []\OT1/cmr/m/n/10 The ir-re-ducible rep-re-sen-ta-tions of $\OML/cmm/m/it/10 G$
  \OT1/cmr/m/n/10 (in-de-com-pos-able $\U/msb/m/n/10 C\OML/cmm/m/it/10 G$\OT1/cm
 r/m/n/10 -modules). 
@@ -1055,89 +1055,111 @@ Package cleveref Info: loaded `english' language definitions on input line 1.
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (21.62006pt too wide) in paragraph at lines 178--179
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (13.8017pt too wide) in paragraph at lines 152--153
+\OT1/cmr/m/it/10.95 com-po-nent seper-ately. We then de-fine the $[]$
+ []
+
+
+Overfull \hbox (2.43335pt too wide) in paragraph at lines 152--153
+\OT1/cmr/m/it/10.95 to be the al-ge-bra gen-er-ated by el-e-ments of the form $
+\OML/cmm/m/it/10.95 f \OMS/cmsy/m/n/10.95 ^^A \OML/cmm/m/it/10.95 g$ \OT1/cmr/m
+/it/10.95 with $\OML/cmm/m/it/10.95 f \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 C\
+U/stmry/m/n/10.95 J\OML/cmm/m/it/10.95 x[]; []  ; x[]\U/stmry/m/n/10.95 K$
+ []
+
+[2]
+Overfull \hbox (21.62006pt too wide) in paragraph at lines 179--180
 []\OT1/cmr/m/n/10.95 This im-plies that if $[][](\OML/cmm/m/it/10.95 P; \OMS/cm
 sy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 )$ is ex-act then $[][](\OML/cmm/m/it/10.95 
 P; \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 )[] = [][](\OML/cmm/m/it/10.95 P; 
 \OMS/cmsy/m/n/10.95 ^^@\OT1/cmr/m/n/10.95 )$
  []
 
-LaTeX Font Info:    Try loading font information for U+euf on input line 184.
+LaTeX Font Info:    Try loading font information for U+euf on input line 185.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [3] [4] [5]
+) [3]
+Underfull \hbox (badness 10000) in paragraph at lines 194--210
+
+ []
+
+[4] [5]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 295.
+(amsmath)                 on input line 298.
 
 [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 359.
+(hyperref)                removing `math shift' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 359.
+(hyperref)                removing `math shift' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 359.
+(hyperref)                removing `math shift' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 359.
+(hyperref)                removing `superscript' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 359.
+(hyperref)                removing `math shift' on input line 362.
 
 [7]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 391.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 400.
  [8] [9] [10] [11] [12] [13] [14] [15]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 719.
+(hyperref)                removing `math shift' on input line 745.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 719.
+(hyperref)                removing `superscript' on input line 745.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 719.
+(hyperref)                removing `math shift' on input line 745.
 
-[16]
-Overfull \hbox (0.85312pt too wide) in paragraph at lines 849--850
+[16] [17]
+Overfull \hbox (0.85312pt too wide) in paragraph at lines 878--879
 []\OT1/cmr/m/n/10.95 We write $\OML/cmm/m/it/10.95 M$ \OT1/cmr/m/n/10.95 as $\O
 ML/cmm/m/it/10.95 N \OMS/cmsy/m/n/10.95 ^^H \OML/cmm/m/it/10.95 X$\OT1/cmr/m/n/
 10.95 . Since $\OML/cmm/m/it/10.95 M$ \OT1/cmr/m/n/10.95 is MCM we have that $0
  = [][](\OML/cmm/m/it/10.95 M\OT1/cmr/m/n/10.95 ) =
  []
 
-[17] [18] [19] [20] [21] (./1utkast.bbl) [22]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1065.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1065.
+[18] [19] [20] [21] (./1utkast.bbl [22]) [23]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1094.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1094.
  (./1utkast.aux
 Package cleveref Info: loaded `english' language definitions on input line 19.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1065.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1065.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1094.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1094.
 
 Package rerunfilecheck Info: File `1utkast.out' has not changed.
 (rerunfilecheck)             Checksum: FF1906D56C28EDAECEF8B3E3F39BFEBD;620.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1065.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1094.
  ) 
 Here is how much of TeX's memory you used:
- 21729 strings out of 493029
- 423297 string characters out of 6136234
+ 21816 strings out of 493029
+ 425424 string characters out of 6136234
  497845 words of memory out of 5000000
- 24810 multiletter control sequences out of 15000+600000
+ 24894 multiletter control sequences out of 15000+600000
  21528 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,21n,84p,919b,1097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,22n,84p,918b,1097s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -1162,10 +1184,10 @@ nts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/
 stmary10.pfb>
-Output written on 1utkast.pdf (22 pages, 346065 bytes).
+Output written on 1utkast.pdf (23 pages, 350050 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
- 83 named destinations out of 1000 (max. 500000)
+ 348 PDF objects out of 1000 (max. 8388607)
+ 295 compressed objects within 3 object streams
+ 86 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
