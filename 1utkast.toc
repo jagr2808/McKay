@@ -1,11 +1,12 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}The McKay quiver}{2}{section.1}
-\contentsline {section}{\numberline {2}Skew group algebra S\#G indecomposable projectives}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}The Gabriel quiver}{5}{subsection.2.1}
-\contentsline {section}{\numberline {3}The endomorphism ring of $S$ as an $S^G$-module}{7}{section.3}
-\contentsline {section}{\numberline {4}Maximal Cohen-Macaulay modules of $S^G$}{16}{section.4}
-\contentsline {section}{Appendices}{20}{section*.2}
-\contentsline {section}{\numberline {A}Representation theory}{20}{Appendix.1.A}
-\contentsline {section}{\numberline {5}Random Thoughts I need to figure out}{21}{section.5}
-\contentsline {section}{\numberline {6}questions}{22}{section.6}
-\contentsline {section}{\numberline {7}Disposisjon}{22}{section.7}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}The McKay quiver}{2}{section.2}
+\contentsline {section}{\numberline {3}Skew group algebra S\#G indecomposable projectives}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}The Gabriel quiver}{6}{subsection.3.1}
+\contentsline {section}{\numberline {4}The endomorphism ring of $S$ as an $S^G$-module}{8}{section.4}
+\contentsline {section}{\numberline {5}Maximal Cohen-Macaulay modules of $S^G$}{19}{section.5}
+\contentsline {section}{Appendices}{22}{section*.2}
+\contentsline {section}{\numberline {A}Representation theory}{22}{Appendix.1.A}
+\contentsline {section}{\numberline {6}Random Thoughts I need to figure out}{24}{section.6}
+\contentsline {section}{\numberline {7}questions}{24}{section.7}
+\contentsline {section}{\numberline {8}Disposisjon}{24}{section.8}

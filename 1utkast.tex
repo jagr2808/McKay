@@ -51,63 +51,10 @@ Much of the thesis will be used to define these four quivers and to develope too
 
 \tableofcontents
 
-\iffalse
-\section{Finite subgroups of SL(2,C)}
+\section{Introduction}
+The McKay correspondance arised in algebraic geometry with Klein's and Du Val's study of singularities {\color{red} refference}. Specifically they studied singularities of the form $\C^2 / G$ where $G$ is a finite subgroup of $SL_2(\C)$. The resolution graph of these singularities where exactly the Dynkin diagrams. McKay observed that the resolution graphs could be computed purely by looking at the representation theory of $G$. The correspondence can be understood from many different perspectives. For this thesis our focus will be on the algebraic perspective developed by Auslander.
 
-\section{Characters and irreducible representations}
-This section is largely based on the book by \cite{RCG}.
-
-Recall that the trace of a matrix is defined to be the sum of its diagonal elements and that the trace satisfies two important equations. Namely
-$$tr(A+B)=tr(A)+tr(B) \text{  and  } tr(AB)=tr(BA)$$
-For a given representation of $G$, $\rho: G \to GL_n(\mathbb{C})$, we define its character by $\chi_\rho : G \to \mathbb{C}$, $\chi_\rho(g) = tr(\rho(g))$.
-
-\begin{prop}
-Conjugate elements in $G$ take the same value under a character.
-\begin{proof}
-Let $g$ and $g'$ be in the same conjugacy class. Then there exists an element $h$ such that $h^{-1}gh=g'$. Then we have
-\begin{equation*}
-\begin{split}
-\chi(g')=\chi(h^{-1}gh) = tr(\rho(h)^{-1}\rho(g)\rho(h)) \stackrel{\mathclap{\normalfont\mbox{\tiny{*}}}}{=} tr(\rho(g)\rho(h)\rho(h)^{-1}) = tr(\rho(g))=\chi(g)
-\end{split}
-\end{equation*}
-In (*) we use the fact that $tr(AB)=tr(BA)$.
-\end{proof}
-\end{prop}
-
-\begin{lemma}
-For a finite abelian group $G$ any irreducible representation must be 1-dimensional.
-\begin{proof}
-Let $\rho: G \to GL(V)$ be an irreducible representation. Since $G$ is abelian we have that $\rho(g)\rho(h)v = \rho(h)\rho(g)v$. Thus multiplication by $\rho(g)$ respects the action of $G$ and we have that $\rho(g)$ is a homomorphism of $G$-representations between $\rho$ and itself. Then by Schur's lemma\footnote{Statement and proof of Schur's lemma can be found in the appendix on page \pageref{schur} as \cref{schur}.} $\rho(g)$ must be a scalar multiplication. In other words every matrix $\rho(g)$ for $g \in G$ is diagonal (it is a scaling of identity). This implies that $\rho$ can be written as a direct sum of 1-dimensional representations, but since $\rho$ is irreducible $\rho$ must be 1-dimensional
-\end{proof}
-\end{lemma}
-
-\begin{prop}
-If $\chi$ is the character of a representation, $\rho$, with dimension $n$ of a group $G$, and $g$ is an element of $G$ with order $m$, then the following holds
-\begin{itemize}
- \item[(1)] $\chi(1) = n$
- \item[(2)] $\chi(g)$ is the sum of $m$-th roots of unity.
- \item[(3)] $\chi(g^{-1}) = \overline{\chi(g)}$
-\end{itemize}
-\begin{proof}
-
-\begin{itemize}
-\item[]
-\item[(1)]
-The first result is immediate.
-$$\chi(1) = tr\left(\begin{pmatrix}
-1 & \cdots & 0\\
-\vdots & \ddots & \vdots\\
-0 & \cdots & 1
-\end{pmatrix}\right) = n$$
-\item[(2)]
-Since $\langle g \rangle$ is an abelian group, $\rho$ decomposes into $n$ 1-dimensional $\langle g \rangle$-representations. Then there is a basis such that $\rho(g)$ is diagonal. Since $g$ has order $m$ it follows that the diagonal entries of $\rho(g)$ must be $m$-th roots of unity. Thus $\chi(g) = tr(\rho(g))$ must be the sum of $m$-th roots of unity.
-\item[(3)]
-Using the same basis as above and the fact that $\omega^{-1} = \overline{\omega}$ when $\omega$ is a root of unity we see that $\chi(g^{-1}) = tr(\rho(g)^{-1}) = \overline{tr(\rho(g))} = \overline{\chi(g)}$.
-\end{itemize}
-\end{proof}
-\end{prop}
-
-\fi
+The correspondence is between three quivers: the McKay quiver of irreducable $G$-representations, the Gabriel quiver of indecomposable finitely generated projective $S\#G$-modules, and the Auslander-Reiten quiver of MCM $R$-modules. We will not cover the AR quiver in this thesis, but more information on it can be found {\color{red} refference}. Another important part of the correspondence is the ring isomorphism between $S\#G$ and $\End_R(S)$. We will see that this takes significant use of rammification theory, commutative algebra and galois theory.
 
 \section{The McKay quiver}
 \begin{defin}
@@ -127,23 +74,6 @@ V_3 && V_2 \arrow[<->]{ull}
 \end{tikzcd}  
 $$
 \end{example}
-
-\iffalse
-
-\section{Krull-Remack-Schmidt}
-This section is largely based on the book by \cite{CMR}.
-Here we will prove the Krull-Remack-Schmidt theorem for complete local noetherian rings.
-
-We say a ring satisfies Krull-Remack-Schmidt if the following condition holds:
-\begin{itemize}
-	\item[(i)] Any finitely generated module can be written as the finite direct sum of indecomposable modules.
-	\item[(ii)] If $$\bigoplus_{i=1}^m M_i \cong \bigoplus_{j=1}^n N_j$$
-	for indecomposable $M_i$'s and $N_j$'s, then $m=n$ and there is a permutation, $\sigma \in S_n$, such that $M_i \cong N_{\sigma(i)}$ for all $i=1,2, \cdots, n$.  
-\end{itemize}
-
-It's clear that (i) holds for any noetherian ring, since any decomposition of a noetherian module must eventually reach an indecomposable. In this chapter we will focus on proving (ii).
-
-\fi
 
 \section{Skew group algebra S\#G indecomposable projectives}
 This section is largely based on the book by \cite{CMR}. This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - homological algebra. Since I do not assume knowledge of this I have created appendix \ref{appendix}. I will try to use footnotes to indicate where such theorems are used.
@@ -247,35 +177,6 @@ P \arrow[->>]{r} & P/\mathfrak{m}P
 is an isomorphism, and thus $P \cong \mathcal{G}(\mathcal{F}(P))$.
 \end{proof}
 
-\iffalse
-Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. We have already seen that it's projective. Both $P$ and $S \otimes_\C P/\mathfrak{m}P$ have a natural projection onto $P/\mathfrak{m}P$, and by projectivity we get an induced $S\#G$-linear map from $S \otimes_\C P/\mathfrak{m}P$ to $P$:
-\begin{center}
-\begin{tikzcd}
-& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \arrow[dashrightarrow]{dl}\\
-P \arrow[->>]{r} & P/\mathfrak{m}P
-\end{tikzcd}
-\end{center}
-Now by \cref{lem:radical small} we have that $\mathfrak{m}P$ is small and that therefore the induced map is an epimorphism. Similarly we get an epimorphism in the other direction. Since $S \otimes_\C P/\mathfrak{m}P$ has finite $S$-rank ($P$ finitely generated {\color{red}{Why is P finitely generated? This would be true if P/mP is indec CG-module, so if thats clear this should be clear}}), it follows that the map is an isomorphism of $S$-modules. Since the map is $S\#G$-linear it is therefore also an isomorphism of $S\#G$-modules.
-\end{proof}
-
-
-\begin{proof}
-To see that this are bijections we will show that they are mutuall inverses. First to see that $\mathcal{F}(\mathcal{G}(W)) \cong W$ we simply look at the definition
-\begin{equation*}
-\begin{split}
-\frac{S \otimes_\C W}{\mathfrak{m}S \otimes_\C W} \cong S/\mathfrak{m} \otimes_\C W \cong \C \otimes_\C W \cong W
-\end{split}
-\end{equation*}
-Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. Notice that the top of $ S \otimes_\C P/\mathfrak{m}P$ is isomorphic to $P/\mathfrak{m}P$. Then by the uniquness of tops we have that $ S \otimes_\C P/\mathfrak{m}P \cong P$.
-
-The only thing that remains to show is that $\mathcal{F}$ and $\mathcal{G}$ are well-defined maps with the correct images. Namely that $\mathcal{F}(P)$ is an indecomposable $\C G$-module and that $\mathcal{G}(W)$ is an indecomposable projective $S\#G$-module.
-
-Since $P$ is an indecomposable projective we have that $\mathcal{F}(P)$ is a simple $S\#G$-module. By the natural inclusion $\C G \hookrightarrow S\#G$ $\mathcal{F}(P)$ becomes a $\C G$-module. Assume that $\mathcal{F}(P)$ decomposes as $P_1 \oplus P_2$ as a $\C G$-module. Then since the action of $x$ and $y$ are trivial on $\mathcal{F}(P)$, $P_1 \oplus P_2$ is a decomposition of $S\#G$-modules. This implies that $P_1 = 0$ or $P_2=0$, and we have that $\mathcal{F}(P)$ is indecomposable.
-
-Lastly we want to show that $\mathcal{G}(W)$ is projective and indecomposable. Since $S \otimes_\C W$ is free as an $S$-module it follows from \cref{lem:S proj => SG proj}, that it is a projective $S\#G$-module. To see that it is indecomposable, we just need to notice that its top, $S/\mathfrak{m} \otimes W \cong W$, is simple.
-\end{proof}
-\fi
-
 \end{theorem}
 
 \subsection{The Gabriel quiver}
@@ -312,29 +213,6 @@ Where $x_{i_1} \wedge x_{i_2} \wedge \cdots \wedge x_{i_p}$ is one of the standa
 
 \begin{proof}
 Firts we should show that this is a projective resolution of $\C$. In fact the complex described above is the Koszul complex of the regular sequence\footnote{Regular sequences are defined on page \pageref{def:regular_seq} in \cref{def:regular_seq}.} $(x_i)_{i=1}^n$. The Koszul complex of a regular sequence is a projective resolution of the ring modulo the ideal generated by the regular sequence, which in this case equals $S/\langle x_i \rangle_{i=1}^n = \C$. {\color{red} refference}
-\iffalse
-First we should show that this is a projective resolution. Note that since the maps are $S\#G$-linear, showing that it's a minimal free resolution as an $S$-module implies it is a minimal projective resolution as an $S\#G$-module. Then what we need to show is 
-\begin{itemize}
-\item[(i)] $\Cok \partial_1 = \C$
-\item[(ii)] $\partial_{p-1} \circ \partial_{p} = 0$ for all $p$
-\item[(iii)] $\Image \partial_{p+1} = \Ker \partial_p$ for $p \geq 2$
-\end{itemize}
-(i) is clear since the image of $\partial_1$ is $\mathfrak{m}$. (ii) can be shown through a quick computation
-\begin{align*}
-\partial_{p-1} \circ \partial_{p}(s \otimes x_{i_1} \wedge \cdots \wedge x_{i_p}) &=\\ 
-\partial_{p-1} \left(\sum_{j=1}^p (-1)^{j+1} sx_{i_j} \otimes x_{i_1} \wedge \cdots \hat{x}_j \wedge \cdots \wedge x_{i_p} \right)&=\\
-\sum_{j=1}^p (-1)^{j+1} \Bigg(\sum_{k=1}^{j-1} (-1)^{k+1} sx_{i_j}x_{i_k} \otimes x_{i_1}\wedge \cdots \hat{x}_{i_k} \wedge \cdots \wedge \cdots \hat{x}_j \wedge \cdots \wedge x_{i_p}& +\\
-\sum_{k=j+1}^{p} (-1)^k sx_{i_j}x_{i_k} \otimes x_{i_1}\wedge \cdots \hat{x}_{i_j} \wedge \cdots \wedge \cdots \hat{x}_k \wedge \cdots \wedge x_{i_p}\Bigg) &
-\end{align*}
-From here we notice that the term with $j < k$ is canceled by the term where $k < j$, because they are the negatives of each other. Thus the composition is 0. This would then imply that $\Image \partial_{p+1} \subseteq \Ker \partial_p$, so for part (iii) we need only show that $\Ker \partial_p \subseteq \Image \partial_{p+1}$.
-
-First some notation: let $\mathfrak{I}_p$ be the set of all tuples $(i_1, i_2, \cdots, i_p)$ with $i_1 < i_2 < \cdots < i_p$ and $1 \leq i_j \leq n$, and let $x_I$ denote $x_{i_1} \wedge \cdots x_{i_p}$ when $I=(i_1, \cdots, i_p)$. Then assume $$ \sum_{I \in \mathfrak{I}_p} s_I \otimes x_I$$ is in the kernel of $\partial_p$. 
-
-
-Maybe just prove n=2, its simpler....
-proof by induction on n on wikipedia %https://en.wikipedia.org/wiki/Koszul_complex#Properties_of_a_Koszul_homology
-{\color{red}Maybe refferencing the proof will be better... or make an appendix on homological algebra}
-\fi
 
 Secondly we want to show that the resolution is minimal. To do this it is enough to show that for each $k \geq 1$, $\partial_k$ is a projective cover of its image, and that $S \to \C$ is a projective cover. In other words we have to show that the kernels of the maps are small. Since $\Image \partial_{k+1} = \Ker \partial_k$ and $\Image \partial_{k+1} \subseteq \mathfrak{m} \otimes_\C \bigwedge\limits^{k+1}V$ it follows from \cref{lem:radical small} that the resolution is minimal.
 \end{proof}
@@ -390,6 +268,34 @@ I \ar[hook, r] & S_\mathfrak{q} \otimes_{R_{\mathfrak{q}}} S_\mathfrak{q} \ar[tw
 We will use this splitting to construct an inverse for $S_\mathfrak{q}\#G \to \End_{R_{\mathfrak{q}}}(S_\mathfrak{q})$. Finally we will show that since we get an isomorphism whenever we localize at a height one prime ideal this means that the original map is an isomorphism.
 
 Let us first begin with some definitions
+\begin{defin}
+If $A$ is a local ring with residual field $k$ we define the \underline{depth} of a module, $M$, to be the minimal $n$ such that $\Ext^n_A(k, M)$ is non-zero. We write $\depth_A(M)$ for this or simply $\depth(M)$ when which ring we are using is clear.
+\end{defin}
+
+\begin{defin}
+\label{def:regular_seq}
+If $R$ is a commutative ring and $M$ is an $R$-module, an \underline{$R$-regular sequence on $M$} is a sequence of elements of $R$, $r_1, r_2, \cdots r_n$ such that $M/\langle r_1, \cdots, r_i \rangle M$ is non-zero and multiplication by $r_i$ is injective on $M/\langle r_1, \cdots, r_{i-1} \rangle M$.
+\end{defin}
+
+\begin{prop}
+For a module over a local ring the depth of the module equals the lenth of the longest regular sequence on that module.
+\begin{proof}
+{\color{red} reffrence}
+\end{proof}
+\end{prop}
+
+\begin{defin}
+If $R$ is a ring, we say that $\mathfrak{p}$ is  a \underline{prime ideal} in $R$ if
+\begin{enumerate}
+\item $\mathfrak{p}$ is a proper ideal of $R$.
+\item For any two elements $a,b \in R$ such that $ab \in \mathfrak{p}$ we must have that either $a$ is in $\mathfrak{p}$ or $b$ is.
+\end{enumerate}
+The \underline{height} of $\mathfrak{p}$ is the length of the longest chain of prime ideals contained in $\mathfrak{p}$:
+\begin{align*}
+\mathfrak{p}_0 \subset \mathfrak{p}_1 \subset \cdots \subset \mathfrak{p}_n = \mathfrak{p}.
+\end{align*}
+\end{defin}
+
 \begin{defin}
 Let $A$ and $B$ be two local commutative rings with maximal ideal $\mathfrak{n}$ and $\mathfrak{m}$ respectively, and let 
 \begin{tikzcd}
@@ -455,6 +361,7 @@ Since $\Omega_{B|A} \otimes_B l = \Omega_{B|A} \otimes_B B/\mathfrak{m} = \Omega
 \end{prop}
 
 \begin{theorem}
+\label{thm:unramified_implies_seperable}
 Let $A \to B$ be an unramified extension of local rings. Then the sequence
 \begin{center}
 \begin{tikzcd}
@@ -497,6 +404,7 @@ splits.
 \end{theorem}
 
 \begin{theorem}
+\label{thm:separable_implies_ringiso}
 Let $B$ be a local $k$-algebra domain, and $G$ a finite subgroup of $\Aut_k(B)$ with order relatively prime to the characteristic of $k$, and denote by $A$ the fixed ring $B^G$. If the short exact sequence
 \begin{center}
 \begin{tikzcd}
@@ -598,9 +506,42 @@ This means that $\gamma$ is an epimorphism and then also an isomorphism.
 \begin{defin}
 Let $S$ be a commutative ring, $G$ a subgroup of $\Aut(S)$, and $\mathfrak{p}$ a prime ideal. The \underline{inertia group of $\mathfrak{p}$} is defined as
 \begin{align*}
-T(\mathfrak{p}) = \{ g \in G | s^g - s \in \mathfrak{p} \;\; \forall s \in S \}
+T(\mathfrak{p}) = \{ g \in G | s^g - s \in \mathfrak{p} \;\; \forall s \in S \}.
 \end{align*}
 \end{defin}
+
+\begin{defin}
+Let $S$ be a commutative ring, $G$ a subgroup of $\Aut(S)$, and $\mathfrak{p}$ a prime ideal. The \underline{decomposition group of $\mathfrak{p}$} is defined as
+\begin{align*}
+D(\mathfrak{p}) = \{ g \in G | g(\mathfrak{p}) = \mathfrak{p} \}.
+\end{align*}
+\end{defin}
+
+\begin{lemma}
+Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Let $e$ be the rammification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$, and let $f$ be the degree of the field extension $R_\mathfrak{q}/\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}$. Then the order of the decomposition group $|D(\mathfrak{p})|$ is $ef$.
+
+\begin{proof}
+Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction the it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the {\color{red} approximation lemma?} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$.
+
+The orbit-stabilizer theorem states that the size of an orbit is the same as the index of the stabilizer group. Note that $D(\mathfrak{p})$ is exactly the stabilzer of $\mathfrak{p}$. Then since $G$ acts transitivey we have that $|\{ \mathfrak{p}_i \}| = |G|/|D(\mathfrak{p})|$. In particular this set is finite, say $r := |\{ \mathfrak{p}_i \}|$, and $|G| = |D(\mathfrak{p})|\cdot r$.
+
+Since the order of $G$ is $|G|=efr$ {\color{red} ??} it follows that $|D(\mathfrak{p})| = ef$.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}
+Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Then the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$, denotet by $e$, divides order of the inertia group $|T(\mathfrak{p})|$.
+
+\begin{proof}
+Since $\mathfrak{p}$ is invariant under the action of $D(\mathfrak{p})$, also its compliment will be. This means the group action on $S_\mathfrak{p}$ given by $g(\frac{s}{t}) = \frac{s^g}{t^g}$ is well defined whenever $g$ is in $D(\mathfrak{p})$. This also gives a well defined group action on $S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$. Since this action fixes $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q}$ we get a map from $D(\mathfrak{p})$ to the galois group of the field extension $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$. If we can show that the kernel of this map is $T(\mathfrak{p})$, then we get that $|D(\mathfrak{p})/T(\mathfrak{p})|$ divides the order of the galois group which equals the order of the field extension. Then since $|D(\mathfrak{p})| = ef$ we get that $ef \Big| |T(\mathfrak{p})|f$, and that $e$ divides $T(\mathfrak{p})$.
+
+First we see that $T(\mathfrak{p})$ is contained in the kernel. Since $\frac{s}{t} = \frac{\prod_{g \neq 1}t^g s}{\prod_g t^g}$ where $g$ ranges over the elements of $T(\mathfrak{p})$, we have that all fractions in $S_\mathfrak{p}$ can be written with a denominator invariant under $T(\mathfrak{p})$. Then since $s^g - s \in \mathfrak{p}$ whenever $s$ is in $S$ and $g$ is in $T(\mathfrak{p})$ we get that $\left(\frac{s}{t}\right)^g - \frac{s}{t} \in \mathfrak{p}S_\mathfrak{p}$ for all $\frac{s}{t} \in S_\mathfrak{p}$ and $g \in T(\mathfrak{p})$. Thus the action of $T(\mathfrak{p})$ on $S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$ is trivial.
+
+To see the converse assume $g in D(\mathfrak{p})$ acts trivially on $S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$. Then in particular we have that $\frac{s^g}{1} - \frac{s}{1} \in \mathfrak{p}S_\mathfrak{p}$ for all $s \in S$. This means that $s^g - s \in \mathfrak{p}$, which is exactly the condition for $g$ to be in $T(\mathfrak{p})$.
+
+This shows that $T(\mathfrak{p})$ is the kernel of the map, and thus that the rammification index divides the order of $T(\mathfrak{p})$. 
+\end{proof}
+\end{lemma}
 
 \begin{theorem}
 Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Then the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ equals the order of the inertia group $|T(\mathfrak{p})|$.
@@ -635,10 +576,7 @@ This means $T(\mathfrak{p})$ is isomorphic to $\{ a_g \}_{g \in T(\mathfrak{p})}
 &&&& \exp(2\pi i/s)
 \end{pmatrix}
 \end{align*}
-generates $T(\mathfrak{p})$. Consider the ring $S^{T(\mathfrak{p})}$. We have that $R \subset S^{T(\mathfrak{p})}$, and $\mathfrak{q} \subset S^{T(\mathfrak{p})} \cap \mathfrak{p}$. Then we have that $R_\mathfrak{q} \subset S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}}$, and the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ is the product of the ramification index of $R_\mathfrak{q} \subset S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}}$ and of $S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}} \subset S_\mathfrak{p}$. Then since $(S^{T(\mathfrak{p})} \cap \mathfrak{p})S = z^s S = \langle z \rangle^s S$, we have that the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ is divisable by the order of $T(\mathfrak{p})$.
-
-{\color{red} wait this proof only shows that $|T(\mathfrak{p})|$ is the ramification index of $S^{T(\mathfrak{p})}_\mathfrak{p} \subset S$...????? I want the ramification index for $S^G$, why are these the same???}
-
+generates $T(\mathfrak{p})$. Consider the ring $S^{T(\mathfrak{p})}$. We have that $R \subset S^{T(\mathfrak{p})}$, and $\mathfrak{q} \subset S^{T(\mathfrak{p})} \cap \mathfrak{p}$. Then we have that $R_\mathfrak{q} \subset S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}}$, and the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ is the product of the ramification index of $R_\mathfrak{q} \subset S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}}$ and of $S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}} \subset S_\mathfrak{p}$. Then since $(S^{T(\mathfrak{p})} \cap \mathfrak{p})S = z^s S = \langle z \rangle^s S$, we have that the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ is divisable by the order of $T(\mathfrak{p})$. Since we have already seen that the ramification index divides $|T(\mathfrak{p})|$ this implies that $e = |T(\mathfrak{p})|$.
 \end{theorem}
 
 \begin{theorem}
@@ -709,6 +647,44 @@ S \# G \ar[r]{}{\gamma} & \End_R(S)
 \end{center}
 is an isomorphism of rings.
 \begin{proof}
+Let $\mathfrak{q}$ be a height one prime ideal of $R$ and let $\mathfrak{p}$ be a prime ideal in $S$ lying over $\mathfrak{q}$. Then since $G$ is in $SL_2(\C)$ it can't contain any pseudoreflections, thus by \cref{thm:unramified_pseudoreflections} the extension $R_\mathfrak{q} \subset S_\mathfrak{p}$ is unramified. Then by \cref{thm:unramified_implies_seperable} we have that 
+\begin{center}
+\begin{tikzcd}
+0 \ar[r] & I  \ar[r] & S_\mathfrak{p} \otimes_{R_\mathfrak{q}} S_\mathfrak{p}  \ar[r]{}{\mu} & S_\mathfrak{p}  \ar[r] & 0
+\end{tikzcd}
+\end{center}
+is a split exact sequence. Since $S_\mathfrak{q} := R_\mathfrak{q} \otimes_R S$ lies between $R_\mathfrak{q}$ and $S_\mathfrak{p}$ we then have that 
+\begin{center}
+\begin{tikzcd}
+0 \ar[r] & I  \ar[r] & S_\mathfrak{q} \otimes_{R_\mathfrak{q}} S_\mathfrak{q}  \ar[r]{}{\mu} & S_\mathfrak{q}  \ar[r] & 0
+\end{tikzcd}
+\end{center}
+also splits {\color{red} ?????}. Then by \cref{thm:separable_implies_ringiso} we have that the map
+\begin{equation}
+\label{eq:localized_gamma}
+\begin{tikzcd}
+S_\mathfrak{q} \# G \ar[r]{}{\gamma} & \End_{R_\mathfrak{q}}(S_\mathfrak{q})
+\end{tikzcd}
+\end{equation}
+is an isomorphism of rings. Now using \cref{lem:height_one_iso} it is enough to show that (\ref{eq:localized_gamma}) is the localization of 
+\begin{center}
+\begin{tikzcd}
+S \# G \ar[r]{}{\gamma} & \End_R(S).
+\end{tikzcd}
+\end{center}
+
+That $S_\mathfrak{q} \# G$ is the localization of $S\#G$ is clear to see. What we need to show is that $\End_{R_\mathfrak{q}}(S_\mathfrak{q})$ is the localization of $\End_R(S)$, that is $R_\mathfrak{q} \otimes_R \End_R(S) \cong \End_{R_\mathfrak{q}}(S_\mathfrak{q})$. We can construct an explicit isomorphsim by
+\begin{center}
+\begin{tikzcd}
+R_\mathfrak{q} \otimes_R \End_R(S) \ar[r] & \End_{R_\mathfrak{q}}(S_\mathfrak{q})\\
+\frac{1}{r} \otimes \varphi \ar[r, mapsto] & (\frac{s}{t} \mapsto \frac{\varphi(s)}{rt})
+\end{tikzcd}
+\end{center}
+It should be clear that the map is injective. To see surjectivity let $s_1, s_2, \cdots, s_n$ be generators of $S$ as an $R$-module, and let $\psi$ be in $\End_{R_\mathfrak{q}}(S_\mathfrak{q})$. Write $\frac{t_i}{r_i}$ for $\psi(s_i)$, and let $\varphi$ be the map in $\End_R(S)$ sending $s_i$ to $t_i\prod_{j \neq i} r_j$. Then $\frac{1}{\prod r_i} \otimes \varphi$ is a pre-image of $\psi$, and thus $R_\mathfrak{q} \otimes_R \End_R(S) \cong \End_{R_\mathfrak{q}}(S_\mathfrak{q})$.
+
+This means that for each height one prime of $R$, the localization of $\gamma$ is an isomorphsim. Then \cref{lem:height_one_iso} gives us that $\gamma$ is an isomorphism which is what we wanted to prove.
+
+\iffalse
 Firstly let's show that for a prime ideal $\mathfrak{p}$ we have that $S_\mathfrak{p}^G = R_\mathfrak{q}$ where $\mathfrak{q} = R \cap \mathfrak{p}$. Assume $\frac{s}{p} \in S_\mathfrak{p}^G$ is fixed by $G$. Consider the fraction
 \begin{align*}
 \frac{ \left( \prod_{g \neq 1} p^g \right) s}{\prod_g p^g}
@@ -719,6 +695,7 @@ Since we have just multiplied by $\prod_{g \neq 1} p^g$ in the nominator and the
 Secondly I want to show that $\End_R(S)_\mathfrak{p} = \End_{R_\mathfrak{q}}(S_\mathfrak{p})$. {\color{red} ???}
 
 From here we just need to wrap everything together. Since $G$ does not contain any pseudoreflections we get from \cref{thm:unramified_pseudoreflections} that the map is an isomoprhism when localizing at any height one prime ideal. Then \cref{lem:height_one_iso} gives us that it's an isomophism {\color{red} need to show depth}.
+\fi
 \end{proof}
 \end{theorem}
 
@@ -743,6 +720,7 @@ in particular $s_h$ must equal $s_1^h$ and it follows that $\psi = \rho(s_1)$.
 \end{theorem}
 
 \section{Maximal Cohen-Macaulay modules of $S^G$}
+\iffalse
 \begin{defin}
 If $R$ is a local ring with residual field $k$ we define the \underline{depth} of a module, $M$, to be the minimal $n$ such that $\Ext^n_R(k, M)$ is non-zero. We write $\depth_R(M)$ fro this or simply $\depth(M)$ when which ring we are using is clear.
 \end{defin}
@@ -766,6 +744,7 @@ If $R$ is a ring, we say that $\mathfrak{p}$ is  a \underline{prime ideal} in $R
 \item For any two elements $a,b \in R$ such that $ab \in \mathfrak{p}$ we must have that either $a$ is in $\mathfrak{p}$ or $b$ is.
 \end{enumerate}
 \end{defin}
+\fi
 
 \begin{defin}
 If $R$ is a ring we define its \underline{Krull-dimension} to be the maximum length of a chain of prime ideals in $R$. 
@@ -808,69 +787,6 @@ Let $R$ be a {\color{red}local?} ring, $M$ an $R$-module, and $(x_i)_{i=1}^n$ an
 \end{equation*}
 \end{defin}
 
-\iffalse
-\begin{theorem}
-The Koszul complex of a regular sequence is exact everywhere except in degree 0.
-\begin{proof}
-The proof will be inductive on the length of the regular sequence. Let's first show that it holds when the length of the sequence is 1. Let $M$ be our module, $(x_1)$ our regular sequence, and $V = \Z x_1$. Then we get the following complex
-\begin{equation*}
-\begin{tikzcd}
-0 \arrow[r] & M \otimes_\Z \bigwedge^1 V \arrow{r}{\partial_1} & M \arrow[r] & 0
-\end{tikzcd}
-\end{equation*}
-This is isomorphic to 
-\begin{equation*}
-\begin{tikzcd}
-0 \arrow[r] & M\arrow{r}{x_1 \cdot -} & M \arrow[r] & 0
-\end{tikzcd}
-\end{equation*}
-and since multiplication by $x_1$ is injective on $M$, this is exact in degree 1. Since it is 0 in all degrees except 0 and 1, it is exact there as well. 
-
-For the inductive step we will show a relationship between regular sequences of different lengths. Let $(x_i)_{i=1}^{n}$ be a regular sequence on $M$, and let $K(s)$ be the Koszul complex of the sequnece $(x_i)_{i=1}^s$. Then there is an exact sequence of complexes
-\begin{equation*}
-\begin{tikzcd}
-0 \arrow[r] & K(s) \arrow{r}{\iota} & K(s+1) \arrow{r}{\pi} & K(s)[-1] \arrow{r} & 0
-\end{tikzcd}
-\end{equation*}
-where $K(s)[-1]$ is $K(s)$ shifted one spot to the left. The short exacts equence is given by
-\begin{equation*}
-\begin{tikzcd}
-\cdots \arrow{r}{\partial_3^s} & 
-M \otimes_\Z \bigwedge^2 V_s \arrow{r}{\partial_2^s} \arrow{d}{\iota_2} & 
-M \otimes_\Z \bigwedge^1 V_s \arrow{r}{\partial_1^s} \arrow{d}{\iota_1} & 
-M \arrow[r] \arrow[d, equal] & 0 \arrow[d]\\
-\cdots \arrow{r}{\partial_3^{s+1}} & 
-M \otimes_\Z \bigwedge^2 V_{s+1}\arrow{r}{\partial_2^{s+1}} \arrow{d}{\pi_2} & 
-M \otimes_\Z \bigwedge^1 V_{s+1} \arrow{r}{\partial_1^{s+1}} \arrow{d}{\pi_1} & 
-M \arrow[r] \arrow[d] &  0 \arrow[d]\\
-\cdots \arrow{r}{\partial_2^s} & 
-M \otimes_\Z \bigwedge^1 V_s \arrow{r}{\partial_1^s} & 
-M \arrow[r] & 0 \arrow[r] & 0
-\end{tikzcd}
-\end{equation*}
-where $\iota$ is just the inclusion and $\pi_{j+1}(m \otimes x_{i_1} \wedge \cdots \wedge x_{i_{j}} \wedge x_{s+1}) = m \otimes x_{i_1} \wedge \cdots \wedge x_{i_{j}}$, and 0 if $x_{s+1}$ does not appear in the wedge product.
-
-This short exact sequence induces a longe exact sequence on homology
-\begin{center}
-\begin{tikzcd}
-\cdots \ar[r] & H_2(K(s+1)) \ar[r] & H_1(K(s)) \ar[r] & H_1(K(s)) \ar[dlll, overlay, in=170, out=-10] \\
-H_1(K(s+1)) \ar[r] & H_0(K(s)) \ar[r] & H_0(K(s)) \ar[r] & H_0(K(s+1)) \ar[r] & 0
-\end{tikzcd}
-\end{center}
-Now we assume by induction that $K(s)$ is exact in all non-zero degrees. Then we get the following long exact sequence
-\begin{center}
-\begin{tikzcd}
-\cdots \ar[r] & H_2(K(s+1)) \ar[r] & 0 \ar[r] & 0 \ar[dlll, overlay, in=170, out=-10] \\
-H_1(K(s+1)) \ar[r] & M/I_sM \ar[r]{}{x_{s+1} \cdot -} & M/I_s \ar[r] & M/I_{s+1}M \ar[r] & 0
-\end{tikzcd}
-\end{center}
-where $I_k = \langle x_i \rangle_{i=1}^k$. Then since the sequence is exact we get that $H_i(K(s+1)) = 0$ whenever $i \geq 2$, and that $H_1(K(s+1))$ is isomorphic to the kernel of multiplication by $x_{s+1}$. Here we use the fact that the sequence is regular, which means that multiplication by $x_{s+1}$ is injective on $M/I_sM$ and therefore $H_1(K(s+1)) = 0$.
-
-Then by induction we have shown that $H_i(K(n)) = 0$ for all $i \neq 0$, or in other words that the Koszul complex is exact in all degrees except 0.
-\end{proof}
-\end{theorem}
-\fi
-
 \begin{prop}
 {\color{red} Ext on direct sum + depth < dim}
 Let $R$ be a local ring with depth of $R$ equaling it's Krull-dimension (we call such a ring a Cohen Macaulay ring). If $M$ is an MCM $R$-module, and $N$ is a direct summand of $M$ then $N$ is also MCM.
@@ -879,7 +795,7 @@ We write $M$ as $N \oplus X$. Since $M$ is MCM we have that $0 = \Ext^i_R(M) = \
 \end{proof}
 \end{prop}
 
-In this section we will use the fact that $S$ and $R$ have the same krull dimension. This can be shown in general using some tools from algebraic geometry, but in the special case when $G$ is a finite subgroup of $SL_2(\C)$ we have that $R = \C \llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. Therefore $R$ has dimension 2, just like $S$. The proof of this uses the fact that up to a change of basis there are only five families of finite subgroups of $SL_2(\C)$, a survey of which can be found in [\href{https://staff.fnwi.uva.nl/r.r.j.bocklandt/notes/kleinian.pdf}{kleinian}] and [Carrasco project]. Here I will simply list the groups and the formulas for $R$.
+In this section we will use the fact that $S$ and $R$ have the same krull dimension. This can be shown in general using some tools from algebraic geometry, but in the special case when $G$ is a finite subgroup of $SL_2(\C)$ we have that $R = \C \llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. Therefore $R$ has dimension 2, just like $S$. The proof of this uses the fact that up to a change of basis there are only five families of finite subgroups of $SL_2(\C)$, a survey of which can be found in [\href{https://staff.fnwi.uva.nl/r.r.j.bocklandt/notes/kleinian.pdf}{kleinian}] and [\href{https://homepages.warwick.ac.uk/~masda/McKay/Carrasco_Project.pdf}{Carrasco project}]. Here I will simply list the groups and the formulas for $R$.
 
 \begin{center}
 {\renewcommand{\arraystretch}{1.6}
@@ -963,7 +879,7 @@ $BI_{120}$ & $ \begin{pmatrix}
 
 \begin{lemma}
 \label{lem:depth_of_S_less_than_R}
-If $S$ is a local ring, $G$ a finite subgroup of $\Aut(S)$, and $R=S^G$ is the fixed ring, then $depth_SS \leq depth_RR$.
+If $S$ is a local ring, $G$ a finite subgroup of $\Aut(S)$, and $R=S^G$ is the fixed ring, then $\depth_SS \leq \depth_RR$.
 \begin{proof}
 {\color{red} Exercise 5.30 page 78, I have to remember how we did this.}
 \end{proof}
@@ -972,9 +888,9 @@ If $S$ is a local ring, $G$ a finite subgroup of $\Aut(S)$, and $R=S^G$ is the f
 \begin{theorem}
 Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then $S$ is an MCM $R$-module.
 \begin{proof}
-Since $S$ is the complex power series ring in two variables we have that $dim S = depth_SS=2$. By \cref{lem:depth_of_S_less_than_R} we have that $depth_SS \leq depth_RR$. Since $R \subset S$, any $R$-regular sequence on $R$ is also an $S$-regular sequence. Therefore we have that $depth_RR \leq depth_SR$. Since the depth of a module never exceeds the krull dimension of the ring we have that $depth_SR \leq dim S$. Lastly we have seen that $dim R = dim S$. Chaining this all together we get
+Since $S$ is the complex power series ring in two variables we have that $\dim S = \depth_SS=2$. By \cref{lem:depth_of_S_less_than_R} we have that $\depth_SS \leq \depth_RR$. Since $R \subset S$, any $R$-regular sequence on $R$ is also an $S$-regular sequence. Therefore we have that $\depth_RR \leq \depth_SR$. Since the depth of a module never exceeds the krull dimension of the ring we have that $\depth_SR \leq \dim S$. Lastly we have seen that $\dim R = \dim S$. Chaining this all together we get
 \begin{align*}
-dim R = dim S = depth_SS \leq depth_RR \leq depth_SR \leq dim S
+\dim R = \dim S = \depth_SS \leq \depth_RR \leq \depth_SR \leq \dim S
 \end{align*}
 and thus $R$ is CM, but why is S MCM {\color{red} ????}
 \end{proof}
