@@ -120,65 +120,26 @@ Maybe just prove n=2, its simpler....
 proof by induction on n on wikipedia %https://en.wikipedia.org/wiki/Koszul_complex#Properties_of_a_Koszul_homology
 {\color{red}Maybe refferencing the proof will be better... or make an appendix on homological algebra}
 
----------------------------------
+-----------------------------
 
 \begin{theorem}
-The Koszul complex of a regular sequence is exact everywhere except in degree 0.
+We have an isomorphism of rings
+$$ e \C\llbracket x, y \rrbracket \# G e \simeq \C\llbracket x, y \rrbracket^G $$
+where $e = \frac{1}{|G|} \sum_{g \in G} g$.
+
 \begin{proof}
-The proof will be inductive on the length of the regular sequence. Let's first show that it holds when the length of the sequence is 1. Let $M$ be our module, $(x_1)$ our regular sequence, and $V = \Z x_1$. Then we get the following complex
-\begin{equation*}
-\begin{tikzcd}
-0 \arrow[r] & M \otimes_\Z \bigwedge^1 V \arrow{r}{\partial_1} & M \arrow[r] & 0
-\end{tikzcd}
-\end{equation*}
-This is isomorphic to 
-\begin{equation*}
-\begin{tikzcd}
-0 \arrow[r] & M\arrow{r}{x_1 \cdot -} & M \arrow[r] & 0
-\end{tikzcd}
-\end{equation*}
-and since multiplication by $x_1$ is injective on $M$, this is exact in degree 1. Since it is 0 in all degrees except 0 and 1, it is exact there as well. 
-
-For the inductive step we will show a relationship between regular sequences of different lengths. Let $(x_i)_{i=1}^{n}$ be a regular sequence on $M$, and let $K(s)$ be the Koszul complex of the sequnece $(x_i)_{i=1}^s$. Then there is an exact sequence of complexes
-\begin{equation*}
-\begin{tikzcd}
-0 \arrow[r] & K(s) \arrow{r}{\iota} & K(s+1) \arrow{r}{\pi} & K(s)[-1] \arrow{r} & 0
-\end{tikzcd}
-\end{equation*}
-where $K(s)[-1]$ is $K(s)$ shifted one spot to the left. The short exacts equence is given by
-\begin{equation*}
-\begin{tikzcd}
-\cdots \arrow{r}{\partial_3^s} & 
-M \otimes_\Z \bigwedge^2 V_s \arrow{r}{\partial_2^s} \arrow{d}{\iota_2} & 
-M \otimes_\Z \bigwedge^1 V_s \arrow{r}{\partial_1^s} \arrow{d}{\iota_1} & 
-M \arrow[r] \arrow[d, equal] & 0 \arrow[d]\\
-\cdots \arrow{r}{\partial_3^{s+1}} & 
-M \otimes_\Z \bigwedge^2 V_{s+1}\arrow{r}{\partial_2^{s+1}} \arrow{d}{\pi_2} & 
-M \otimes_\Z \bigwedge^1 V_{s+1} \arrow{r}{\partial_1^{s+1}} \arrow{d}{\pi_1} & 
-M \arrow[r] \arrow[d] &  0 \arrow[d]\\
-\cdots \arrow{r}{\partial_2^s} & 
-M \otimes_\Z \bigwedge^1 V_s \arrow{r}{\partial_1^s} & 
-M \arrow[r] & 0 \arrow[r] & 0
-\end{tikzcd}
-\end{equation*}
-where $\iota$ is just the inclusion and $\pi_{j+1}(m \otimes x_{i_1} \wedge \cdots \wedge x_{i_{j}} \wedge x_{s+1}) = m \otimes x_{i_1} \wedge \cdots \wedge x_{i_{j}}$, and 0 if $x_{s+1}$ does not appear in the wedge product.
-
-This short exact sequence induces a longe exact sequence on homology
-\begin{center}
-\begin{tikzcd}
-\cdots \ar[r] & H_2(K(s+1)) \ar[r] & H_1(K(s)) \ar[r] & H_1(K(s)) \ar[dlll, overlay, in=170, out=-10] \\
-H_1(K(s+1)) \ar[r] & H_0(K(s)) \ar[r] & H_0(K(s)) \ar[r] & H_0(K(s+1)) \ar[r] & 0
-\end{tikzcd}
-\end{center}
-Now we assume by induction that $K(s)$ is exact in all non-zero degrees. Then we get the following long exact sequence
-\begin{center}
-\begin{tikzcd}
-\cdots \ar[r] & H_2(K(s+1)) \ar[r] & 0 \ar[r] & 0 \ar[dlll, overlay, in=170, out=-10] \\
-H_1(K(s+1)) \ar[r] & M/I_sM \ar[r]{}{x_{s+1} \cdot -} & M/I_s \ar[r] & M/I_{s+1}M \ar[r] & 0
-\end{tikzcd}
-\end{center}
-where $I_k = \langle x_i \rangle_{i=1}^k$. Then since the sequence is exact we get that $H_i(K(s+1)) = 0$ whenever $i \geq 2$, and that $H_1(K(s+1))$ is isomorphic to the kernel of multiplication by $x_{s+1}$. Here we use the fact that the sequence is regular, which means that multiplication by $x_{s+1}$ is injective on $M/I_sM$ and therefore $H_1(K(s+1)) = 0$.
-
-Then by induction we have shown that $H_i(K(n)) = 0$ for all $i \neq 0$, or in other words that the Koszul complex is exact in all degrees except 0.
+Let $f^g$ denote the image of $f$ under the action of $g$. Then if we let $f(x,y)g$ be an element of the skew algebra, we get that $e f(x,y)g e = f(x, y)^e \cdot ege = f(x, y)^e \cdot e = e \cdot f(x, y)$. It then follows that $  e \C\llbracket x, y\rrbracket \# G e$ is isomorphic to the image of $\C\llbracket x, y \rrbracket$ under the action of $e$. Since $ge=g$ for all $g\in G$ it is clear that the image of $e$ is contained in the fixed ring. For the converse we just need to notice that the fixed ring is fixed under $e$ and thus is contained in the image.
 \end{proof}
 \end{theorem}
+
+--------------------------
+
+\begin{defin}
+Let $R$ be a {\color{red}local?} ring, $M$ an $R$-module, and $(x_i)_{i=1}^n$ an $R$-regular sequence on $M$. Let $V$ denote the free abelian group with formal generators $\{ x_i \}_{i=1}^n$. The \underline{Koszul complex} of the sequence is then defined to be
+\begin{equation*}
+\begin{tikzcd}
+0 \arrow[r] & M \otimes_\Z \bigwedge^n V \arrow[r]{}{\partial_n} & M \otimes_\Z \bigwedge^{n-1} V \arrow[r]{}{\partial_{n-1}} & \cdots \\ 
+\cdots \arrow[r]{}{\partial_2} & M \otimes_\Z \bigwedge^1 V \arrow[r]{}{\partial_1} & M \arrow[r] & 0.
+\end{tikzcd}
+\end{equation*}
+\end{defin}
