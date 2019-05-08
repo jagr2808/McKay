@@ -143,3 +143,25 @@ Let $R$ be a {\color{red}local?} ring, $M$ an $R$-module, and $(x_i)_{i=1}^n$ an
 \end{tikzcd}
 \end{equation*}
 \end{defin}
+
+----------------------------
+
+\begin{theorem}
+Let $S$ be the complex power series ring in two variables, $G$ be a finite subgroup of $GL_2(\C)$, $R = S^G$ the fixed ring of $S$ under the action of $G$, and $(S\#G)^G$ be the fixed ring of $S\#G$ under left multiplication by $G$. Then $S$ is isomorphic to $(S\#G)^G$ as $R$-modules.
+
+\begin{proof}
+To see this we will define an injective $R$-linear map from $S$ to $S\#G$ and show that it's image is $(S\#G)^G$. Let $\rho: S \to S\#G$ be given by
+\begin{align*}
+\rho(s) = \sum_{g \in G} s^g \cdot g.
+\end{align*}
+It's clear that it's injective and it is $R$-linear because $$\rho(rs) = \sum_{g \in G} r^gs^g \cdot g = r\sum_{g \in G} s^g \cdot g.$$ It should also be clear that the image is contained in $(S\#G)^G$ because
+\begin{align*}
+h \cdot \rho(s) = \sum_{g \in G} h \cdot s^g \cdot g = \sum_{g \in G} s^{hg} \cdot hg = \rho(s).
+\end{align*}
+To see that the image is all of $(S\#G)^G$ consider an arbitrary element in $(S\#G)^G$, $\psi = \sum_{g\in G} s_g \cdot g$. Since $\psi$ is fixed under left multiplication by $G$ we must have that
+\begin{align*}
+\sum_{g\in G} s_g^h \cdot hg = \sum_{g\in G} s_g \cdot g,
+\end{align*}
+in particular $s_h$ must equal $s_1^h$ and it follows that $\psi = \rho(s_1)$.
+\end{proof}
+\end{theorem}

@@ -77,6 +77,89 @@ V_3 && V_2 \arrow[<->]{ull}
 $$
 \end{example}
 
+
+In this section we will use the fact that $S$ and $R$ have the same Krull dimension. This can be shown in general using some tools from algebraic geometry, but in the special case when $G$ is a finite subgroup of $SL_2(\C)$ we have that $R = \C \llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. Therefore $R$ has dimension 2, just like $S$. The proof of this uses the fact that up to a change of basis there are only five families of finite subgroups of $SL_2(\C)$, a survey of which can be found in [\href{https://staff.fnwi.uva.nl/r.r.j.bocklandt/notes/kleinian.pdf}{kleinian}] and [\href{https://homepages.warwick.ac.uk/~masda/McKay/Carrasco_Project.pdf}{Carrasco project}]. Here I will simply list the groups and the formulas for $R$.
+
+\begin{center}
+{\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|c|c|c|}
+\hline
+McKay quiver & $G$ & $R = S^G$\\
+\hline\hline
+$A_n$ & $\mathbb{Z}/n\mathbb{Z}$ & 
+$\C \llbracket u, v, w \rrbracket/\langle uv - w^n \rangle$
+\\
+\hline
+$D_n$ & $BD_{4n}$ & 
+$\C \llbracket u, v, w \rrbracket/\langle u^{n+1} + v^2 - uw^2\rangle$
+\\
+\hline
+$E_6$ & $BT_24$ & 
+$\C \llbracket u, v, w \rrbracket/\langle u^4 + v^3 + w^2 \rangle$
+\\
+\hline
+$E_7$ & $BO_{48}$ &
+$\C \llbracket u, v, w \rrbracket/\langle u^3v + v^3 + w^2 \rangle$
+\\
+\hline
+$E_8$ & $BI_{120}$ &
+$\C \llbracket u, v, w \rrbracket/\langle u^5 + v^3 + w^2 \rangle$
+\\
+\hline
+\end{tabular}
+}
+\end{center}
+
+Below is a table of how the groups are realized in $SL_2(\C)$. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$
+
+{\renewcommand{\arraystretch}{2}
+\begin{tabular}{|c|c|}
+\hline
+$G$ & generators in $SL_2(\C)$
+\\
+\hline
+\hline
+$\mathbb{Z}/n\mathbb{Z}$ & $\begin{pmatrix}
+\exp(2\pi i/n) & 0\\
+0 & \exp(-2\pi i/n)
+\end{pmatrix} $\\
+\hline
+$BD_{4n}$ &  $ \begin{pmatrix}
+\exp(\pi i/n) & 0\\
+0 & \exp(-\pi i/n)
+\end{pmatrix}, \begin{pmatrix}
+0 & i\\
+i & 0
+\end{pmatrix} $\\
+\hline
+$BT_{24}$ & $ \begin{pmatrix}
+\frac{i+1}{2} & -\frac{i+1}{2}\\
+\frac{-i+1}{2} & \frac{-i+1}{2}
+\end{pmatrix}, \begin{pmatrix}
+\frac{i+1}{2} & \frac{i+1}{2}\\
+-\frac{-i+1}{2} & \frac{-i+1}{2}
+\end{pmatrix} $\\
+\hline
+$BO_{48}$ & $BT_{24}$, $\begin{pmatrix}
+\frac{1+i}{\sqrt{2}} & 0\\
+0 & \frac{1-i}{\sqrt{2}}
+\end{pmatrix}$\\
+\hline
+$BI_{120}$ & $ \begin{pmatrix}
+0 & 1\\
+-1 & 0
+\end{pmatrix}, \begin{pmatrix}
+\zeta^3 & 0\\
+0 & \zeta^2
+\end{pmatrix}, \frac{1}{\sqrt{5}}\begin{pmatrix}
+-\zeta + \zeta^4 & \zeta^2 - \zeta^3\\
+\zeta^2 - \zeta^3 & \zeta - \zeta^4
+\end{pmatrix}$
+\\
+\hline
+\end{tabular}
+}
+
 \section{Skew group algebra S\#G indecomposable projectives}
 This section is largely based on the book by \cite{CMR}. This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - homological algebra. Since I do not assume knowledge of this I have created appendix \ref{appendix}. I will try to use footnotes to indicate where such theorems are used.
 
@@ -275,7 +358,7 @@ If $R$ is a commutative ring and $M$ is an $R$-module, an \underline{$R$-regular
 \end{defin}
 
 \begin{prop}
-For a module over a local ring the depth of the module equals the lenth of the longest regular sequence on that module.
+For a module over a local ring all maximal regular sequences have the same length. That length is the depth of the module.
 \begin{proof}
 {\color{red} reffrence}
 \end{proof}
@@ -636,6 +719,7 @@ Since $\depth N_\mathfrak{p} \geq 1$ and $\depth M_\mathfrak{p} \geq 2$ we have 
 \end{lemma}
 
 \begin{theorem}
+\label{thm:skew_group_algerba_equals_endomorphsim_ring}
 Let $S = \C \llbracket x, y \rrbracket$ be the complex power series ring in two variables, let $G$ be  a fintie subgroup of $SL_2(\C)$ acting on $S$, and let $R = S^G$ be the fixed ring. Then the map
 \begin{center}
 \begin{tikzcd}
@@ -697,26 +781,6 @@ From here we just need to wrap everything together. Since $G$ does not contain a
 \end{proof}
 \end{theorem}
 
-\begin{theorem}
-Let $S$ be the complex power series ring in two variables, $G$ be a finite subgroup of $GL_2(\C)$, $R = S^G$ the fixed ring of $S$ under the action of $G$, and $(S\#G)^G$ be the fixed ring of $S\#G$ under left multiplication by $G$. Then $S$ is isomorphic to $(S\#G)^G$ as $R$-modules.
-
-\begin{proof}
-To see this we will define an injective $R$-linear map from $S$ to $S\#G$ and show that it's image is $(S\#G)^G$. Let $\rho: S \to S\#G$ be given by
-\begin{align*}
-\rho(s) = \sum_{g \in G} s^g \cdot g.
-\end{align*}
-It's clear that it's injective and it is $R$-linear because $$\rho(rs) = \sum_{g \in G} r^gs^g \cdot g = r\sum_{g \in G} s^g \cdot g.$$ It should also be clear that the image is contained in $(S\#G)^G$ because
-\begin{align*}
-h \cdot \rho(s) = \sum_{g \in G} h \cdot s^g \cdot g = \sum_{g \in G} s^{hg} \cdot hg = \rho(s).
-\end{align*}
-To see that the image is all of $(S\#G)^G$ consider an arbitrary element in $(S\#G)^G$, $\psi = \sum_{g\in G} s_g \cdot g$. Since $\psi$ is fixed under left multiplication by $G$ we must have that
-\begin{align*}
-\sum_{g\in G} s_g^h \cdot hg = \sum_{g\in G} s_g \cdot g,
-\end{align*}
-in particular $s_h$ must equal $s_1^h$ and it follows that $\psi = \rho(s_1)$.
-\end{proof}
-\end{theorem}
-
 \section{Maximal Cohen-Macaulay modules of $S^G$}
 \iffalse
 \begin{defin}
@@ -745,10 +809,10 @@ If $R$ is a ring, we say that $\mathfrak{p}$ is  a \underline{prime ideal} in $R
 \fi
 
 \begin{defin}
-If $R$ is a ring we define its \underline{Krull-dimension} to be the maximum length of a chain of prime ideals in $R$. 
+If $R$ is a ring we define its \underline{Krull dimension} to be the maximum length of a chain of prime ideals in $R$. 
 \end{defin}
 \begin{example}
-For example the polynomial ring $\C[x_1, \cdots, x_n]$ has Krull-dimension $n$ given by the chain
+For example the power series ring $\C\llbracket x_1, \cdots, x_n \rrbracket$ has Krull dimension $n$ given by the chain
 \begin{equation*}
 \begin{tikzcd}
 0 \subseteq \langle x_1 \rangle \subseteq \langle x_1, x_2 \rangle \subseteq \cdots \subseteq \langle x_1, \cdots, x_n \rangle
@@ -757,7 +821,7 @@ For example the polynomial ring $\C[x_1, \cdots, x_n]$ has Krull-dimension $n$ g
 \end{example}
 
 \begin{defin}
-If $M$ is a module over a local ring $R$ with Krull-dimension $d$ we say that $M$ is \underline{maximal Cohen Macaulay (MCM)} if the depth of $M$ equals $d$.
+If $M$ is a module over a local ring $R$ with Krull dimension $d$ we say that $M$ is \underline{maximal Cohen Macaulay (MCM)} if the depth of $M$ equals $d$. If a ring is MCM as a module over itself we say that it's a \underline{Cohen Macaulay ring (CM)}. Note that the ring must be CM for it to have any MCM modules. 
 \end{defin}
 
 \begin{theorem}
@@ -775,113 +839,55 @@ so $\pi$ splits the inclusion $R \hookrightarrow S$ which shows that $R$ is a di
 \end{proof}
 \end{theorem}
 
+Since we are interested in the MCM modules that appear as $R$-direct summands of $S$, it is nice to see that $R$ itself is such a module.
+
 \begin{prop}
-Let $R$ be a local ring with depth of $R$ equaling it's Krull-dimension (we call such a ring a Cohen Macaulay ring). If $M$ is an MCM $R$-module, and $N$ is a direct summand of $M$ then $N$ is also MCM.
+\label{prop:direct_summand_MCM}
+Let $R$ be a local ring with depth of $R$ equaling it's Krull dimension, that is $R$ is CM. If $M$ is an MCM $R$-module, and $N$ is a direct summand of $M$ then $N$ is also MCM.
 \begin{proof}
-We write $M$ as $N \oplus X$. Since $M$ is MCM we have that $0 = \Ext^i_R(M) = \Ext^i_R(N) \oplus \Ext^i_R(X)$ for all $i$ less than the Krull-dimension of $R$. This means the depth of $N$ is greater than or equal to the Krull-dimension of $R$. Since the depth of a module cannot exceed the krull-dimension of the ring {\color{red} refference} we have that $N$ is MCM.
+We write $M$ as $N \oplus X$. Since $M$ is MCM we have that $0 = \Ext^i_R(M) = \Ext^i_R(N) \oplus \Ext^i_R(X)$ for all $i$ less than the Krull dimension of $R$. This means the depth of $N$ is greater than or equal to the Krull dimension of $R$. Since the depth of a module cannot exceed the Krull dimension of the ring {\color{red} refference} we have that $N$ is MCM.
 \end{proof}
 \end{prop}
 
-In this section we will use the fact that $S$ and $R$ have the same krull dimension. This can be shown in general using some tools from algebraic geometry, but in the special case when $G$ is a finite subgroup of $SL_2(\C)$ we have that $R = \C \llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. Therefore $R$ has dimension 2, just like $S$. The proof of this uses the fact that up to a change of basis there are only five families of finite subgroups of $SL_2(\C)$, a survey of which can be found in [\href{https://staff.fnwi.uva.nl/r.r.j.bocklandt/notes/kleinian.pdf}{kleinian}] and [\href{https://homepages.warwick.ac.uk/~masda/McKay/Carrasco_Project.pdf}{Carrasco project}]. Here I will simply list the groups and the formulas for $R$.
-
-\begin{center}
-{\renewcommand{\arraystretch}{1.6}
-\begin{tabular}{|c|c|c|}
-\hline
-McKay quiver & $G$ & $R = S^G$\\
-\hline\hline
-$A_n$ & $\mathbb{Z}/n\mathbb{Z}$ & 
-$\C \llbracket u, v, w \rrbracket/\langle uv - w^n \rangle$
-\\
-\hline
-$D_n$ & $BD_{4n}$ & 
-$\C \llbracket u, v, w \rrbracket/\langle u^{n+1} + v^2 - uw^2\rangle$
-\\
-\hline
-$E_6$ & $BT_24$ & 
-$\C \llbracket u, v, w \rrbracket/\langle u^4 + v^3 + w^2 \rangle$
-\\
-\hline
-$E_7$ & $BO_{48}$ &
-$\C \llbracket u, v, w \rrbracket/\langle u^3v + v^3 + w^2 \rangle$
-\\
-\hline
-$E_8$ & $BI_{120}$ &
-$\C \llbracket u, v, w \rrbracket/\langle u^5 + v^3 + w^2 \rangle$
-\\
-\hline
-\end{tabular}
-}
-\end{center}
-
-Below is a table of how the groups are realized in $SL_2(\C)$. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$
-
-{\renewcommand{\arraystretch}{2}
-\begin{tabular}{|c|c|}
-\hline
-$G$ & generators in $SL_2(\C)$
-\\
-\hline
-\hline
-$\mathbb{Z}/n\mathbb{Z}$ & $\begin{pmatrix}
-\exp(2\pi i/n) & 0\\
-0 & \exp(-2\pi i/n)
-\end{pmatrix} $\\
-\hline
-$BD_{4n}$ &  $ \begin{pmatrix}
-\exp(\pi i/n) & 0\\
-0 & \exp(-\pi i/n)
-\end{pmatrix}, \begin{pmatrix}
-0 & i\\
-i & 0
-\end{pmatrix} $\\
-\hline
-$BT_{24}$ & $ \begin{pmatrix}
-\frac{i+1}{2} & -\frac{i+1}{2}\\
-\frac{-i+1}{2} & \frac{-i+1}{2}
-\end{pmatrix}, \begin{pmatrix}
-\frac{i+1}{2} & \frac{i+1}{2}\\
--\frac{-i+1}{2} & \frac{-i+1}{2}
-\end{pmatrix} $\\
-\hline
-$BO_{48}$ & $BT_{24}$, $\begin{pmatrix}
-\frac{1+i}{\sqrt{2}} & 0\\
-0 & \frac{1-i}{\sqrt{2}}
-\end{pmatrix}$\\
-\hline
-$BI_{120}$ & $ \begin{pmatrix}
-0 & 1\\
--1 & 0
-\end{pmatrix}, \begin{pmatrix}
-\zeta^3 & 0\\
-0 & \zeta^2
-\end{pmatrix}, \frac{1}{\sqrt{5}}\begin{pmatrix}
--\zeta + \zeta^4 & \zeta^2 - \zeta^3\\
-\zeta^2 - \zeta^3 & \zeta - \zeta^4
-\end{pmatrix}$
-\\
-\hline
-\end{tabular}
-}
-
 \begin{lemma}
 \label{lem:depth_of_S_less_than_R}
-If $S$ is a local ring, $G$ a finite subgroup of $\Aut(S)$, and $R=S^G$ is the fixed ring, then $\depth_SS \leq \depth_RR$.
+If $S$ is a commutative local ring with finite depth, $G$ a finite subgroup of $\Aut(S)$, and $R=S^G$ is the fixed ring, then $\depth_SS \leq \depth_RR$, and $\depth_SS = \depth_RS$.
 \begin{proof}
-{\color{red} Exercise 5.30 page 78, I have to remember how we did this.}
+Let $N(s) = \prod_{g\in G} s^g$ be a map from $S$ to $S$. Note that for any $s \in S$ we have that $N(s) \in R$. Further if $s$ is a non-unit and not a zero divisor, then $N(s)$ will also be a non-unit and not a zero divisor. Another property of $N(s)$ we will use is that $\left(S/N(s)S\right)^G = R/N(s)R$ whenever $N(s)$ is a not a zero divisor. To see this note that since $(N(s)S)^G \subset N(s)S$, we have that $(s + N(s)S)^g = s^g + N(s)S$, and thus $\left(S/N(s)S\right)^G = S/\left(N(s)S \cap R \right)$. Then what's left to show is that $N(s)S \cap R = N(s)R$. Assume $N(s)t$ is in $N(s)S\cap R$. Then $(N(s)t)^g = N(s)t$ for all $g \in G$. Since $N(s)$ is in $R$ we have that $(N(s)t)^g = N(s)t^g$. Now using the fact that $N(s)$ is not a zero divisor we get that $t^g = t$ for all $g \in G$, which means that $t$ is in $R$. Now the rest of the proof will be induction on $\depth_SS$.
+
+For the base case let $\depth_SS = 0$. Since depth is alwasy bigger than or equal to 0 we have that $\depth_SS \leq \depth_RR$. Also since $\depth_RS \leq \depth_SS$ we have that $\depth_SS = \depth_RS=0$.
+
+Assume the statement holds whenever $\depth_SS < n$. Then we want to show that it holds when $\depth_SS = n$. Since the $\depth_SS > 0$ there exists a non-unit which is not a zero divisor $s \in S$. Then $N(s)$ is also a non-unit and not a zero divisor. This means $N(s)$ is the first element of some maximal regular sequence on $S$. Since all maximal regular sequences on $S$ has the same length this means that $\depth_S S/N(S)S = \depth_SS -1$. Further since $N(s)$ is in $R$ the same argument gives that $\depth_R S/N(s)S = \depth_RS -1$. Since every element in $N(s)S$ annihilates $S/N(s)S$ we can consider $S$-regular sequecnes on $S/N(s)S$ as $S/N(s)$-regular sequences and vice versa. Thus $\depth_S S/N(s)S = \depth_{S/N(s)S} S/N(s)S$. Using that $\left( S/N(s)S \right)^G = R/N(s)R$, the same argument gives that $\depth_R S/N(s)S = \depth_{R/N(s)R} S/N(s)S$. Now we apply the induction hypothesis. Sicne $S/N(s)S$ is a local ring with depth less than $n$ we have that $\depth_{S/N(s)S} S/N(s)S \leq \depth_{R/N(s)R} R/N(s)R$ and that $\depth_{S/N(s)S} S/N(s)S = \depth_{R/N(s)R} S/N(s)S$. This means that $\depth_S S -1 \leq \depth_RR -1$ and that $\depth_S S - 1 = \depth_R S -1$. Thus we can conclude that $\depth_SS \leq \depth_RR$ and $\depth_SS = \depth_RS$. By induction the statement holds for all $n$.
 \end{proof}
 \end{lemma}
 
+Now that we have shown a general relationship between the depths of local rings fixed under group actions we can apply it to our special case of $S = \C\llbracket x, y \rrbracket$ and $G$ being in $SL_2(\C)$.
+
 \begin{theorem}
-Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then $S$ is an MCM $R$-module.
+\label{thm:S_MCM}
+Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then $R$ is a CM and $S$ is an MCM $R$-module.
 \begin{proof}
-Since $S$ is the complex power series ring in two variables we have that $\dim S = \depth_SS=2$. By \cref{lem:depth_of_S_less_than_R} we have that $\depth_SS \leq \depth_RR$. Since $R \subset S$, any $R$-regular sequence on $R$ is also an $S$-regular sequence. Therefore we have that $\depth_RR \leq \depth_SR$. Since the depth of a module never exceeds the krull dimension of the ring we have that $\depth_SR \leq \dim S$. Lastly we have seen that $\dim R = \dim S$. Chaining this all together we get
+Since $S$ is the complex power series ring in two variables we have that $\dim S = \depth_SS=2$. By \cref{lem:depth_of_S_less_than_R} we have that $\depth_SS \leq \depth_RR$. Since the depth of a module never exceeds the Krull dimension of the ring {\color{red}refference} we have that $\depth_SR \leq \dim S$. Lastly we saw in the first section that $R$ always equals $\C\llbracket u, v, w \rrbracket/\langle f \rangle$ for an irreducible polynomial $f$. Thus we have that $\dim R = 2 = \dim S$. Putting this together we get
 \begin{align*}
-\dim R = \dim S = \depth_SS \leq \depth_RR \leq \depth_SR \leq \dim S
+\dim R = \dim S = \depth_SS \leq \depth_RR \leq \dim_R
 \end{align*}
-and thus $R$ is CM, but why is S MCM {\color{red} ????}
+and thus $dim R = \depth_RR$, which means $R$ is CM. \cref{lem:depth_of_S_less_than_R} also gives us that $\depth_SS = \depth_RS$, which means that $\depth_RS = \dim S = \dim R$, so $S$ is MCM.
 \end{proof}
 \end{theorem}
+
+Note that \cref{prop:direct_summand_MCM} gives that all the $R$-direct summands of $S$ are MCM $R$-modules. This holds true if we let $G$ be any finite subgroup of $GL_n(\C)$ which does not contain pseudoreflections. An interesting fact that I will not prove here is that when $G$ is a finite subgroup of $SL_2(\C)$ the converse holds. That is, all MCM $R$-modules can be written as the sum of $R$-direct summands of $S$.
+
+\begin{theorem}
+Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then there is a one-to-one correspondance between the finitely generated indecomposable projective $S\#G$-modules and the indecomposable MCM $R$-modules appearing as $R$-direct summands of $S$.
+
+\begin{proof}
+Let $\mathfrak{m}$ denote the maximal ideal of $S$. We saw in \cref{thm:indec_proj_SG=indec_CG} that theres a one-to-one correspondance between the finitely generated projective $S\#G$-modules and the finitely generated $\C G$-modules. In particular we get that $\S\#G \cong S \otimes_\C S\#G/\mathfrak{m}S\#G$. Since $S\#G/\mathfrak{m}S\#G \cong \C G$ and all indecomposable $\C G$ modules appear as a direct summand of $\C G$ we have that all finitely generated projectvie $S\#G$-modules appear as a direct summand of $S\#G$. The direct summands of $S\#G$ are exactly the primitive idempotents of $\End_{S\#G}(S\#G) \cong S\#G^{op}$. Since $S\#G$ is ismorphic to $S\#G^{op}$ by the isomorphism $(s\cdot g \mapsto s^{g^{-1}} \cdot g^{-1})$, we have that the finitely generated project $S\#G$-modules correspond to primitive idempotents of $S\#G$.
+
+In \cref{thm:skew_group_algerba_equals_endomorphsim_ring} we showed that $S\#G \cong \End_R(S)$. Thus the primitive idempotents of $S\#G$ corresponds to the primitve idempotents of $\End_R(S)$ which are exactly the projections onto the indecomposable $R$-direct summands of $S$. Thus the finitely generated indecomposable projective $S\#G$-modules are in one-to-one correpsondance with the indecomposable $R$-direct summands of $S$. Since we showed in \cref{thm:S_MCM} that $S$ is MCM it follows from \cref{prop:direct_summand_MCM} that the direct summands of $S$ also are MCM.
+\end{proof}
+\end{theorem}
+
+This last theorem concludes the part of the McKay correspondance that I will prove in this thesis. Another interesting part of the thesis I have not shown is that the Auslander-Reiten quiver of the indecomposable MCM modules appearing as an $R$-direct summand of $S$ is isomorphic to the Gabriel quiver. If the reader is interested they can read further in {\color{red} refferences and further readings}.
 
 \begin{appendices}
 \section{Representation theory}
@@ -994,6 +1000,32 @@ If $M$ and $N$ are modules then the $i$th extension group, $\Ext^i(M, N)$, is co
 \item Now $\Ext^i(M, N)$ is the homology at position $-i$, that is $\Ext^i(M,N) = \Ker (- \circ \partial_{i}) / \Image (- \circ \partial_{i-1})$.
 \end{itemize}
 \end{defin}
+
+Note that the defintion of $\Ext^i(M, N)$ is independent of choice of projective resolution. An important property of $\Ext$ that is used in this thesis is the long exact sequence in $\Ext$-groups.
+
+\begin{theorem}
+For any module $M$ and short exact sequence of modules:
+\begin{center}
+\begin{tikzcd}
+0 \ar[r] & A \ar[r] & B \ar[r] & C \ar[r] & 0
+\end{tikzcd}
+\end{center}
+there are long exact sequences:
+\begin{center}
+\begin{tikzcd}
+0 \ar[r] & \Hom(M, A) \ar[r] & \Hom(M, B) \ar[r] & \Hom(M, C) \ar[llld, overlay, out=-10, in=170] \\
+\Ext^1(M, A) \ar[r] & \Ext^1(M, B) \ar[r] &\Ext^1(M, C) \ar[r] & \Ext^2(M, A) \ar[r] & \cdots
+\end{tikzcd}
+\end{center}
+and
+\begin{center}
+\begin{tikzcd}
+0 \ar[r, <-] & \Hom(A, M) \ar[r, <-] & \Hom(B, M) \ar[r, <-] & \Hom(C, M) \ar[llld, <-, overlay, out=-10, in=170] \\
+\Ext^1(A, M) \ar[r, <-] & \Ext^1(B, M) \ar[r, <-] &\Ext^1(C, M) \ar[r, <-] & \Ext^2(A, M) \ar[r, <-] & \cdots
+\end{tikzcd}
+\end{center}
+\end{theorem}
+
 \end{appendices}
 
 \section{Disposisjon}
