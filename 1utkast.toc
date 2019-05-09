@@ -1,9 +1,8 @@
 \select@language {english}
-\contentsline {section}{\numberline {1}The McKay quiver}{2}{section.1}
-\contentsline {section}{\numberline {2}Skew group algebra S\#G indecomposable projectives}{4}{section.2}
-\contentsline {subsection}{\numberline {2.1}The Gabriel quiver}{7}{subsection.2.1}
-\contentsline {section}{\numberline {3}The endomorphism ring of $S$ as an $S^G$-module}{9}{section.3}
-\contentsline {section}{\numberline {4}Maximal Cohen-Macaulay modules of $S^G$}{20}{section.4}
-\contentsline {section}{Appendices}{23}{section*.3}
-\contentsline {section}{\numberline {A}Representation theory}{23}{Appendix.1.A}
-\contentsline {section}{\numberline {5}Disposisjon}{26}{section.5}
+\contentsline {section}{\numberline {1}The McKay quiver}{3}{section.1}
+\contentsline {section}{\numberline {2}Skew group algebra S\#G indecomposable projectives}{6}{section.2}
+\contentsline {subsection}{\numberline {2.1}The Gabriel quiver}{9}{subsection.2.1}
+\contentsline {section}{\numberline {3}The endomorphism ring of $S$ as an $S^G$-module}{11}{section.3}
+\contentsline {section}{\numberline {4}Maximal Cohen-Macaulay modules of $S^G$}{24}{section.4}
+\contentsline {section}{Appendices}{28}{section*.3}
+\contentsline {section}{\numberline {A}Representation theory}{28}{Appendix.1.A}

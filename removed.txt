@@ -165,3 +165,11 @@ To see that the image is all of $(S\#G)^G$ consider an arbitrary element in $(S\
 in particular $s_h$ must equal $s_1^h$ and it follows that $\psi = \rho(s_1)$.
 \end{proof}
 \end{theorem}
+
+----------------------------
+
+A general statement the theorem would have $G$ be a finite subgroup of $GL_n(k)$, where $k$ is a field and $|G|$ is relatievly prime to the characteristic of $k$. Then $S$ would denote either the polynomial ring $k[x_1, \cdots, x_n]$ or the power series ring $k\llbracket x_1, \cdots, x_n \rrbracket$, and we let $G$ act on $S$ by linear change of variables. 
+
+The theorem establishes a correspondance between three quivers: the McKay quiver of irreducable $G$-representations, the Gabriel quiver of indecomposable finitely generated projective $S\#G$-modules, and the Auslander-Reiten quiver of MCM $R$-modules appearing as direct summands of $S$. It also establishes an isomorphism of rings between $S\#G$ and $\End_R(S)$, which in turns means the Gabriel quiver of $\End_R(S)$ could be made part of the correspondance. We will not focus anything on the AR
+
+The correspondence is between three quivers: the McKay quiver of irreducable $G$-representations, the Gabriel quiver of indecomposable finitely generated projective $S\#G$-modules, and the Auslander-Reiten quiver of MCM $R$-modules. We will not cover the AR quiver in this thesis, but more information on it can be found {\color{red} refference}. Another important part of the correspondence is the ring isomorphism between $S\#G$ and $\End_R(S)$. We will see that this takes significant use of rammification theory, commutative algebra and galois theory.

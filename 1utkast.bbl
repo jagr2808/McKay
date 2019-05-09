@@ -1,25 +1,97 @@
-\begin{thebibliography}{}
+\def\cprime{$'$}
+\begin{thebibliography}{{Sta}19}
 
-\bibitem[Iyama and Takahashi, 2013]{IyTa}
-Iyama, O. and Takahashi, R. (2013).
+\bibitem[AG60]{AG60}
+Maurice Auslander and Oscar Goldman.
+\newblock The {B}rauer group of a commutative ring.
+\newblock {\em Trans. Amer. Math. Soc.}, 97:367--409, 1960.
+
+\bibitem[AR89]{AR89}
+Maurice Auslander and Idun Reiten.
+\newblock The {C}ohen-{M}acaulay type of {C}ohen-{M}acaulay rings.
+\newblock {\em Adv. in Math.}, 73(1):1--23, 1989.
+
+\bibitem[Art66]{Art66}
+Michael Artin.
+\newblock On isolated rational singularities of surfaces.
+\newblock {\em Amer. J. Math.}, 88:129--136, 1966.
+
+\bibitem[Aus62]{Aus62}
+Maurice Auslander.
+\newblock On the purity of the branch locus.
+\newblock {\em Amer. J. Math.}, 84:116--125, 1962.
+
+\bibitem[Aus86]{Aus86}
+Maurice Auslander.
+\newblock Rational singularities and almost split sequences.
+\newblock {\em Trans. Amer. Math. Soc.}, 293(2):511--531, 1986.
+
+\bibitem[AV85]{AV85}
+Michael Artin and Jean-Louis Verdier.
+\newblock Reflexive modules over rational double points.
+\newblock {\em Math. Ann.}, 270(1):79--82, 1985.
+
+\bibitem[Boc]{kleinian}
+Raf Bocklandt.
+\newblock Kleinian singularities.
+\newblock \url{https://staff.fnwi.uva.nl/r.r.j.bocklandt/notes/kleinian.pdf},
+  ????
+
+\bibitem[CS14]{Carrasco}
+Javier Carrasco~Serrano.
+\newblock Finite subgroups of {$SL(2, \mathbb{C})$} and {$SL(3, \mathbb{C})$}.
+\newblock
+  \url{http://homepages.warwick.ac.uk/~masda/McKay/Carrasco_Project.pdf}, 2014.
+
+\bibitem[DV34]{DuV34}
+Patrick Du~Val.
+\newblock On isolated singularities of surfaces which do not affect the
+  conditions of adjunction.
+\newblock {\em Mathematical Proceedings of the Cambridge Philosophical
+  Society}, 30(4):453–459, 1934.
+
+\bibitem[EK85]{EK85}
+H{\'e}l{\`e}ne Esnault and Horst Kn{\"o}rrer.
+\newblock Reflexive modules over rational double points.
+\newblock {\em Math. Ann.}, 272(4):545--548, 1985.
+
+\bibitem[GSV81]{GSV81}
+Gerardo Gonz{\'a}lez-Sprinberg and Jean-Louis Verdier.
+\newblock Points doubles rationnels et repr\'esentations de groupes.
+\newblock {\em C. R. Acad. Sci. Paris S\'er. I Math.}, 293(2):111--113, 1981.
+
+\bibitem[Her78]{Her78}
+J\"{u}rgen Herzog.
+\newblock Ringe mit nur endlich vielen {I}somorphieklassen von maximalen,
+  unzerlegbaren {C}ohen-{M}acaulay-{M}oduln.
+\newblock {\em Math. Ann.}, 233(1):21--34, 1978.
+
+\bibitem[IT13]{IyTa}
+Osamu Iyama and Ryo Takahashi.
 \newblock Tilting and cluster tilting for quotient singularities.
-\newblock {\em Math. Ann.}, 356(3):1065--1105.
+\newblock {\em Math. Ann.}, 356(3):1065--1105, 2013.
 
-\bibitem[James and Liebeck, 2001]{RCG}
-James, G. and Liebeck, M. (2001).
-\newblock {\em Representations and characters of groups}.
-\newblock Cambridge University Press, New York, second edition.
+\bibitem[Kle84]{Kle84}
+Felix Klein.
+\newblock {\em Vorlesungen \"uber das Ikosaeder und die Aufl\"osung der
+  Gleichungen vom f\"unften Grade}.
+\newblock Leipzig B.G. Teubner, 1884.
 
-\bibitem[Leuschke and Wiegand, 2012]{CMR}
-Leuschke, G.~J. and Wiegand, R. (2012).
+\bibitem[LW12]{CMR}
+Graham~J. Leuschke and Roger Wiegand.
 \newblock {\em Cohen-{M}acaulay representations}, volume 181 of {\em
   Mathematical Surveys and Monographs}.
-\newblock American Mathematical Society, Providence, RI.
+\newblock American Mathematical Society, Providence, RI, 2012.
 
-\bibitem[Serre, 1979]{Serre}
-Serre, J.-P. (1979).
-\newblock {\em Local fields}, volume~67 of {\em Graduate Texts in Mathematics}.
-\newblock Springer-Verlag, New York-Berlin.
-\newblock Translated from the French by Marvin Jay Greenberg.
+\bibitem[McK83]{Mck83}
+John McKay.
+\newblock Graphs, singularities and finite groups.
+\newblock {\em Uspekhi Mat. Nauk}, 38(3(231)):159--162, 1983.
+\newblock Translated from the English by S. A. Syskin.
+
+\bibitem[{Sta}19]{stacks-project}
+The {Stacks project authors}.
+\newblock The stacks project.
+\newblock \url{https://stacks.math.columbia.edu}, 2019.
 
 \end{thebibliography}
