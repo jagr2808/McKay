@@ -81,6 +81,8 @@ The strategy for the proof in this thesis can be divided into 4 parts:
 \end{itemize}
 Something that is ommited from my thesis is the definition of the Auslander-Reiten quiver for the $R$-direct summands of $S$ and why it is isomorphic to the Gabriel quiver of $S\#G$. The interested reader may look in {\color{red} refference} for further reading.
 
+{\color{red} Should I make a distinction between CM modules and MCM modules}
+
 \section{The McKay quiver}
 For a given group, $G$, and a representation of that group the McKay quiver uses that representation to establish relations between the irreducible representations of $G$. In the special case that $G$ is a linear group we have a natural choice of representation to use. This leads us to define the McKay quiver as below.
 \begin{defin}
@@ -101,7 +103,7 @@ V_3 && V_2 \arrow[<->]{ull}
 $$
 \end{example}
 
-One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the Dynkin diagrams. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here I will simply list them in a table. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$.
+One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the Dynkin diagrams. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here we will simply list them in a table. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$.
 
 {\renewcommand{\arraystretch}{2}
 \begin{tabular}{|c|c|}
@@ -151,7 +153,7 @@ $BI_{120}$ & $ \begin{pmatrix}
 \end{tabular}
 }
 
-The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below I will list the groups, their fixed ring, and the Dynkin diagram that is their McKay quiver.
+The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below we will list the groups, their fixed ring, and the Dynkin diagram that is their McKay quiver.
 
 \begin{center}
 {\renewcommand{\arraystretch}{1.6}
@@ -183,7 +185,7 @@ $\C \llbracket u, v, w \rrbracket/\langle u^5 + v^3 + w^2 \rangle$
 }
 \end{center}
 
-Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the finite subgroups of $SO(3)$, they can be associated symmetry groups of solids. Below I have included some nice illustrations.
+Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the finite subgroups of $SO(3)$, they can be associated symmetry groups of solids. Below we have included some nice illustrations.
 
 \tdplotsetmaincoords{70}{0}
 \begin{tikzpicture}[tdplot_main_coords]
@@ -314,7 +316,7 @@ Only-ifity follows from $S\#G$ being a free $S$-module, it is isomorphic to $\bi
 First we need to see that an $S\#G$-linear map is just an $S$-linear map, $f: M \to N$ between $S\#G$-modules, such that $f(g(m))=g(f(m))$ for all $g \in G$ and all $m \in M$. Equivalently $f(m) = g(f(g^{-1}(m)))$. This allows us to define a group action on $S$-linear maps by $f^g(m) = g(f(g^{-1}(m)))$. Then we just need to show $$ \Hom_{S\#G}(M,N) = \Hom_S(M,N)^G.$$
 Clearly if $f$ is $S\#G$-linear then it's in $\Hom_S(M,N)^G$. To see the other inclusion, let $f$ be an $S$-linear map that is fixed under $G$. Then $f(s\cdot g m) = s f(g m) = s\cdot g(f(g^{-1} g m)) = s \cdot g f(m) $, and hence $f$ is $S\#G$-linear.
 
-Nextly I want to show that $-^G$ is an exact functor\footnote{The definition of an exact functor can be found in \cref{def:exact_functor} on page \pageref{def:exact_functor}.}. If $K$ is the kernel of a map $f: M \to N$, then the kernel of the induced map $f^G : M^G \to N^G$ is of course just $K \cap M^G$ which equals $K^G$. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$.
+Nextly we want to show that $-^G$ is an exact functor\footnote{The definition of an exact functor can be found in \cref{def:exact_functor} on page \pageref{def:exact_functor}.}. If $K$ is the kernel of a map $f: M \to N$, then the kernel of the induced map $f^G : M^G \to N^G$ is of course just $K \cap M^G$ which equals $K^G$. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$.
 
 Recall that a module being projective is equivalent to its covariant $\Hom$-functor being exact. So if $P$ is projective as an $S$-module then $\Hom_S(P, -)$ is exact. Using our above result we get $\Hom_S(P, -)^G = \Hom_{S\#G}(P, -)$ is exact and our lemma follows.
 \end{proof}
@@ -549,7 +551,7 @@ Note that for any polynomial expression $f(b)$ we have that $df(b) = f'(b)db$ wh
 Let $A \to B$ be an unramified extension of local rings. Then $\Omega_{B|A}$ is $0$.
 
 \begin{proof}
-Keeping with the notation above we let $\mathfrak{n}$ be the maximal ideal of $A$ and $\mathfrak{m}$ the maximal ideal of $B$. Furthermore let $l$ denote $B/\mathfrak{m}$ and $k$ denote $A/\mathfrak{n}$. Then I claim there is an exact sequence
+Keeping with the notation above we let $\mathfrak{n}$ be the maximal ideal of $A$ and $\mathfrak{m}$ the maximal ideal of $B$. Furthermore let $l$ denote $B/\mathfrak{m}$ and $k$ denote $A/\mathfrak{n}$. Then we claim there is an exact sequence
 \begin{center}
 \begin{tikzcd}
 \mathfrak{m}/\mathfrak{m}^2 \ar[r]{}{\alpha} & \Omega_{B|A} \otimes_B B/\mathfrak{m} \ar[r] & \Omega_{l|A} \ar[r] & 0
@@ -679,7 +681,7 @@ B \otimes_A B\#G \ar{u}{\tilde{\mu}} & \Hom_B(B \otimes_A B, B \otimes_A B\#G) \
 \end{center}
 Now we want to show that the composition of the three bottom maps forms a splitting. That is for any $f \in \End_A(B)$ we have that $\gamma(\tilde{\mu}(ev_\epsilon(f \otimes \rho))) = f$.
 
-Write $\epsilon = \sum\limits_i x_i \otimes y_i$. Then I claim that
+Write $\epsilon = \sum\limits_i x_i \otimes y_i$. Then we claim that
 \begin{align*}
 \sum_i x_i y_i^g = \begin{cases}
 1 & g = 1_G\\
@@ -832,7 +834,7 @@ is an isomorphism when $S = \C\llbracket x, y \rrbracket$, and $G$ is a finite s
 
 \begin{lemma}
 \label{lem:height_one_iso}
-Let $S$ be a local ring and let $M$ and $N$ be $S$-modules such that $\depth M_\mathfrak{p} \geq \min \{ 2, \height(\mathfrak{p}) \}$ and $\depth M_\mathfrak{p} \geq \min \{ 1, \height(\mathfrak{p}) \}$ for all prime ideals $\mathfrak{p}$\footnote{This is called Serre's criterion}. Let $f: M \to N$ be a monomorphism such that $f_\mathfrak{p}: M_\mathfrak{p} \to N_\mathfrak{p}$ is an epimorphism for all height one prime ideals. Then $f$ is an isomorphism.
+Let $S$ be a local ring and let $M$ and $N$ be $S$-modules that satisfies the Serre's criterion $(S_2)$ and $(S_1)$ respectively. In other words $M$ and $N$ satisfies $\depth M_\mathfrak{p} \geq \min \{ 2, \height(\mathfrak{p}) \}$ and $\depth N_\mathfrak{p} \geq \min \{ 1, \height(\mathfrak{p}) \}$ for all prime ideals $\mathfrak{p} \subset S$. Let $f: M \to N$ be a monomorphism such that $f_\mathfrak{p}: M_\mathfrak{p} \to N_\mathfrak{p}$ is an epimorphism for all height one prime ideals. Then $f$ is an isomorphism.
 \begin{proof}
 Assume $f$ is not an epimorphism. Then $f$ has a cokernel $C \neq 0$, and we have a short exact sequence
 \begin{center}
@@ -905,21 +907,7 @@ R_\mathfrak{q} \otimes_R \End_R(S) \ar[r] & \End_{R_\mathfrak{q}}(S_\mathfrak{q}
 \end{center}
 It should be clear that the map is injective. To see surjectivity let $s_1, s_2, \cdots, s_n$ be generators of $S$ as an $R$-module, and let $\psi$ be in $\End_{R_\mathfrak{q}}(S_\mathfrak{q})$. Write $\frac{t_i}{r_i}$ for $\psi(s_i)$, and let $\varphi$ be the map in $\End_R(S)$ sending $s_i$ to $t_i\prod_{j \neq i} r_j$. Then $\frac{1}{\prod r_i} \otimes \varphi$ is a preimage of $\psi$, and thus $R_\mathfrak{q} \otimes_R \End_R(S) \cong \End_{R_\mathfrak{q}}(S_\mathfrak{q})$.
 
-This means that for each height one prime of $R$, the localization of $\gamma$ is an isomorphism. Then \cref{lem:height_one_iso} reduces the problem of showing that $\gamma$ is an isomorphism to showing that $\depth_R S_\mathfrak{q}\#G \geq \min \{ 2, \height(\mathfrak{q}) \}$, and that $\depth_R \End_{R_\mathfrak{q}}(S_\mathfrak{q}) \geq \min \{ 1, \height(\mathfrak{p}) \}$.
-{\color{red} not sure how to show this}
-
-\iffalse
-Firstly let's show that for a prime ideal $\mathfrak{p}$ we have that $S_\mathfrak{p}^G = R_\mathfrak{q}$ where $\mathfrak{q} = R \cap \mathfrak{p}$. Assume $\frac{s}{p} \in S_\mathfrak{p}^G$ is fixed by $G$. Consider the fraction
-\begin{align*}
-\frac{ \left( \prod_{g \neq 1} p^g \right) s}{\prod_g p^g}
-\end{align*}
-Since we have just multiplied by $\prod_{g \neq 1} p^g$ in the numerator and the denominator it still equals $\frac{s}{p}$. The bottom is obviously fixed by $g$, but why is it not in $\mathfrak{q}$???
-{\color{red} How do I know $p^g$ is not in $\mathfrak{p}$ ???? You localize using the complement of the prime ideal right??} Then since the denominator is fixed and the fraction as a whole is fixed this implies that the numerator is fixed as well.
-
-Secondly I want to show that $\End_R(S)_\mathfrak{p} = \End_{R_\mathfrak{q}}(S_\mathfrak{p})$. {\color{red} ???}
-
-From here we just need to wrap everything together. Since $G$ does not contain any pseudoreflections we get from \cref{thm:unramified_pseudoreflections} that the map is an isomorphism when localizing at any height one prime ideal. Then \cref{lem:height_one_iso} gives us that it's an isomorphism {\color{red} need to show depth}.
-\fi
+This means that for each height one prime of $R$, the localization of $\gamma$ is an isomorphism. Then \cref{lem:height_one_iso} reduces the problem of showing that $\gamma$ is an isomorphism to showing that $S\#G$ satisfies $(S_2)$ and $\End_R(S)$ satisfies $(S_1)$. Since $S$ is a reflexive $R$-module it follows from \cite[\href{https://stacks.math.columbia.edu/tag/0AVB}{Tag 0AVB}]{stacks-project} that it satisfies $(S_2)$. Since $S\#G$ is just the direct sum of copies of $S$ as an $R$-module it will also satisfy $(S_2)$. Since $R_\mathfrak{q} \otimes_R \End_R(S) \cong \End_{R_\mathfrak{q}}(S_\mathfrak{q})$, and $S$ satisfies $(S_2)$ it follows from \cite[\href{https://stacks.math.columbia.edu/tag/0AV5}{Tag 0AV5}]{stacks-project} that $\End_R(S)$ satisfies $(S_2)$. Then it also satisfies $(S_1)$. Thus $\gamma$ is an isomorphism which is what we wanted to show.
 \end{proof}
 \end{theorem}
 
@@ -1003,7 +991,7 @@ In \cref{thm:skew_group_algerba_equals_endomorphsim_ring} we showed that $S\#G \
 \end{proof}
 \end{theorem}
 
-This last theorem concludes the part of the McKay correspondence that I will prove in this thesis. Another interesting part of the thesis I have not shown is that the Auslander-Reiten quiver of the indecomposable MCM modules appearing as an $R$-direct summand of $S$ is isomorphic to the Gabriel quiver. If the reader is interested they can read further in {\color{red} refferences and further readings}.
+This last theorem concludes the part of the McKay correspondence that we will prove in this thesis. Another interesting part of the thesis we have not shown is that the Auslander-Reiten quiver of the indecomposable MCM modules appearing as an $R$-direct summand of $S$ is isomorphic to the Gabriel quiver. If the reader is interested they can read further in {\color{red} refferences and further readings}.
 
 \begin{appendices}
 \section{Representation theory}
