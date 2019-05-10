@@ -103,7 +103,7 @@ V_3 && V_2 \arrow[<->]{ull}
 $$
 \end{example}
 
-One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the Dynkin diagrams. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here we will simply list them in a table. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$.
+One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the ADE Dynkin diagrams, if we exclude the trivial representation. Including the trivial representation we get an extended ADE Dynkin diagram. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here we will simply list them in a table. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$, and $n$ is an integer strictly larger than 1.
 
 {\renewcommand{\arraystretch}{2}
 \begin{tabular}{|c|c|}
@@ -153,7 +153,7 @@ $BI_{120}$ & $ \begin{pmatrix}
 \end{tabular}
 }
 
-The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below we will list the groups, their fixed ring, and the Dynkin diagram that is their McKay quiver.
+The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below we will list the groups, their fixed ring, and the extended Dynkin diagram that is their McKay quiver.
 
 \begin{center}
 {\renewcommand{\arraystretch}{1.6}
@@ -161,23 +161,23 @@ The groups have a natural action on the power series ring $S = \C\llbracket x, y
 \hline
 McKay quiver & $G$ & $R = S^G$\\
 \hline\hline
-$A_n$ & $\mathbb{Z}/n\mathbb{Z}$ &
+$\tilde{A}_{n-1}$ & $\mathbb{Z}/n\mathbb{Z}$ &
 $\C \llbracket u, v, w \rrbracket/\langle uv - w^n \rangle$
 \\
 \hline
-$D_n$ & $BD_{4n}$ &
+$\tilde{D}_{2+n}$?? & $BD_{4n}$ &
 $\C \llbracket u, v, w \rrbracket/\langle u^{n+1} + v^2 - uw^2\rangle$
 \\
 \hline
-$E_6$ & $BT_24$ &
+$\tilde{E}_6$ & $BT_{24}$ &
 $\C \llbracket u, v, w \rrbracket/\langle u^4 + v^3 + w^2 \rangle$
 \\
 \hline
-$E_7$ & $BO_{48}$ &
+$\tilde{E}_7$ & $BO_{48}$ &
 $\C \llbracket u, v, w \rrbracket/\langle u^3v + v^3 + w^2 \rangle$
 \\
 \hline
-$E_8$ & $BI_{120}$ &
+$\tilde{E}_8$ & $BI_{120}$ &
 $\C \llbracket u, v, w \rrbracket/\langle u^5 + v^3 + w^2 \rangle$
 \\
 \hline
@@ -1132,5 +1132,18 @@ and
 
 \bibliography{intro_bib,mybib}
 \bibliographystyle{alpha}
+
+\section*{Questions}
+McKay graph seem to be made without the trivial representation, thus with the trivial representation we actually have extended dynkin diagrams. This is fine, but it means my table is wrong. Should be $\tilde{A}_{n-1}$ instead of $A_n$, don't know about the others.
+
+The approximation lemma seems to be about metric field, but we want to use it to say something about prime ideals??? I'm confused.
+
+Don't have the year for Bocklandts notes.
+
+Does separable $\implies$ projective use the fact that C is the center? How should I conclude that $S_\mathfrak{q}$ is a separable $R_\mathfrak{q}$-algebra?
+
+In Serre's local fields prop 10, why is $B'/pB'$ a degree $n = |G|$ $A'/pA'$-algebra? Alternatively why is $|G|=efr$?
+
+Should I make the distinction between CM and MCM modules? Should I say that $\depth M \leq \dim M \leq \dim R$, $\depth M \leq \dim M$ is proven on stacks so can be refference, maybe there's a better reffernece.
 
 \end{document}
