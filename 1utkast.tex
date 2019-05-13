@@ -12,16 +12,12 @@
 \newcommand\tab[1][1cm]{\hspace*{1}}
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
-\newtheorem{prop}{Proposition}
-\numberwithin{prop}{section}
-\newtheorem{lemma}{Lemma}
-\numberwithin{lemma}{section}
-\newtheorem{theorem}{Theorem}
-\numberwithin{theorem}{section}
-\newtheorem{defin}{Definition}
-\numberwithin{defin}{section}
-\newtheorem{example}{Example}
-\numberwithin{example}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{defin}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
 
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -48,8 +44,8 @@
 The goal of this thesis is to establish a 1-1 correspondence between quivers created from the four following sets whenever $S$ is the power series ring $\C \llbracket x, y \rrbracket$ and $G$ is a finite subgroup of $SL(2,\C)$ acting on $S$.
 \begin{itemize}
 \item The Maximal Cohen-Macaulay modules of the fixed ring $S^G$.
-\item The finitely generated indecomposable projective modules of the skew group algebra $S\#G$.
-\item The finitely generated indecomposable projective modules of $\End_{S^G}(S)$.
+\item The indecomposable projective modules of the skew group algebra $S\#G$.
+\item The indecomposable projective modules of $\End_{S^G}(S)$.
 \item The irreducible representations of $G$ (indecomposable $\C G$-modules).
 \end{itemize}
 Much of the thesis will be used to define these four quivers and to develop tools to establish such a correspondence. %A similar correspondence can be established for a general field $k$ and a finite subgroup of $GL(n, k)$ with order nonzero in $k$, but in the general case we will only attain the MCM-modules that apear as $S^G$-direct summands of $S$. The finite subgroups of $SL(2, \C)$ are also especially interesting because the quivers are exactly the Dynkin diagrams.
@@ -62,20 +58,20 @@ The story of the McKay correspondence starts in 1884 with Klein. He studied the 
 
 McKay observed that one could obtain the resolution graphs for $\C^2/G$ purely by studying the representation theory of $G$ \cite{Mck83}. This established an important bridge between the geometric and algebraic views of these quotient singularities. Many other important results have aided in the understanding of this correspondence, both from a geometric point of view \cite{GSV81, AV85, EK85}, and from an algebraic point of view \cite{Aus86, AR89}.
 
-In this thesis we focus on the algebraic side. The story starts with Herzog in 1978 \cite{Her78} when he showed that the ring $R = \C\llbracket x, y \rrbracket^G$ has finitely many indecomposable Maximal Cohen Macaulay modules and that they all arise as direct summands of $\C\llbracket x, y \rrbracket$. The work of Auslander \cite{Aus86} extended the McKay correspondence to be between the finitely generated indecomposable projective modules of the skew algebra $S\#G$, and the indecomposable $R$-direct summands of $\C\llbracket x, y \rrbracket$. Since the finitely generated indecomposable projective modules of $S\#G$ are in correspondence with the irreducible representations of $G$, this ties in nicely with McKay's observation. In our specific case when $G$ is in $SL_2(\C)$ we have that $S\#G$ is isomorphic to $\End_R(S)$ \cite{AG60, Aus62}.
+In this thesis we focus on the algebraic side. The story starts with Herzog in 1978 \cite{Her78} when he showed that the ring $R = \C\llbracket x, y \rrbracket^G$ has finitely many indecomposable Maximal Cohen Macaulay modules and that they all arise as direct summands of $\C\llbracket x, y \rrbracket$. The work of Auslander \cite{Aus86} extended the McKay correspondence to be between the indecomposable projective modules of the skew algebra $S\#G$, and the indecomposable $R$-direct summands of $\C\llbracket x, y \rrbracket$. Since the indecomposable projective modules of $S\#G$ are in correspondence with the irreducible representations of $G$, this ties in nicely with McKay's observation. In our specific case when $G$ is in $SL_2(\C)$ we have that $S\#G$ is isomorphic to $\End_R(S)$ \cite{AG60, Aus62}.
 
-The goal of this thesis is to outline part of this correspondance. Specifically for the case when $G$ is a finite subgroups of $SL_2(\C)$, acting on $S = \C\llbracket x, y \rrbracket$, and $R = S^G$ we want to establish the correspondance between:
+The goal of this thesis is to outline part of this correspondence. Specifically for the case when $G$ is a finite subgroups of $SL_2(\C)$, acting on $S = \C\llbracket x, y \rrbracket$, and $R = S^G$ we want to establish the correspondance between:
 \begin{itemize}
 \item The irreducible representations of $G$
-\item The indecomposable finitely generated projective modules of the skew group algebra $S\#G$
-\item The MCM $R$-modules appering as direct summands of $S$
+\item The indecomposable projective modules of the skew group algebra $S\#G$
+\item The MCM $R$-modules appearing as direct summands of $S$
 \end{itemize}
 Further we also want to show the ring isomorphism between $S\#G$ and $\End_R(S)$, as well as the isomorphism between the McKay quiver formed by the irreducible representations of $G$ and the Gabriel quiver formed from $S\#G$.
 
 The strategy for the proof in this thesis can be divided into 4 parts:
 \begin{itemize}
 \item Define the McKay quiver with verticies the irreducible representations of $G$.
-\item Show that the irreducible representations of $G$ exactly corresponds with indecomposa ble finitely generated projective modules for the skew group algebra $S\#G$, and that this correspondance means the Gabriel quiver equals the McKay quiver.
+\item Show that the irreducible representations of $G$ exactly corresponds with indecomposable projective modules for the skew group algebra $S\#G$, and that this correspondance means the Gabriel quiver equals the McKay quiver.
 \item Show that $S\#G$ is isomorphic to the endomorphism ring $\End_R(S)$.
 \item Show that $R$-direct summands of $S$ are MCM modules, and use the isomorphism $S\#G \cong \End_R(S)$ to show that the $R$-direct summands of $S$ corresponds to indecomposable projective modules that appear as summands of $S\#G$.
 \end{itemize}
@@ -86,7 +82,7 @@ Something that is ommited from my thesis is the definition of the Auslander-Reit
 \section{The McKay quiver}
 For a given group, $G$, and a representation of that group the McKay quiver uses that representation to establish relations between the irreducible representations of $G$. In the special case that $G$ is a linear group we have a natural choice of representation to use. This leads us to define the McKay quiver as below.
 \begin{defin}
-Let $G$ be a finite subgroup of $GL(n, \C)$, and let $V$ be the canonical representation (the one that sends $g$ to $g$). Then we define the \underline{McKay quiver} of $G$ to be the quiver with vertices the irreducible representations of $G$, denoted $V_i$. For two irreducible representations $V_i$ and $V_j$ there is an arrow from the former to the latter if and only if $V_j$ is a direct summand of $V \otimes V_i$.
+Let $G$ be a finite subgroup of $GL_n(\C)$, and let $V$ be the canonical representation (the one that sends $g$ to $g$). Then we define the \textit{McKay quiver} of $G$ to be the quiver with vertices the irreducible representations of $G$, denoted $V_i$. For two irreducible representations $V_i$ and $V_j$ there is an arrow from the former to the latter if and only if $V_j$ is a direct summand of $V \otimes V_i$.
 \end{defin}
 
 \begin{example}
@@ -105,6 +101,7 @@ $$
 
 One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the ADE Dynkin diagrams, if we exclude the trivial representation. Including the trivial representation we get an extended ADE Dynkin diagram. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here we will simply list them in a table. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$, and $n$ is an integer strictly larger than 1.
 
+\begin{center}
 {\renewcommand{\arraystretch}{2}
 \begin{tabular}{|c|c|}
 \hline
@@ -152,6 +149,7 @@ $BI_{120}$ & $ \begin{pmatrix}
 \hline
 \end{tabular}
 }
+\end{center}
 
 The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below we will list the groups, their fixed ring, and the extended Dynkin diagram that is their McKay quiver.
 
@@ -165,7 +163,7 @@ $\tilde{A}_{n-1}$ & $\mathbb{Z}/n\mathbb{Z}$ &
 $\C \llbracket u, v, w \rrbracket/\langle uv - w^n \rangle$
 \\
 \hline
-$\tilde{D}_{2+n}$?? & $BD_{4n}$ &
+$\tilde{D}_{n+2}$?? & $BD_{4n}$ &
 $\C \llbracket u, v, w \rrbracket/\langle u^{n+1} + v^2 - uw^2\rangle$
 \\
 \hline
@@ -295,20 +293,34 @@ Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the fi
 
 \end{tikzpicture}
 
-\section{Skew group algebra S\#G indecomposable projectives}
-This section is largely based on the book by \cite{CMR}. This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - homological algebra. Since I do not assume knowledge of this I have created appendix \ref{appendix}. I will try to use footnotes to indicate where such theorems are used.
+\section{Indecomposable projectives of the skew group algebra S\#G}
+This section is largely based on the book \cite{CMR}. Here we will define the skew group algebra (\cref{def:skew_group_algebra}) and the Gabriel quiver (\cref{def:gabriel_quiver}). We will show in \cref{thm:indec_proj_SG=indec_CG} that the irreducible representations of $G$ are in correspondance with the indecomposable projective modules of the skew group algebra. Finally in \cref{thm:gabriel_equals_mckay} we will show that the Gabriel quiver is isomorphic to the McKay quiver.
+
+This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - Homological Algebra. Since we do not assume knowledge of this we have created appendix \ref{appendix}. We will try to use footnotes to indicate where such theorems are used.
 
 \begin{defin}
-If $G$ is a subgroup of $GL_n(\C)$, we can extend the group action of $G$ on $\C^n$ to $\C\llbracket x_1, \cdots, x_n\rrbracket$. More explicitly $G$ acts on $x_i$ as it would the $i$th basis vector of $\C^n$, and acts on products and sums by acting on each component separately. We then define the \underline{skew group algebra $\C \llbracket x_1, \cdots, x_n \rrbracket \# G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in \C\llbracket x_1, \cdots, x_n\rrbracket$ and $g \in G$, and we define the multiplication by
+\label{def:skew_group_algebra}
+If $S$ is an algebra and $G$ is a subgroup of $\Aut(S)$ acting on $S$, then we define the \textit{skew group algebra $S\#G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in S$ and $g \in G$, and we define the multiplication by
 $$ (f_1 \cdot g_1) \cdot (f_2 \cdot g_2) = (f_1 \cdot f_2^{g_1}) \cdot (g_1 \cdot g_2) $$
 Where $f^g$ denotes the image of $f$ under the action of $g$.
+\iffalse
+If $G$ is a subgroup of $GL_n(\C)$, we can extend the group action of $G$ on $\C^n$ to $\C\llbracket x_1, \cdots, x_n\rrbracket$. More explicitly $G$ acts on $x_i$ as it would the $i$th basis vector of $\C^n$, and acts on products and sums by acting on each component separately. We then define the \textit{skew group algebra $\C \llbracket x_1, \cdots, x_n \rrbracket \# G$} to be the algebra generated by elements of the form $f \cdot g$ with $f \in \C\llbracket x_1, \cdots, x_n\rrbracket$ and $g \in G$, and we define the multiplication by
+$$ (f_1 \cdot g_1) \cdot (f_2 \cdot g_2) = (f_1 \cdot f_2^{g_1}) \cdot (g_1 \cdot g_2) $$
+Where $f^g$ denotes the image of $f$ under the action of $g$.
+\fi
 \end{defin}
 
-The skew group algebra is also sometimes called the twisted algebra, because the multiplication is "twisted" by the action of $G$.
+The skew group algebra is also sometimes called the twisted algebra, because the multiplication is ``twisted'' by the action of $G$. Now we will define an action by $GL_n(\C)$ on $\C \llbracket x_1, \cdots, x_n \rrbracket$ so we can construct the skew group algebra we are interested in.
+
+\begin{defin}
+If $S = \C \llbracket x_1, \cdots, x_n \rrbracket$ is the complex power series ring in $n$ variables and $G$ is a subgroup of $GL_n(\C)$ we want to extend the action of $G$ on $\C^n$ to $S$. We say that $G$ acts by \textit{linear change of variables} if $G$ acts on $x_i$ as it would the $i$th basis vector of $\C^n$, and acts on products and sums by acting on each component separately. 
+\end{defin}
+
+Now that we have a group action of $GL_n(\C)$ on the power series ring we can construct the $S\#G$ we are interested in, but first we will show a general statement about skew group algebras for finite groups.
 
 \begin{lemma}
 \label{lem:S proj => SG proj}
-Let $S = \C\llbracket x, y \rrbracket$. An $S\#G$-module is projective\footnote{The definition of projective can be found in \cref{def:projective} on page \pageref{def:projective}.} if and only if it is projective as an $S$-module.
+Let $S$ be a complex algerba, and $G$ a finite group acting (faithfully) on $S$. An $S\#G$-module is projective\footnote{The definition of projective can be found in \cref{def:projective} on page \pageref{def:projective}.} if and only if it is projective as an $S$-module.
 
 \begin{proof}
 Only-ifity follows from $S\#G$ being a free $S$-module, it is isomorphic to $\bigoplus_{g \in G} S$. Thus we need only show ifity.
@@ -316,15 +328,17 @@ Only-ifity follows from $S\#G$ being a free $S$-module, it is isomorphic to $\bi
 First we need to see that an $S\#G$-linear map is just an $S$-linear map, $f: M \to N$ between $S\#G$-modules, such that $f(g(m))=g(f(m))$ for all $g \in G$ and all $m \in M$. Equivalently $f(m) = g(f(g^{-1}(m)))$. This allows us to define a group action on $S$-linear maps by $f^g(m) = g(f(g^{-1}(m)))$. Then we just need to show $$ \Hom_{S\#G}(M,N) = \Hom_S(M,N)^G.$$
 Clearly if $f$ is $S\#G$-linear then it's in $\Hom_S(M,N)^G$. To see the other inclusion, let $f$ be an $S$-linear map that is fixed under $G$. Then $f(s\cdot g m) = s f(g m) = s\cdot g(f(g^{-1} g m)) = s \cdot g f(m) $, and hence $f$ is $S\#G$-linear.
 
-Nextly we want to show that $-^G$ is an exact functor\footnote{The definition of an exact functor can be found in \cref{def:exact_functor} on page \pageref{def:exact_functor}.}. If $K$ is the kernel of a map $f: M \to N$, then the kernel of the induced map $f^G : M^G \to N^G$ is of course just $K \cap M^G$ which equals $K^G$. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$.
+Nextly we want to show that $-^G$ is an exact functor\footnote{The definition of an exact functor can be found in \cref{def:exact_functor} on page \pageref{def:exact_functor}.}. If $K$ is the kernel of a map $f: M \to N$, then the kernel of the induced map $f^G : M^G \to N^G$ is just $K \cap M^G$ which equals $K^G$, and hence $-^G$ preserves kernels. Assume $f$ is epi and let $n \in N^G$. Consider a preimage $m$ such that $f(m)=n$. Let $\theta = \frac{1}{|G|}\sum_{g \in G} g(m)$. Then $\theta$ is in $M^G$ and $f(\theta) = \frac{1}{|G|}\sum_{g \in G} g(f(m)) = \frac{1}{|G|}\sum_{g \in G} n = n$. Since $-^G$ preserves kernels and epimorphisms it is exact.
 
 Recall that a module being projective is equivalent to its covariant $\Hom$-functor being exact. So if $P$ is projective as an $S$-module then $\Hom_S(P, -)$ is exact. Using our above result we get $\Hom_S(P, -)^G = \Hom_{S\#G}(P, -)$ is exact and our lemma follows.
 \end{proof}
 \end{lemma}
 
+This next lemma is true for any local ring, but here we prove it only for the complex power series ring.
+
 \begin{lemma}
 \label{lem:radical small}
-Let $S$ be the complex power series ring in $n$ variables, and $\mathfrak{m} = \langle x_i \rangle_{i=1}^n$ the radical of $S$. Then for any free $S$-module $N$, $\mathfrak{m}N$ is \underline{small} in $N$. That is if $X$ is  a submodule of $N$ such that $X + \mathfrak{m}N = N$, then $X = N$.
+Let $S$ be the complex power series ring in $n$ variables, and $\mathfrak{m} = \langle x_i \rangle_{i=1}^n$ the radical of $S$. Then for any free $S$-module $N$, $\mathfrak{m}N$ is \textit{small} in $N$. That is, if $X$ is  a submodule of $N$ such that $X + \mathfrak{m}N = N$, then $X = N$.
 
 \begin{proof}
 Let $N$ be the free module $S^{(I)} := \bigoplus\limits_{i \in I} S_i$, where $S_i \cong S$. Assume that $X$ is a submodule such that $X + \mathfrak{m}N = N$. We denote by $1_i$ the elements that is 1 at index $i$ and 0 elsewhere. Since $\{ 1_i \}$ generate $N$, it is enough to show that $X$ contains all of them. Since $X + \mathfrak{m}N = N$, we know that there is an $m_i \in \mathfrak{m}N$ and an $x_i \in X$ such that $x_i + m_i = 1_i$. Then we have that $x_i = 1_i - m_i$. Since the power series at index $i$ of $x_i$ has constant coefficient 1 it is invertible. If we multiply $x_i$ by its inverse we get $\tilde{x}_i$ which is 1 at index $i$ and some element of $\mathfrak{m}$ at index $j \neq i$, say $m_{ij}$. Then $\tilde{x}_i - \sum\limits_{j \neq i} m_{ij}\tilde{x}_j$ has a unit in index $i$ and 0 at all other indices. Thus $X$ contains $1_i$ for all $i$, and $X = N$.
@@ -333,7 +347,7 @@ Let $N$ be the free module $S^{(I)} := \bigoplus\limits_{i \in I} S_i$, where $S
 
 \begin{theorem}
 \label{thm:indec_proj_SG=indec_CG}
-Let $S = \C\llbracket x, y \rrbracket$ and let $\mathfrak{m} = \langle x, y \rangle_S$ be the radical of $S$. Then there are bijections between the indecomposable\footnote{The definition of indecomposable can be found in \cref{def:indecomposable} on page \pageref{def:indecomposable}.} finitely generated projective $S\#G$-modules and the indecomposable $\C G$-modules given by
+Let $S = \C\llbracket x, y \rrbracket$, $G$ be a finite subgroup of $GL_2(\C)$, and $\mathfrak{m} = \langle x, y \rangle_S$ be the radical of $S$. Then there are bijections between the indecomposable\footnote{The definition of indecomposable can be found in \cref{def:indecomposable} on page \pageref{def:indecomposable}.} projective $S\#G$-modules and the indecomposable $\C G$-modules given by
 \\
 \\
 \begin{tikzcd}
@@ -361,16 +375,18 @@ Using \cref{lem:radical small} we get that $\mathfrak{m}S \otimes_\C W$ is small
 \end{align*}
 and therefore $S \otimes_\C W \to W$ is a projective cover\footnote{The definition of projective cover can be found in \cref{def:projective_cover} on page \pageref{def:projective_cover}.} of $W$ as $S$-modules. Further since the projection $S \otimes_\C W \to W$ is $S\#G$-linear we have that $S \otimes_\C W$ is the projective cover of $W$ also as $S\#G$-modules. Assume for the sake of contradiction that $S \otimes_\C W$ decomposes as $M \oplus N$ for non-zero $M$ and $N$. Then $W$ would equal $M/\mathfrak{m}M \oplus N/\mathfrak{m}N$ as an $S\#G/ \langle \mathfrak{m} \rangle$-module. Since $S\#G/ \langle \mathfrak{m} \rangle \cong \C G$ and $W$ is indecomposable we must have that either $M/\mathfrak{m}M$ or $N/\mathfrak{m}N$ is 0. This then gives a contradiction because $\mathfrak{m}M$ and $\mathfrak{m}N$ are small in $M$ and $N$. Hence we must have that $S \otimes_\C W$ is indecomposable.
 
-It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will use a similar argument as above. Assume $P/\mathfrak{m}P$ decomposes as $V \oplus W$. Then both $P$ and $S\otimes_\C V \oplus S \otimes_\C W$ are projective covers of $P/\mathfrak{m}P = V\oplus W$ we get induced $S\#G$-linear epimorphisms between them.
+It's clear that $P/\mathfrak{m}P$ is a $\C G$-module, because $\C G$ is a subring of $S\#G$. To see that it's indecomposable we will use a similar argument as above. Assume $P/\mathfrak{m}P$ decomposes as $V \oplus W$. Then both $P$ and $S\otimes_\C V \oplus S \otimes_\C W$ are projective covers of $P/\mathfrak{m}P = V\oplus W$, and we get an induced $S\#G$-linear epimorphism between them.
 
 \begin{center}
 \begin{tikzcd}
-& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \arrow[dashed, two heads, bend right=20]{dl}\\
-P \arrow[->>]{r} \arrow[dashed, two heads, bend right=5]{ur} & P/\mathfrak{m}P
+& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d}{\pi_S}\\
+P \arrow[->>]{r}{\pi_P} \arrow[dashed, two heads]{ur}{\varphi} & P/\mathfrak{m}P
 \end{tikzcd}
 \end{center}
 
-Now we use the fact that $P$ is finitely generated. Since there can only be an epimorphism from a module with more or equal amount of generators, $P$ and $S\otimes_\C \mathfrak{m}P$ must have the same amount of generators and the induced maps are in fact isomorphisms of $S$-modules. Since the maps are also $S\#G$-linear we have that $P$ decomposes as $S\otimes_\C V \oplus S \otimes_\C W$. Then since $P$ is indecomposable we must have that either $S \otimes_\C V$ or $S\otimes_\C W$ is 0. That means that either $V$ or $W$ is 0, and we have shown that $P/\mathfrak{m}P$ is an indecomposable $\C G$-module.
+Since $S \otimes_\C P/\mathfrak{m}P$ is projective there exists an $S\#G$-linear map $\psi: P \to S \otimes_\C P/\mathfrak{m}P$ such that $\varphi \circ \psi = id_{S \otimes_\C P/\mathfrak{m}P}$. Then we have that 
+$$\pi_S = \pi_S \circ id_{S \otimes_\C P/\mathfrak{m}P} = \pi_S \circ \varphi \circ \psi = \pi_P \circ \psi.$$
+Since $\pi_P$ is a projective cover and $\pi_S$ is an epimorphism this means that $\psi$ is an epimorphism. Since $\varphi \circ \psi = id_{S \otimes_\C P/\mathfrak{m}P}$ it follows that $\varphi$ and $\psi$ are mutually inverse isomorphisms and that $P \cong S \otimes_\C P/\mathfrak{m}P$. This means that $P$ decomposes as $S\otimes_\C V \oplus S \otimes_\C W$. Then since $P$ is indecomposable we must have that either $S \otimes_\C V$ or $S\otimes_\C W$ is 0. That means that either $V$ or $W$ is 0, and we have shown that $P/\mathfrak{m}P$ is an indecomposable $\C G$-module.
 
 To see that the given maps are bijections we will show that they are mutual inverses. First to see that $\mathcal{F}(\mathcal{G}(W)) \cong W$ we simply look at the definition
 \begin{equation*}
@@ -382,8 +398,8 @@ To see that the given maps are bijections we will show that they are mutual inve
 Next we consider $\mathcal{G}(\mathcal{F}(P)) = S \otimes_\C P/\mathfrak{m}P$. We have already seen that the induced map
 \begin{center}
 \begin{tikzcd}
-& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \arrow[dashrightarrow]{dl}\\
-P \arrow[->>]{r} & P/\mathfrak{m}P
+& S \otimes_\C P/\mathfrak{m}P \arrow[twoheadrightarrow]{d} \\
+P \arrow[dashrightarrow]{ur} \arrow[->>]{r} & P/\mathfrak{m}P
 \end{tikzcd}
 \end{center}
 is an isomorphism, and thus $P \cong \mathcal{G}(\mathcal{F}(P))$.
@@ -392,10 +408,11 @@ is an isomorphism, and thus $P \cong \mathcal{G}(\mathcal{F}(P))$.
 \end{theorem}
 
 \subsection{The Gabriel quiver}
-Now that we have seen that the indecomposable $\C G$-modules and the indecomposable finitely generated projective $S\#G$-modules are in correspondence we will construct the quiver that corresponds to the McKay quiver.
+Now that we have seen that the indecomposable $\C G$-modules and the indecomposable projective $S\#G$-modules are in correspondence we will construct the Gabriel quiver and show that it corresponds to the McKay quiver.
 
 \begin{defin}
-For a skew group algebra $S\#G$ we define its \underline{Gabriel quiver} to be the quiver with vertices as the indecomposable projective modules of $S\#G$. The arrows are given by taking the minimal projective resolution\footnote{The definition of a minimal projective resolution can be found in \cref{def:projective_resolution} on page \pageref{def:projective_resolution}.} of $P/\mathfrak{m}P$, where $\mathfrak{m}$ is as defined above. If the minimal projective resolution of $P/\mathfrak{m}P$ is given by
+\label{def:gabriel_quiver}
+For a skew group algebra $S\#G$ we define its \textit{Gabriel quiver} to be the quiver with vertices as the indecomposable projective modules of $S\#G$. The arrows are given by taking the minimal projective resolution\footnote{The definition of a minimal projective resolution can be found in \cref{def:projective_resolution} on page \pageref{def:projective_resolution}.} of $P/\mathfrak{m}P$, where $\mathfrak{m}$ is as defined above. If the minimal projective resolution of $P/\mathfrak{m}P$ is given by
 \begin{center}
 \begin{tikzcd}
 \cdots \arrow{r} & Q_1 \arrow{r} & Q_0 \arrow{r} & 0
@@ -434,6 +451,7 @@ Secondly we want to show that the resolution is minimal. To do this it is enough
 Since $V = \mathfrak{m}/\mathfrak{m}^2 = \langle x_1, x_2, \cdots, x_n \rangle_\C$ is exactly the canonical representation of $G$ the relationship between the McKay quiver and the Gabriel quiver should be apparent. Now we move to the next theorem for a formal argument.
 
 \begin{theorem}
+\label{thm:gabriel_equals_mckay}
 If $S$ is the complex power series ring in $n$ variables and $G$ is a finite subgroup of $GL_n(\C)$, then the McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic.
 \begin{proof}
 We have already seen in \cref{thm:indec_proj_SG=indec_CG} that they have the same vertices, namely if $V_i$ are the irreducible representations of $G$, then $S \otimes_\C V_i$ are the indecomposable projectives of $S\#G$. To see that they have the same arrows consider as above the minimal resolution of $\C$:
@@ -453,9 +471,9 @@ From here, since $\bigwedge\limits^{1} V = V$, we see that $P_j = S \otimes_\C V
 \end{theorem}
 
 \section{The endomorphism ring of $S$ as an $S^G$-module}
-This section is largely based on the article by \cite{IyTa} and the book by \cite{CMR}.
+This section is largely based on the article \cite{IyTa} and the book \cite{CMR}.
 
-In this section we will show that $S\#G$ is isomorphic to $\End_R(S)$ as rings, where $S$ is the complex power series ring in 2 variables, $G$ is a finite subgroup of $SL_2(\C)$, and $R = S^G$ is the fixed ring of $S$ by $G$. This will be the longest proof of this thesis and I have therefore decided to split it up into several steps. The proof will be done by constructing an explicit isomorphism.
+In this section we will show that $S\#G$ is isomorphic to $\End_R(S)$ as rings, where $S$ is the complex power series ring in 2 variables, $G$ is a finite subgroup of $SL_2(\C)$, and $R = S^G$ is the fixed ring of $S$ by $G$. This will be the longest proof in this thesis and we have therefore decided to split it up into several steps. The proof will be done by constructing an explicit isomorphism.
 \begin{center}
 \begin{tikzcd}
 S\#G \ar[r] & \End_R(S)\\
@@ -484,12 +502,12 @@ We will use this splitting in \cref{thm:separable_implies_ringiso} to construct 
 
 Let us first begin with some definitions
 \begin{defin}
-If $A$ is a local ring with residual field $k$ we define the \underline{depth} of a module, $M$, to be the minimal $n$ such that $\Ext^n_A(k, M)$ is non-zero\footnote{The extension group is defined in \cref{def:Ext} on page \pageref{def:Ext}.}. We write $\depth_A(M)$ for this or simply $\depth(M)$ when which ring we are using is clear.
+If $A$ is a local ring with residual field $k$ we define the \textit{depth} of a module, $M$, to be the minimal $n$ such that $\Ext^n_A(k, M)$ is non-zero\footnote{The extension group is defined in \cref{def:Ext} on page \pageref{def:Ext}.}. We write $\depth_A(M)$ for this or simply $\depth(M)$ when which ring we are using is clear.
 \end{defin}
 
 \begin{defin}
 \label{def:regular_seq}
-If $R$ is a commutative ring and $M$ is an $R$-module, an \underline{$R$-regular sequence on $M$} is a sequence of elements of $R$, $r_1, r_2, \cdots r_n$ such that $M/\langle r_1, \cdots, r_i \rangle M$ is non-zero and multiplication by $r_i$ is injective on $M/\langle r_1, \cdots, r_{i-1} \rangle M$.
+If $R$ is a commutative ring and $M$ is an $R$-module, an \textit{$R$-regular sequence on $M$} is a sequence of elements of $R$, $r_1, r_2, \cdots r_n$ such that $M/\langle r_1, \cdots, r_n \rangle M$ is non-zero and multiplication by $r_i$ is injective on $M/\langle r_1, \cdots, r_{i-1} \rangle M$.
 \end{defin}
 
 \begin{prop}
@@ -501,12 +519,12 @@ The proof is omitted here, but can be found in \cite[\href{https://stacks.math.c
 
 \begin{defin}
 \label{def:prime_ideal}
-If $R$ is a ring, we say that $\mathfrak{p}$ is  a \underline{prime ideal} in $R$ if
+If $R$ is a ring, we say that $\mathfrak{p}$ is  a \textit{prime ideal} in $R$ if
 \begin{enumerate}
 \item $\mathfrak{p}$ is a proper ideal of $R$.
 \item For any two elements $a,b \in R$ such that $ab \in \mathfrak{p}$ we must have that either $a$ is in $\mathfrak{p}$ or $b$ is.
 \end{enumerate}
-The \underline{height} of $\mathfrak{p}$ is the length of the longest chain of prime ideals contained in $\mathfrak{p}$:
+The \textit{height} of $\mathfrak{p}$ is the length of the longest chain of prime ideals contained in $\mathfrak{p}$:
 \begin{align*}
 \mathfrak{p}_0 \subset \mathfrak{p}_1 \subset \cdots \subset \mathfrak{p}_n = \mathfrak{p}.
 \end{align*}
@@ -514,70 +532,70 @@ The \underline{height} of $\mathfrak{p}$ is the length of the longest chain of p
 
 \begin{defin}
 \label{def:localization}
-Let $R$ be a commutative ring, $M$ an $R$-module, and $\mathfrak{p} \subset R$ a prime ideal of $R$. Then we define the \underline{loclization of $M$ at $\mathfrak{p}$}, written as $M_\mathfrak{p}$, to be the set of formal fractions $\frac{m}{r}$ with $m$ in $M$ and $r$ in $R \setminus \mathfrak{p}$. Two such fractions $\frac{m}{r}$ and $\frac{n}{s}$ are considered the same if there is an element $t \in R \setminus \mathfrak{p}$ such that $t(sm - rn) = 0$.
+Let $R$ be a commutative ring, $M$ an $R$-module, and $\mathfrak{p} \subset R$ a prime ideal of $R$. Then we define the \textit{loclization of $M$ at $\mathfrak{p}$}, written as $M_\mathfrak{p}$, to be the set of formal fractions $\frac{m}{r}$ with $m$ in $M$ and $r$ in $R \setminus \mathfrak{p}$. Two such fractions $\frac{m}{r}$ and $\frac{n}{s}$ are considered the same if there is an element $t \in R \setminus \mathfrak{p}$ such that $t(sm - rn) = 0$.
 
 Note that if we localize $R$ at $\mathfrak{p}$ we get an $R$-algebra with the multiplication $\frac{r}{s} \cdot \frac{r'}{s'} = \frac{rr'}{ss'}$, as you would expect. In fact it's enough to understand $R_\mathfrak{p}$ because $M_\mathfrak{p} = R_\mathfrak{p} \otimes_R M$.
 \end{defin}
 
 \begin{defin}
-Let $A$ and $B$ be two local commutative rings with maximal ideal $\mathfrak{n}$ and $\mathfrak{m}$ respectively, and let
+Let $A$ and $B$ be two local commutative rings with maximal ideal $\mathfrak{m}$ and $\mathfrak{n}$ respectively, and let
 \begin{tikzcd}
 A \ar[hook, r] & B
 \end{tikzcd}
-be an extension of rings. We say that the extension is \underline{unramified} if the following conditions hold:
+be an extension of rings. We say that the extension is \textit{unramified} if the following conditions hold:
 \begin{itemize}
 \item $B$ is a finitely generated $A$-module.
 \item \begin{tikzcd}
 A/\mathfrak{n} \ar[hook, r] & B/\mathfrak{m}
 \end{tikzcd}
 is a separable field extension.
-\item $\mathfrak{n}B = \mathfrak{m}$
+\item $\mathfrak{m}B = \mathfrak{n}$
 \end{itemize}
-If the two first conditions are met, and there is a positive integer $e$ such that $\mathfrak{n} B = \mathfrak{m}^e B$, we say the extension has \underline{ramification index} $e$ when $e$ is the smallest such number. Note that being unramified is then equivalent to having ramification index 1.
+If the two first conditions are met, and there is a positive integer $e$ such that $\mathfrak{m} B = \mathfrak{n}^e B$, we say the extension has \textit{ramification index} $e$ when $e$ is the smallest such number. Note that being unramified is then equivalent to having ramification index 1.
 \end{defin}
 
 In order to show that unramified implies separable we must first take a small detour.
 
 \begin{defin}
-Let $A \to B$ be an extension of rings. We then define the \underline{derivation module} $\Omega_{B | A}$ as the $B$-module with formal generators $db$ for all $b \in B$ and with the following relations:
+Let $A \to B$ be an extension of rings. We then define the \textit{derivation module} $\Omega_{B | A}$ as the $B$-module with formal generators $db$ for all $b \in B$ and with the following relations:
 \begin{itemize}
 \item[$A$-linearity:] $d(ab + a'b') = adb + a'db'$ for all $a, a' \in A$ and $b, b' \in B$.
 \item[Leibniz rule:] $d(bc) = bdc + cdb$ for all $b,c \in B$.
 \end{itemize}
 \end{defin}
-Note that for any polynomial expression $f(b)$ we have that $df(b) = f'(b)db$ where $f'$ is the formal derivative of $f$. Now we will show how the derivation module make a link between unramified extensions and the splitting of our sequence.
+Note that for any polynomial $f$ we have that $df(b) = f'(b)db$ where $f'$ is the formal derivative of $f$. Now we will show how the derivation module make a link between unramified extensions and the splitting of our sequence.
 
 \begin{prop}
 Let $A \to B$ be an unramified extension of local rings. Then $\Omega_{B|A}$ is $0$.
 
 \begin{proof}
-Keeping with the notation above we let $\mathfrak{n}$ be the maximal ideal of $A$ and $\mathfrak{m}$ the maximal ideal of $B$. Furthermore let $l$ denote $B/\mathfrak{m}$ and $k$ denote $A/\mathfrak{n}$. Then we claim there is an exact sequence
+Keeping with the notation above we let $\mathfrak{m}$ be the maximal ideal of $A$ and $\mathfrak{n}$ the maximal ideal of $B$. Furthermore let $l$ denote $B/\mathfrak{n}$ and $k$ denote $A/\mathfrak{m}$. Then we claim there is an exact sequence
 \begin{center}
 \begin{tikzcd}
-\mathfrak{m}/\mathfrak{m}^2 \ar[r]{}{\alpha} & \Omega_{B|A} \otimes_B B/\mathfrak{m} \ar[r] & \Omega_{l|A} \ar[r] & 0
+\mathfrak{n}/\mathfrak{n}^2 \ar[r]{}{\alpha} & \Omega_{B|A} \otimes_B B/\mathfrak{n} \ar[r] & \Omega_{l|A} \ar[r] & 0
 \end{tikzcd}
 \end{center}
-where $\alpha(\overline{m}) = d_{B|A}m \otimes 1$ for any $m$ in $\mathfrak{m}$. Let's first show that $\alpha$ is well defined. Let $m_1 \cdot m_2$ be in $\mathfrak{m}^2$. Then we need to show that $\alpha(\overline{m_1 \cdot m_2})$ is 0.
+where $\alpha(\overline{n}) = dn \otimes 1$ for any $n$ in $\mathfrak{n}$. Let's first show that $\alpha$ is well defined. Let $n_1 \cdot n_2$ be in $\mathfrak{n}^2$. Then we need to show that $\alpha(\overline{n_1 \cdot n_2})$ is 0.
 \begin{align*}
-\alpha(\overline{m_1 \cdot m_2}) &= d_{B|A}(m_1 \cdot m_2) \otimes 1 =\\
-m_1 d_{B|A}m_2 \otimes 1 &+ m_2d_{B|A}m_1 \otimes 1 =\\
-d_{B|A}m_2 \otimes (m_1 \cdot 1) &+ d_{B|A}m_1 \otimes (m_2 \cdot 1)
+\alpha(\overline{n_1 \cdot n_2}) &= d(n_1 \cdot n_2) \otimes 1 =\\
+n_1 dn_2 \otimes 1 &+ n_2dn_1 \otimes 1 =\\
+dn_2 \otimes (n_1 \cdot 1) &+ dn_1 \otimes (n_2 \cdot 1)
 \end{align*}
-Since $l = B/\mathfrak{m}$ we have that $m_1 \cdot 1$ and $m_2 \cdot 1$ is 0 in $l$, thus the right hand side is 0, and $\alpha$ is well defined.
+Since $l = B/\mathfrak{n}$ we have that $n_1 \cdot 1$ and $n_2 \cdot 1$ is 0 in $l$, thus the right hand side is 0, and $\alpha$ is well defined.
 
-The map $\Omega_{B|A} \otimes_B B/\mathfrak{m} \to \Omega_{l|A}$ is just the natural projection sending $db \otimes 1$ to $d\overline{b}$, where $\overline{b}$ is the projection of $b$ onto $l$. We want to show that this is the cokernel of $\alpha$. The kernel of $\Omega_{B|A} \otimes_B B/\mathfrak{m} \to \Omega_{l|A}$ is generated by $dm \otimes 1$ for $m \in \mathfrak{m}$, but this is exactly the image of $\alpha$, thus the sequence is exact.
+The map $\Omega_{B|A} \otimes_B B/\mathfrak{n} \to \Omega_{l|A}$ is just the natural projection sending $db \otimes 1$ to $d\overline{b}$, where $\overline{b}$ is the projection of $b$ onto $l$. We want to show that this is the cokernel of $\alpha$. The kernel of $\Omega_{B|A} \otimes_B B/\mathfrak{n} \to \Omega_{l|A}$ is generated by $dn \otimes 1$ for $n \in \mathfrak{n}$, but this is exactly the image of $\alpha$, thus the sequence is exact.
 
-Nextly we want to show that $\Omega_{l|A} = 0$. Since $\mathfrak{n} \subseteq \mathfrak{m}$ and $l$ is annihilated by $\mathfrak{m}$ we have that $\Omega_{l|A} = \Omega_{l|k}$. Let $x$ be an element of $l$, and let $p$ be its irreducible polynomial over $k$. Now we want to use the fact that $k \subset l$ is a separable field extension. Remember that $k \subset l$ being separable means that the formal derivative of $p$ is non-zero. Now we have that
+Nextly we want to show that $\Omega_{l|A} = 0$. Since $\mathfrak{m} \subseteq \mathfrak{n}$ and $l$ is annihilated by $\mathfrak{n}$ we have that $\Omega_{l|A} = \Omega_{l|k}$. Let $x$ be an element of $l$, and let $p$ be its irreducible polynomial over $k$. Now we want to use the fact that $k \subset l$ is a separable field extension. Remember that $k \subset l$ being separable means that the formal derivative of $p$ is non-zero. Now we have that
 \begin{align*}
 0 = d(p(x)) = p'(x)dx.
 \end{align*}
 Since $p'$ is a non-zero polynomial of lower degree than $p$, and $p$ is the smallest polynomial with root $x$, we must have that $p'(x)$ is non-zero. This implies that $dx=0$, and since this holds for all $x$ it must be that $\Omega_{l|k}=0$.
 
-Since $\Omega_{l|k}=0$ we have that $\alpha$ is surjective. We will now use that since $A \to B$ is unramified $\mathfrak{n}B = \mathfrak{m}$. More specifically the map $\beta: \mathfrak{n}/\mathfrak{n}^2 \otimes_A B \to \mathfrak{m}/\mathfrak{m}^2$ is surjective. Since both $\alpha$ and $\beta$ are surjective we have that $\alpha\beta$ is also surjective, but
+Since $\Omega_{l|k}=0$ we have that $\alpha$ is surjective. We will now use that since $A \to B$ is unramified $\mathfrak{m}B = \mathfrak{n}$. More specifically the map $\beta: \mathfrak{m}/\mathfrak{m}^2 \otimes_A B \to \mathfrak{n}/\mathfrak{n}^2$ is surjective. Since both $\alpha$ and $\beta$ are surjective we have that $\alpha\beta$ is also surjective, but
 \begin{align*}
-\alpha\beta(\overline{n} \otimes b) = \alpha(\overline{nb}) = d(nb) \otimes 1 = ndb \otimes 1 = db \otimes n \cdot 1 = 0
+\alpha\beta(\overline{m} \otimes b) = \alpha(\overline{mb}) = d(mb) \otimes 1 = mdb \otimes 1 = db \otimes m \cdot 1 = 0
 \end{align*}
-for all $n \in \mathfrak{n}$ and $b \in B$. Thus the only conclusion is that $\Omega_{B|A} \otimes_B l = 0$.
+for all $m \in \mathfrak{m}$ and $b \in B$. Thus the only conclusion is that $\Omega_{B|A} \otimes_B l = 0$.
 
 Since $\Omega_{B|A} \otimes_B l = \Omega_{B|A} \otimes_B B/\mathfrak{m} = \Omega_{B|A}/\mathfrak{m}\Omega_{B|A}$ it follows from Nakayama's lemma \cite[\href{https://stacks.math.columbia.edu/tag/07RC}{Tag 07RC}]{stacks-project} that $\Omega_{B|A}=0$.
 \end{proof}
@@ -585,13 +603,13 @@ Since $\Omega_{B|A} \otimes_B l = \Omega_{B|A} \otimes_B B/\mathfrak{m} = \Omega
 
 \begin{theorem}
 \label{thm:unramified_implies_seperable}
-Let $A \to B$ be an unramified extension of local rings. Then the sequence
+Let $A \to B$ be an unramified extension of local rings. Then the extension is seperable. That is, the sequence
 \begin{center}
 \begin{tikzcd}
 0 \ar[r] & I \ar[r] & B \otimes_A B \ar{r}{\mu} & B \ar[r] & 0
 \end{tikzcd}
 \end{center}
-splits as a short exact sequence of $B\otimes_AB$-modules. Here $\mu$ is given by $\mu(b \otimes b') = bb'$, and the $B \otimes_A B$-module structure on $B$ is given by $b \otimes b' \cdot b'' = bb'b''$, and $I = \Ker \mu$. We say that the extension is separable
+splits as a short exact sequence of $B\otimes_AB$-modules. Here $\mu$ is given by $\mu(b \otimes b') = bb'$, and the $B \otimes_A B$-module structure on $B$ is given by $b \otimes b' \cdot b'' = bb'b''$, and $I = \Ker \mu$.
 
 \begin{proof}
 Firstly note that $I$ is generated by elements on the form $b \otimes 1 - 1 \otimes b$, and that since $B$ is finitely generated as an $A$-module, $I$ is finitely generated.
@@ -704,7 +722,7 @@ Then since $B$ is a domain we get that either $b = b^g$ or $\sum_i x_i  y_i^g = 
 \begin{align*}
 \sum_i x_i  y_i = \mu(\epsilon) = 1
 \end{align*}
-we see that my claim holds. We can now calculate $\gamma(\tilde{\mu}(ev_\epsilon(f \otimes \rho)))$:
+we see that the claim holds. We can now calculate $\gamma(\tilde{\mu}(ev_\epsilon(f \otimes \rho)))$:
 \begin{align*}
 \gamma \left[ \tilde{\mu} \left[ (f \otimes \rho)(\epsilon) \right] \right] (b) &=\\
 \gamma \left[ \tilde{\mu} \left[ (f \otimes \rho)(\sum_i x_i \otimes y_i) \right] \right] (b) &=\\
@@ -727,16 +745,16 @@ This means that $\gamma$ is an epimorphism and then also an isomorphism.
 \end{theorem}
 
 \begin{defin}
-Let $S$ be a commutative ring, $G$ a subgroup of $\Aut(S)$, and $\mathfrak{p}$ a prime ideal. The \underline{inertia group of $\mathfrak{p}$} is defined as
+Let $S$ be a commutative ring, $G$ a subgroup of $\Aut(S)$, and $\mathfrak{p}$ a prime ideal. The \textit{inertia group of $\mathfrak{p}$} is defined as
 \begin{align*}
-T(\mathfrak{p}) = \{ g \in G | s^g - s \in \mathfrak{p} \;\; \forall s \in S \}.
+T(\mathfrak{p}) = \left\lbrace g \in G \; \middle| \; s^g - s \in \mathfrak{p} \;\; \forall s \in S \right\rbrace.
 \end{align*}
 \end{defin}
 
 \begin{defin}
-Let $S$ be a commutative ring, $G$ a subgroup of $\Aut(S)$, and $\mathfrak{p}$ a prime ideal. The \underline{decomposition group of $\mathfrak{p}$} is defined as
+Let $S$ be a commutative ring, $G$ a subgroup of $\Aut(S)$, and $\mathfrak{p}$ a prime ideal. The \textit{decomposition group of $\mathfrak{p}$} is defined as
 \begin{align*}
-D(\mathfrak{p}) = \{ g \in G | g(\mathfrak{p}) = \mathfrak{p} \}.
+D(\mathfrak{p}) = \left\lbrace g \in G \; \middle| \; g(\mathfrak{p}) = \mathfrak{p} \right\rbrace.
 \end{align*}
 \end{defin}
 
@@ -744,7 +762,7 @@ D(\mathfrak{p}) = \{ g \in G | g(\mathfrak{p}) = \mathfrak{p} \}.
 Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Let $e$ be the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$, and let $f$ be the degree of the field extension $R_\mathfrak{q}/\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}$. Then the order of the decomposition group $|D(\mathfrak{p})|$ is $ef$.
 
 \begin{proof}
-Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction the it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the {\color{red} approximation lemma?} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$.
+Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction that it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the {\color{red} approximation lemma?} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$.
 
 The orbit-stabilizer theorem states that the size of an orbit is the same as the index of the stabilizer group. Note that $D(\mathfrak{p})$ is exactly the stabilizer of $\mathfrak{p}$. Then since $G$ acts transitively we have that $|\{ \mathfrak{p}_i \}| = |G|/|D(\mathfrak{p})|$. In particular this set is finite, say $r := |\{ \mathfrak{p}_i \}|$, and $|G| = |D(\mathfrak{p})|\cdot r$.
 
@@ -775,7 +793,6 @@ We write $\mathfrak{m}$ for the maximal ideal of $S$. Since $\mathfrak{p}$ is he
 \begin{align*}
 \langle x, y \rangle_G = \frac{1}{|G|} \sum_{g \in G} \langle x^g,  y^g \rangle
 \end{align*}
-\end{proof}
 where $\langle -,- \rangle$ is the standard inner product. Note that the action of $G$ is orthogonal with respect to this inner product.
 
 We write $\overline{z}$ for the representative for $z$ in $V$. Since the action of $G$ preserves degrees and that $\overline{z}^g - \overline{z} \in \langle \overline{z} \rangle$ we must have that $\overline{z}^g = a_g \cdot \overline{z}$ for some scalar $a_g \in \C$. Further since $x^g = x + \lambda_{g,x}\overline{z}$ for all $x \in V$ and $g in T(\mathfrak{p})$, and $g$ is an orthogonal operator we have that $g$ fixes the $\langle -,- \rangle_G$-orthogonal complement to $\overline{z}$. This means we can choose a basis such that all elements of $T(\mathfrak{p})$ are on the form:
@@ -801,6 +818,7 @@ This means $T(\mathfrak{p})$ is isomorphic to $\{ a_g \}_{g \in T(\mathfrak{p})}
 \end{pmatrix}
 \end{align*}
 generates $T(\mathfrak{p})$. Consider the ring $S^{T(\mathfrak{p})}$. We have that $R \subset S^{T(\mathfrak{p})}$, and $\mathfrak{q} \subset S^{T(\mathfrak{p})} \cap \mathfrak{p}$. Then we have that $R_\mathfrak{q} \subset S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}}$, and the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ is the product of the ramification index of $R_\mathfrak{q} \subset S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}}$ and of $S^{T(\mathfrak{p})}_{S^{T(\mathfrak{p})} \cap \mathfrak{p}} \subset S_\mathfrak{p}$. Then since $(S^{T(\mathfrak{p})} \cap \mathfrak{p})S = z^s S = \langle z \rangle^s S$, we have that the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$ is divisible by the order of $T(\mathfrak{p})$. Since we have already seen that the ramification index divides $|T(\mathfrak{p})|$ this implies that $e = |T(\mathfrak{p})|$.
+\end{proof}
 \end{theorem}
 
 \begin{theorem}
@@ -842,7 +860,7 @@ Assume $f$ is not an epimorphism. Then $f$ has a cokernel $C \neq 0$, and we hav
 0 \ar[r] & M \ar[r]{}{f} & N \ar[r] & C \ar[r] & 0
 \end{tikzcd}
 \end{center}
-Now we choose $\mathfrak{p}$ to be the annihilator of a submodule $\langle c \rangle$ for some non-zero $c \in C$. We want to show that $\mathfrak{p}$ has height at least 2. If $\mathfrak{p}$ had height one then since $f_\mathfrak{p}$ is epi we would have that $C_\mathfrak{p} = 0$. This equivalent to saying that for every $c \in C$ there is some element $s \not\in \mathfrak{p}$ such that $sc = 0$. This is impossible since $\mathfrak{p}$ is the annihilator for some $c$, thus if $sc=0$ then $s$ is in $\mathfrak{p}$. The same argument works for a height 0 prime ideal since they are contained in height one prime ideals.
+Now we choose $\mathfrak{p}$ to be the annihilator of a submodule $\langle \tilde{c} \rangle$ for some non-zero $\tilde{c} \in C$. We want to show that $\mathfrak{p}$ has height at least 2. If $\mathfrak{p}$ had height one then since $f_\mathfrak{p}$ is epi we would have that $C_\mathfrak{p} = 0$. This equivalent to saying that for every $c \in C$ there is some element $s \not\in \mathfrak{p}$ such that $sc = 0$. This is impossible since $\mathfrak{p}$ is the annihilator of $\langle \tilde{c} \rangle$, thus if $s\tilde{c}=0$ then $s$ is in $\mathfrak{p}$. The same argument works for a height 0 prime ideal since they are contained in height one prime ideals.
 
 Thus $\mathfrak{p}$ has height at least 2 and $\depth M_\mathfrak{p} \geq 2$, $\depth N_\mathfrak{p} \geq 1$. Now we want to show that $C_\mathfrak{p}$ has depth 0, using regular sequences. Recall that the depth of a module is the length of the longest regular sequence. Since $\mathfrak{p}$ annihilates some $c \in C$ multiplication by $p \in \mathfrak{p}$ cannot be injective on $C_\mathfrak{p}$, because $\frac{c}{1}$ will be in the kernel. Multiplication by any element not in $\mathfrak{p}$ will be epimorphic since $s \cdot \frac{c}{s \cdot t} = \frac{c}{t}$, thus no regular sequence exist on $C_\mathfrak{p}$.
 
@@ -913,7 +931,7 @@ This means that for each height one prime of $R$, the localization of $\gamma$ i
 
 \section{Maximal Cohen-Macaulay modules of $S^G$}
 \begin{defin}
-If $R$ is a ring we define its \underline{Krull dimension} to be the maximum length of a chain of prime ideals in $R$.
+If $R$ is a ring we define its \textit{Krull dimension} to be the maximum length of a chain of prime ideals in $R$.
 \end{defin}
 \begin{example}
 For example the power series ring $\C\llbracket x_1, \cdots, x_n \rrbracket$ has Krull dimension $n$ given by the chain
@@ -925,7 +943,7 @@ For example the power series ring $\C\llbracket x_1, \cdots, x_n \rrbracket$ has
 \end{example}
 
 \begin{defin}
-If $M$ is a module over a local ring $R$ with Krull dimension $d$ we say that $M$ is \underline{maximal Cohen Macaulay (MCM)} if the depth of $M$ equals $d$. If a ring is MCM as a module over itself we say that it's a \underline{Cohen Macaulay ring (CM)}. Note that the ring must be CM for it to have any MCM modules.
+If $M$ is a module over a local ring $R$ with Krull dimension $d$ we say that $M$ is \textit{maximal Cohen Macaulay (MCM)} if the depth of $M$ equals $d$. If a ring is MCM as a module over itself we say that it's a \textit{Cohen Macaulay ring (CM)}. Note that the ring must be CM for it to have any MCM modules.
 \end{defin}
 
 \begin{theorem}
@@ -979,15 +997,15 @@ and thus $\dim R = \depth_RR$, which means $R$ is CM. \cref{lem:depth_of_S_less_
 \end{proof}
 \end{theorem}
 
-Note that \cref{prop:direct_summand_MCM} gives that all the $R$-direct summands of $S$ are MCM $R$-modules. This holds true if we let $G$ be any finite subgroup of $GL_n(\C)$. The proof of the case where $G \subset GL_n(\C)$ goes in much the same way, but we need some algebraic geometry to show that $\dim R = \dim S$. An interesting fact that I will not prove here is that when $G$ is a finite subgroup of $SL_2(\C)$ the converse holds. That is, all MCM $R$-modules can be written as the sum of $R$-direct summands of $S$.
+Note that \cref{prop:direct_summand_MCM} gives that all the $R$-direct summands of $S$ are MCM $R$-modules. This holds true if we let $G$ be any finite subgroup of $GL_n(\C)$. The proof of the case where $G \subset GL_n(\C)$ goes in much the same way, but we need some algebraic geometry to show that $\dim R = \dim S$. An interesting fact that we will not prove here is that when $G$ is a finite subgroup of $SL_2(\C)$ the converse holds. That is, all MCM $R$-modules can be written as the sum of $R$-direct summands of $S$.
 
 \begin{theorem}
-Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then there is a one-to-one correspondence between the finitely generated indecomposable projective $S\#G$-modules and the indecomposable MCM $R$-modules appearing as $R$-direct summands of $S$.
+Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then there is a one-to-one correspondence between the indecomposable projective $S\#G$-modules and the indecomposable MCM $R$-modules appearing as $R$-direct summands of $S$.
 
 \begin{proof}
-Let $\mathfrak{m}$ denote the maximal ideal of $S$. We saw in \cref{thm:indec_proj_SG=indec_CG} that there's a one-to-one correspondence between the finitely generated projective $S\#G$-modules and the finitely generated $\C G$-modules. In particular we get that $\S\#G \cong S \otimes_\C S\#G/\mathfrak{m}S\#G$. Since $S\#G/\mathfrak{m}S\#G \cong \C G$ and all indecomposable $\C G$ modules appear as a direct summand of $\C G$ we have that all finitely generated projective $S\#G$-modules appear as a direct summand of $S\#G$. The direct summands of $S\#G$ are exactly the primitive idempotents of $\End_{S\#G}(S\#G) \cong S\#G^{op}$. Since $S\#G$ is isomorphic to $S\#G^{op}$ by the isomorphism $(s\cdot g \mapsto s^{g^{-1}} \cdot g^{-1})$, we have that the finitely generated project $S\#G$-modules correspond to primitive idempotents of $S\#G$.
+Let $\mathfrak{m}$ denote the maximal ideal of $S$. We saw in \cref{thm:indec_proj_SG=indec_CG} that there's a one-to-one correspondence between the finitely generated projective $S\#G$-modules and the finitely generated $\C G$-modules. In particular we get that $S\#G \cong S \otimes_\C S\#G/\mathfrak{m}S\#G$. Since $S\#G/\mathfrak{m}S\#G \cong \C G$ and all indecomposable $\C G$ modules appear as a direct summand of $\C G$ we have that all indecomposable projective $S\#G$-modules appear as a direct summand of $S\#G$. The direct summands of $S\#G$ are exactly the primitive idempotents of $\End_{S\#G}(S\#G) \cong S\#G^{op}$. Since $S\#G$ is isomorphic to $S\#G^{op}$ by the isomorphism $(s\cdot g \mapsto s^{g^{-1}} \cdot g^{-1})$, we have that the indecomposable project $S\#G$-modules correspond to primitive idempotents of $S\#G$.
 
-In \cref{thm:skew_group_algerba_equals_endomorphsim_ring} we showed that $S\#G \cong \End_R(S)$. Thus the primitive idempotents of $S\#G$ corresponds to the primitive idempotents of $\End_R(S)$ which are exactly the projections onto the indecomposable $R$-direct summands of $S$. Thus the finitely generated indecomposable projective $S\#G$-modules are in one-to-one correspondence with the indecomposable $R$-direct summands of $S$. Since we showed in \cref{thm:S_MCM} that $S$ is MCM it follows from \cref{prop:direct_summand_MCM} that the direct summands of $S$ also are MCM.
+In \cref{thm:skew_group_algerba_equals_endomorphsim_ring} we showed that $S\#G \cong \End_R(S)$. Thus the primitive idempotents of $S\#G$ corresponds to the primitive idempotents of $\End_R(S)$ which are exactly the projections onto the indecomposable $R$-direct summands of $S$. Thus the indecomposable projective $S\#G$-modules are in one-to-one correspondence with the indecomposable $R$-direct summands of $S$. Since we showed in \cref{thm:S_MCM} that $S$ is MCM it follows from \cref{prop:direct_summand_MCM} that the direct summands of $S$ also are MCM.
 \end{proof}
 \end{theorem}
 
@@ -998,21 +1016,21 @@ This last theorem concludes the part of the McKay correspondence that we will pr
 \label{appendix}
 
 \begin{defin}
-If $R$ is a ring and $M$ is an abelian group, we define a \underline{representation of $R$} to be a ring-map, $\varphi$, from $R$ to $\End(M)$. Then we say that $M$ is a (left) \underline{$R$-module}, and we write $rm$ with $r \in R$ and $m \in M$ to mean $\varphi(r)(m)$. Similarly we define a right $R$-module if $\varphi$ goes from $R$ to $\End(M)^{op}$ and we write $mr$ for $\varphi(r)(m)$.
+If $R$ is a ring and $M$ is an abelian group, we define a \textit{representation of $R$} to be a ring-map, $\varphi$, from $R$ to $\End(M)$. Then we say that $M$ is a (left) \textit{$R$-module}, and we write $rm$ with $r \in R$ and $m \in M$ to mean $\varphi(r)(m)$. Similarly we define a right $R$-module if $\varphi$ goes from $R$ to $\End(M)^{op}$ and we write $mr$ for $\varphi(r)(m)$.
 \end{defin}
 
 \begin{defin}
-If $G$ is a group and $V$ a complex vector space, we define a \underline{representation of $G$} to be a group-map, $\rho$, from $G$ to $\Aut_\C(V)$. When $\rho$ is inferred we say that $V$ is a representation of $G$ and we write $gv$ to mean $\rho(g)(v)$. Note that representations of $G$ exactly corresponds to representations of the ring $\C G$ of formal linear combinations of elements of $G$ with multiplication given by $\lambda g \cdot \lambda' g' = (\lambda \cdot \lambda')gg'$.
+If $G$ is a group and $V$ a complex vector space, we define a \textit{representation of $G$} to be a group-map, $\rho$, from $G$ to $\Aut_\C(V)$. When $\rho$ is inferred we say that $V$ is a representation of $G$ and we write $gv$ to mean $\rho(g)(v)$. Note that representations of $G$ exactly corresponds to representations of the ring $\C G$ of formal linear combinations of elements of $G$ with multiplication given by $\lambda g \cdot \lambda' g' = (\lambda \cdot \lambda')gg'$.
 \end{defin}
 
 \begin{defin}
 \label{def:indecomposable}
-If $R$ is a ring and $M_1$ and $M_2$ are two modules we define their \underline{direct sum}, $M_1 \oplus M_2$ to be the module consisting of all pairs $(m_1, m_2)$ (usually written $m_1 + m_2$), where addition and scalar multiplication is pointwise. If a non-zero module cannot be written as the direct sum of two non-zero modules we call it \underline{indecomposable}.
+If $R$ is a ring and $M_1$ and $M_2$ are two modules we define their \textit{direct sum}, $M_1 \oplus M_2$ to be the module consisting of all pairs $(m_1, m_2)$ (usually written $m_1 + m_2$), where addition and scalar multiplication is pointwise. If a non-zero module cannot be written as the direct sum of two non-zero modules we call it \textit{indecomposable}.
 \end{defin}
 
 \begin{defin}
 \label{def:simple}
-A \underline{submodule} is a subset of a module which is also a module. A non-zero module with no non-trivial proper submodules is called \underline{simple}.
+A \textit{submodule} is a subset of a module which is also a module. A non-zero module with no non-trivial proper submodules is called \textit{simple}.
 \end{defin}
 
 \begin{theorem}
@@ -1026,7 +1044,7 @@ Now assume $f: V \to V$ is a $G$-linear map, then we want to show that $f$ is si
 
 \begin{defin}
 \label{def:exact_functor}
-We call a functor \underline{left exact} if for any short exact sequence
+We call a functor \textit{left exact} if for any short exact sequence
 \begin{center}
 \begin{tikzcd}
 0 \arrow{r} & A \arrow{r}{f} & B \arrow{r}{g} & C
@@ -1038,18 +1056,18 @@ the image of the sequence under the functor is also exact. For example for any m
 0 \arrow{r} & \Hom(M,A) \arrow{r}{f \circ -} & \Hom(M,B) \arrow{r}{g \circ -} & C
 \end{tikzcd}
 \end{center}
-is exact. Dually we call a functor \underline{right exact} if short exact sequences of the form
+is exact. Dually we call a functor \textit{right exact} if short exact sequences of the form
 \begin{center}
 \begin{tikzcd}
 A \arrow{r} & B \arrow{r} & C \arrow{r} & 0
 \end{tikzcd}
 \end{center}
-is mapped to an exact sequence. A functor that is both left exact and right exact is called \underline{exact}.
+is mapped to an exact sequence. A functor that is both left exact and right exact is called \textit{exact}.
 \end{defin}
 
 \begin{defin}
 \label{def:projective}
-We say that a module, $P$, is \underline{projective} if for any epimorphism $f: M \twoheadrightarrow N$, and any map $g: P \to N$, there is a map $\varphi: P \to M$ such that $f \varphi = g$. Said another way, the diagram below induces the dotted arrow making the diagram commute
+We say that a module, $P$, is \textit{projective} if for any epimorphism $f: M \twoheadrightarrow N$, and any map $g: P \to N$, there is a map $\varphi: P \to M$ such that $f \varphi = g$. Said another way, the diagram below induces the dotted arrow making the diagram commute
 \begin{center}
 \begin{tikzcd}
 & P \arrow{d}{g} \arrow[dl, dotted, swap]{}{\varphi} \\
@@ -1061,18 +1079,18 @@ Note that $P$ being projective is equivalent to $\Hom(P, -)$ being right exact (
 
 \begin{defin}
 \label{def:projective_cover}
-If $M$ is a module and $f: P \to M$ is a homomorphism we say that $f$ is a \underline{projective cover} of $M$ if
+If $M$ is a module and $f: P \to M$ is a homomorphism we say that $f$ is a \textit{projective cover} of $M$ if
 \begin{itemize}
 \item $P$ is projective
 \item $f$ is an epimorphism
 \item For any homomorphism $g: X \to P$, if $f \circ g$ is an epimorphism then $g$ is an epimorphism.
 \end{itemize}
 \end{defin}
-The last condition for a projective cover is equivalent to the kernel of $f$ being \underline{small}. That is for any submodule $X$ of $P$, if $X + \Ker f = P$ then $X=P$. For a module $M$ the choice of $P$ in the projective cover is unique (but the choice of $f$ might not be). Therefore it is normal to refer to $P$ as \textit{the} projective cover of $M$.
+The last condition for a projective cover is equivalent to the kernel of $f$ being \textit{small}. That is for any submodule $X$ of $P$, if $X + \Ker f = P$ then $X=P$. For a module $M$ the choice of $P$ in the projective cover is unique (but the choice of $f$ might not be). Therefore it is normal to refer to $P$ as \textit{the} projective cover of $M$.
 
 \begin{defin}
 \label{def:projective_resolution}
-If $M$ is a module we say that a \underline{projective resolution} of $M$ is a sequence
+If $M$ is a module we say that a \textit{projective resolution} of $M$ is a sequence
 \begin{center}
 \begin{tikzcd}
 \cdots \ar{r}{\partial_2} & P_2 \ar{r}{\partial_1} & P_1 \ar{r}{\partial_0} & P_0 \ar[r] & 0
@@ -1080,7 +1098,7 @@ If $M$ is a module we say that a \underline{projective resolution} of $M$ is a s
 \end{center}
 such that $P_i$ is projective for all $i$, the sequence is exact around every $P_i$ for $i \geq 1$, and that $\Cok \partial_0 = M$.
 
-We call a projective resolution \underline{minimal} if each map $\partial_i$ as well as the cokernel map $P_0 \to M$ is a projective cover of its image. In a minimal resolution the objects $P_i$ are uniquely determined.
+We call a projective resolution \textit{minimal} if each map $\partial_i$ as well as the cokernel map $P_0 \to M$ is a projective cover of its image. In a minimal resolution the objects $P_i$ are uniquely determined.
 \end{defin}
 
 \begin{defin}
