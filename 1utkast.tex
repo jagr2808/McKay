@@ -3,8 +3,10 @@
 \usepackage{babel, amsmath, amsthm, amssymb, amsfonts, enumitem, mathtools, centernot}
 \usepackage{tikz-cd}
 \usepackage{tikz-3dplot}
+\usepackage{caption}
 \usepackage{intcalc}
 \usepackage{stmaryrd}
+\usepackage{multicol}
 \usepackage{cite}
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -39,6 +41,7 @@
 \title{McKay correspondence}
 \author{Jacob Fjeld Grevstad}
 \maketitle
+\pagenumbering{roman}
 
 \begin{abstract}
 The goal of this thesis is to establish a 1-1 correspondence between quivers created from the four following sets whenever $S$ is the power series ring $\C \llbracket x, y \rrbracket$ and $G$ is a finite subgroup of $SL(2,\C)$ acting on $S$.
@@ -50,34 +53,36 @@ The goal of this thesis is to establish a 1-1 correspondence between quivers cre
 \end{itemize}
 Much of the thesis will be used to define these four quivers and to develop tools to establish such a correspondence. %A similar correspondence can be established for a general field $k$ and a finite subgroup of $GL(n, k)$ with order nonzero in $k$, but in the general case we will only attain the MCM-modules that apear as $S^G$-direct summands of $S$. The finite subgroups of $SL(2, \C)$ are also especially interesting because the quivers are exactly the Dynkin diagrams.
 \end{abstract}
+\clearpage
 
 \tableofcontents
+\clearpage
 
+\pagenumbering{arabic}
 \section*{Introduction}
+The McKay correspondence is an isomorphism between four quivers related to a finite subgroup $G \leq SL_2(\C)$ of the special linear group of complex matricies. If we let $S = \C\llbracket x, y \rrbracket$ be the complex power series ring in two variables, and $R = S^G$ the subring of $S$ fixed by $G$, then there are two rings relevant to the theorem. Those are $S\#G$, the skew group algebra related to the group action of $G$ on $S$, and $\End_R(S)$ the endomorphism ring of $S$ as an $R$-module. Then the McKay correspondance is the isomorphism between:
+\begin{itemize}
+\item The McKay quiver formed by the irreducible representations of $G$.
+\item The Gabriel quiver formed by the indecomposable projective modules of the skew group algebra $S\#G$.
+\item The Gabriel quiver formed by the indecomposable projective modules of the endomorphism ring $\End_R(S)$.
+\item The Auslander-Reiten quiver formed by the indecomposable Maximal Cohen Macaulay $R$-modules.
+\end{itemize}
+In fact the skew group algebra and the endomorphism ring are isomorphic, thus the isomorphism between the two Gabriel quivers is evident.
+
 The story of the McKay correspondence starts in 1884 with Klein. He studied the finite subgroups $G \leq SL_2(\C)$, and gave a characterization of the isolated quotient singularities $\C^2/G$, known today as Kleinian singularities \cite{Kle84}. Later it was shown that the resolution graphs for these singularities gave a correspondence with the ADE Dynkin diagrams \cite{DuV34, Art66}.
 
-McKay observed that one could obtain the resolution graphs for $\C^2/G$ purely by studying the representation theory of $G$ \cite{Mck83}. This established an important bridge between the geometric and algebraic views of these quotient singularities. Many other important results have aided in the understanding of this correspondence, both from a geometric point of view \cite{GSV81, AV85, EK85}, and from an algebraic point of view \cite{Aus86, AR89}.
+McKay observed that one could obtain the resolution graphs for $\C^2/G$ purely by studying the representation theory of $G$ \cite{Mck83}. Specifically the resolution graph is isomorphic to the reduced McKay quiver. This established an important bridge between the geometric and algebraic views of these quotient singularities. Many other important results have aided in the understanding of this correspondence, both from a geometric point of view \cite{GSV81, AV85, EK85}, and from an algebraic point of view \cite{Aus86, AR89}.
 
 In this thesis we focus on the algebraic side. The story starts with Herzog in 1978 \cite{Her78} when he showed that the ring $R = \C\llbracket x, y \rrbracket^G$ has finitely many indecomposable Maximal Cohen Macaulay modules and that they all arise as direct summands of $\C\llbracket x, y \rrbracket$. The work of Auslander \cite{Aus86} extended the McKay correspondence to be between the indecomposable projective modules of the skew algebra $S\#G$, and the indecomposable $R$-direct summands of $\C\llbracket x, y \rrbracket$. Since the indecomposable projective modules of $S\#G$ are in correspondence with the irreducible representations of $G$, this ties in nicely with McKay's observation. In our specific case when $G$ is in $SL_2(\C)$ we have that $S\#G$ is isomorphic to $\End_R(S)$ \cite{AG60, Aus62}.
 
-The goal of this thesis is to outline part of this correspondence. Specifically for the case when $G$ is a finite subgroups of $SL_2(\C)$, acting on $S = \C\llbracket x, y \rrbracket$, and $R = S^G$ we want to establish the correspondance between:
-\begin{itemize}
-\item The irreducible representations of $G$
-\item The indecomposable projective modules of the skew group algebra $S\#G$
-\item The MCM $R$-modules appearing as direct summands of $S$
-\end{itemize}
-Further we also want to show the ring isomorphism between $S\#G$ and $\End_R(S)$, as well as the isomorphism between the McKay quiver formed by the irreducible representations of $G$ and the Gabriel quiver formed from $S\#G$.
-
-The strategy for the proof in this thesis can be divided into 4 parts:
+The goal of this thesis is to outline part of the McKay correspondence. The strategy for the proof in this thesis can be divided into 4 parts:
 \begin{itemize}
 \item Define the McKay quiver with verticies the irreducible representations of $G$.
 \item Show that the irreducible representations of $G$ exactly corresponds with indecomposable projective modules for the skew group algebra $S\#G$, and that this correspondance means the Gabriel quiver equals the McKay quiver.
 \item Show that $S\#G$ is isomorphic to the endomorphism ring $\End_R(S)$.
 \item Show that $R$-direct summands of $S$ are MCM modules, and use the isomorphism $S\#G \cong \End_R(S)$ to show that the $R$-direct summands of $S$ corresponds to indecomposable projective modules that appear as summands of $S\#G$.
 \end{itemize}
-Something that is ommited from my thesis is the definition of the Auslander-Reiten quiver for the $R$-direct summands of $S$ and why it is isomorphic to the Gabriel quiver of $S\#G$. The interested reader may look in {\color{red} refference} for further reading.
-
-{\color{red} Should I make a distinction between CM modules and MCM modules}
+Something that is ommited from my thesis is the definition of the Auslander-Reiten quiver for the $R$-direct summands of $S$ and why it is isomorphic to the Gabriel quiver of $S\#G$. The interested reader may look in \cite{LW12} for further reading, specifically the isomorphism between the McKay quiver and the Auslander-Reiten quiver of the MCM $R$-modules is given in \cite[Proposition~13.22]{LW12}.
 
 \section{The McKay quiver}
 For a given group, $G$, and a representation of that group the McKay quiver uses that representation to establish relations between the irreducible representations of $G$. In the special case that $G$ is a linear group we have a natural choice of representation to use. This leads us to define the McKay quiver as below.
@@ -99,9 +104,11 @@ V_3 && V_2 \arrow[<->]{ull}
 $$
 \end{example}
 
-One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the ADE Dynkin diagrams, if we exclude the trivial representation. Including the trivial representation we get an extended ADE Dynkin diagram. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here we will simply list them in a table. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$, and $n$ is an integer strictly larger than 1.
+One of the remarks that sparked the interest for the McKay correspondence is that the McKay quivers for the finite subgroups of $SL_2(\C)$ are exactly the ADE Dynkin diagrams, if we exclude the trivial representation. Including the trivial representation we get an extended ADE Dynkin diagram. The proof of this can be done on a case by case since there are up to change of basis only five families of subgroups of $SL_2(\C)$. A derivation of these groups can be found here \cite{Carrasco}. Here we will simply list them in table~\ref{tab:finite_subgroups_of_SL2}. We write $\zeta$ for the primitive fifth root of unity $\exp(2\pi i/5)$, and $n$ is an integer strictly larger than 1.
 
+\begin{minipage}{\textwidth}
 \begin{center}
+\captionof{table}{The finite subgroups of $SL_2(\C)$.\label{tab:finite_subgroups_of_SL2}}
 {\renewcommand{\arraystretch}{2}
 \begin{tabular}{|c|c|}
 \hline
@@ -150,10 +157,13 @@ $BI_{120}$ & $ \begin{pmatrix}
 \end{tabular}
 }
 \end{center}
+\end{minipage}
 
-The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below we will list the groups, their fixed ring, and the extended Dynkin diagram that is their McKay quiver.
+The groups have a natural action on the power series ring $S = \C\llbracket x, y \rrbracket$ by changing variables. If we let $R$ be the ring fixed by this action then $R$ is isomorphic to $\C\llbracket u, v, w \rrbracket / \langle f \rangle$ for some irreducible polynomial $f$. This is also shown on a case by case basis and can be found in \cite{kleinian}. Below, in table~\ref{tab:fixed_rings}, we will list the groups, their fixed ring, and the extended Dynkin diagram that is their McKay quiver.
 
+\begin{minipage}{\textwidth}
 \begin{center}
+\captionof{table}{The fixed rings of the finite subgroups of $SL_2(\C)$.\label{tab:fixed_rings}}
 {\renewcommand{\arraystretch}{1.6}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -163,7 +173,7 @@ $\tilde{A}_{n-1}$ & $\mathbb{Z}/n\mathbb{Z}$ &
 $\C \llbracket u, v, w \rrbracket/\langle uv - w^n \rangle$
 \\
 \hline
-$\tilde{D}_{n+2}$?? & $BD_{4n}$ &
+$\tilde{D}_{n+2}$ & $BD_{4n}$ &
 $\C \llbracket u, v, w \rrbracket/\langle u^{n+1} + v^2 - uw^2\rangle$
 \\
 \hline
@@ -182,53 +192,16 @@ $\C \llbracket u, v, w \rrbracket/\langle u^5 + v^3 + w^2 \rangle$
 \end{tabular}
 }
 \end{center}
+\end{minipage}
 
-Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the finite subgroups of $SO(3)$, they can be associated symmetry groups of solids. Below we have included some nice illustrations.
+Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the finite subgroups of $SO(3)$, and $SO(3)$ is the group of 3D rotations, they can be associated with symmetry groups of solids. Specifically each finite subgroup of $SL_2(\C)$ has a surjective group homomorphism to a finite subgroup of $SO(3)$ with kernel either of order 2 or 1. Below, in figure~\ref{fig:3d_solids}, we show some illustration of solid figures labeled with the ADE diagrams coming from the subgroup of $SL_2(\C)$ which their symmetry group corresponds to.
 
-\tdplotsetmaincoords{70}{0}
-\begin{tikzpicture}[tdplot_main_coords]
-\def\RI{2}
-\def\RII{1.25}
+\begin{figure}[h!]
+\label{fig:3d_solids}
+\begin{multicols}{3}
 
-\draw[] (\RI,0)
-  \foreach \x in {0,300,240,180} { --  (\x:\RI) node at (\x:\RI) (R1-\x) {} };
-\draw[dashed] (R1-0.center)
-  \foreach \x in {60,120,180} { --  (\x:\RI) node at (\x:\RI) (R1-\x) {} };
-\path[] (\RI,0)
-  \foreach \x in {0,60,120,180,240,300} { --  (\x:\RI)};
-
-\begin{scope}[yshift=2cm]
-\draw[] (\RII,0)
-  \foreach \x in {0,60,120,180,240,300,360}
-    { --  (\x:\RII) node at (\x:\RII) (R2-\x) {}};
-\end{scope}
-
-\foreach \x in {0,180,240,300} { \draw (R1-\x.center)--(R2-\x.center); };
-\foreach \x in {60,120} { \draw[dashed] (R1-\x.center)--(R2-\x.center); };
-\end{tikzpicture}
-
-\tdplotsetmaincoords{70}{0}
-\begin{tikzpicture}[tdplot_main_coords]
-\def\RI{2}
-\def\RII{2}
-
-\draw[] (\RI,0)
-  \foreach \x in {0,300,240,180} { --  (\x:\RI) node at (\x:\RI) (R1-\x) {} };
-\draw[dashed] (R1-0.center)
-  \foreach \x in {60,120,180} { --  (\x:\RI) node at (\x:\RI) (R1-\x) {} };
-\path[] (\RI,0)
-  \foreach \x in {0,60,120,180,240,300} { --  (\x:\RI)};
-
-\begin{scope}[yshift=2cm]
-\draw[] (\RII,0)
-  \foreach \x in {0,60,120,180,240,300,360}
-    { --  (\x:\RII) node at (\x:\RII) (R2-\x) {}};
-\end{scope}
-
-\foreach \x in {0,180,240,300} { \draw (R1-\x.center)--(R2-\x.center); };
-\foreach \x in {60,120} { \draw[dashed] (R1-\x.center)--(R2-\x.center); };
-\end{tikzpicture}
-
+%prism
+\begin{center}
 \begin{tikzpicture}[ rotate around z=0, rotate around x=90]
 \coordinate (p0) at (1, 0, 0);
 \coordinate (p1) at (0.5,0.866,0);
@@ -237,7 +210,7 @@ Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the fi
 \coordinate (p4) at (-0.5,-0.866,0);
 \coordinate (p5) at (0.5,-0.866,0);
 
-\filldraw[fill opacity=0.2, fill=white] (p0)\foreach
+\draw[] (p0)\foreach
 	\x in {1, 2, 3, 4, 5, 0} {
 	-- (p\x)
 };
@@ -249,18 +222,30 @@ Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the fi
 \coordinate (q4) at (-0.5,-0.866,1);
 \coordinate (q5) at (0.5,-0.866,1);
 
-\filldraw[fill opacity=0.2, fill=white] (q0)\foreach
-	\x in {1, 2, 3, 4, 5, 0} {
+\draw[] (q0)\foreach
+	\x in {1, 2, 3} {
 	-- (q\x)
 };
+\draw[dashed] (q3)\foreach
+	\x in {4, 5, 0} {
+	-- (q\x)
+};
+
 \foreach
-	\x in {0, 1, 2, 3, 4, 5} {
-	\pgfmathsetmacro{\y}{ \intcalcMod{\x + 1}{6}};
-	\filldraw[fill opacity=0.2, fill=white] (q\x) -- (q\y) -- (p\y) -- (p\x) -- (q\x);
+	\x in {4,5} {
+	\draw[dashed] (q\x) -- (p\x);
+};
+\foreach
+	\x in {0, 1, 2, 3} {
+	\draw[] (q\x) -- (p\x);
 };
 
 \end{tikzpicture}
+\captionof*{figure}{$\tilde{D}_5$}
+\end{center}
 
+%pyramid
+\begin{center}
 \begin{tikzpicture}[rotate around x=-90]
 \coordinate (p0) at (1, 0, 0);
 \coordinate (p1) at (0.5,0.866,0);
@@ -269,32 +254,235 @@ Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the fi
 \coordinate (p4) at (-0.5,-0.866,0);
 \coordinate (p5) at (0.5,-0.866,0);
 
-\filldraw[fill opacity=0.2, fill=white] (p0)\foreach
-	\x in {1, 2, 3, 4, 5, 0} {
+\draw[dashed] (p1)\foreach
+	\x in {2, 3} {
+	-- (p\x)
+};
+\draw[] (p3)\foreach
+	\x in {4, 5, 0, 1} {
 	-- (p\x)
 };
 
-\coordinate (q0) at (0, 0, 1);
-\coordinate (q1) at (0, 0, 1);
-\coordinate (q2) at (0, 0, 1);
-\coordinate (q3) at (0, 0, 1);
-\coordinate (q4) at (0, 0, 1);
-\coordinate (q5) at (0, 0, 1);
+\coordinate (q0) at (0, 0, 1.3);
+\coordinate (q1) at (0, 0, 1.3);
+\coordinate (q2) at (0, 0, 1.3);
+\coordinate (q3) at (0, 0, 1.3);
+\coordinate (q4) at (0, 0, 1.3);
+\coordinate (q5) at (0, 0, 1.3);
 
-\filldraw[fill opacity=0.2, fill=white] (q0)\foreach
-	\x in {1, 2, 3, 4, 5, 0} {
-	-- (q\x)
+\foreach
+	\x in {2} {
+	\draw[dashed] (q\x) -- (p\x);
 };
 \foreach
-	\x in {0, 1, 2, 3, 4, 5} {
-	\pgfmathsetmacro{\y}{ \intcalcMod{\x + 1}{6}};
-	\filldraw[fill opacity=0.2, fill=white] (q\x) -- (q\y) -- (p\y) -- (p\x) -- (q\x);
+	\x in {1, 3, 4, 5, 0} {
+	\draw[] (q\x) -- (p\x);
+};
+\end{tikzpicture}
+\captionof*{figure}{$\tilde{A}_5$}
+\end{center}
+
+%tetrahedron
+\begin{center}
+\begin{tikzpicture}[scale=1.5]
+\coordinate (p1) at (0, 0.866025404, 0);
+\coordinate (p2) at (-0.5,0,-0.288675135);
+\coordinate (p3) at (0.5,0,-0.288675135);
+\coordinate (p4) at (0,0,0.577350269);
+
+\draw[] (p1) -- (p2);
+\draw[] (p1) -- (p3);
+\draw[] (p1) -- (p4);
+\draw[dashed] (p2) -- (p3);
+\draw[] (p3) -- (p4);
+\draw[] (p4) -- (p2);
+\end{tikzpicture}
+\captionof*{figure}{$\tilde{E}_6$}
+\end{center}
+
+\end{multicols}
+
+\begin{multicols}{2}
+%octahedron
+\begin{center}
+\begin{tikzpicture}[scale=1]
+\coordinate (t) at (0, 1, 0);
+\coordinate (b) at (0, -1, 0);
+\coordinate (p1) at (1, 0, 0);
+\coordinate (p2) at (0, 0, 1);
+\coordinate (p3) at (-1, 0, 0);
+\coordinate (p4) at (0, 0, -1);
+
+\foreach
+	\x in {1,2,3} {
+	\draw[] (t) -- (p\x);
+};
+\foreach
+	\x in {4} {
+	\draw[dashed] (t) -- (p\x);
 };
 
+\foreach
+	\x in {1,2,3} {
+	\draw[] (b) -- (p\x);
+};
+\foreach
+	\x in {4} {
+	\draw[dashed] (b) -- (p\x);
+};
+
+\draw[] (p1) \foreach
+	\x in {2, 3} {
+	-- (p\x)
+};
+
+\draw[dashed] (p3) \foreach
+	\x in {4, 1} {
+	-- (p\x)
+};
 \end{tikzpicture}
+\captionof*{figure}{$\tilde{E}_7$}
+\end{center}
+
+%doedecahedron
+%command to find intersection of plane through abc and line p (through origin)
+\newcommand{\planelineinter}[5]% a, b, c, p as {a_x,a_y,a_z}, coordinate name
+{   \foreach \a [count=\k] in {#1}
+    { \ifthenelse{\k=1}{\xdef\tempxa{\a}}
+        \ifthenelse{\k=2}{\xdef\tempya{\a}}
+        \ifthenelse{\k=3}{\xdef\tempza{\a}}
+    }
+    \foreach \b [count=\k] in {#2}
+    { \ifthenelse{\k=1}{\xdef\tempxb{\b}}
+        \ifthenelse{\k=2}{\xdef\tempyb{\b}}
+        \ifthenelse{\k=3}{\xdef\tempzb{\b}}
+    }
+    \foreach \c [count=\k] in {#3}
+    { \ifthenelse{\k=1}{\xdef\tempxc{\c}}
+        \ifthenelse{\k=2}{\xdef\tempyc{\c}}
+        \ifthenelse{\k=3}{\xdef\tempzc{\c}}
+    }
+    \foreach \p [count=\k] in {#4}
+    { \ifthenelse{\k=1}{\xdef\tempxp{\p}}
+        \ifthenelse{\k=2}{\xdef\tempyp{\p}}
+        \ifthenelse{\k=3}{\xdef\tempzp{\p}}
+    }
+    \pgfmathsetmacro{\abx}{\tempxb-\tempxa}
+    \pgfmathsetmacro{\aby}{\tempyb-\tempya}
+    \pgfmathsetmacro{\abz}{\tempzb-\tempza}
+    \pgfmathsetmacro{\acx}{\tempxc-\tempxa}
+    \pgfmathsetmacro{\acy}{\tempyc-\tempya}
+    \pgfmathsetmacro{\acz}{\tempzc-\tempza}
+    \pgfmathsetmacro{\nx}{\aby*\acz-\abz*\acy}
+    \pgfmathsetmacro{\ny}{\abz*\acx-\abx*\acz}
+    \pgfmathsetmacro{\nz}{\abx*\acy-\aby*\acx}
+    \pgfmathsetmacro{\d}{(\nx+\ny+\nz)/(\nx*\tempxp+\ny*\tempyp+\nz*\tempzp)}
+    \path (0,0,0) -- (#4) coordinate[pos=\d] (#5);
+}
+%
+% golden ratio and inverse golden ratio
+\pgfmathsetmacro{\gr}{(1+sqrt(5))/2}
+\pgfmathsetmacro{\igr}{2/(1+sqrt(5))}
+%
+%choose axis angles
+\newcommand{\xangle}{0}
+\newcommand{\yangle}{90}
+\newcommand{\zangle}{225}
+%
+%choose axis lengths
+\newcommand{\xlength}{1}
+\newcommand{\ylength}{1}
+\newcommand{\zlength}{0.5}
+%
+\pgfmathsetmacro{\xx}{\xlength*cos(\xangle)}
+\pgfmathsetmacro{\xy}{\xlength*sin(\xangle)}
+\pgfmathsetmacro{\yx}{\ylength*cos(\yangle)}
+\pgfmathsetmacro{\yy}{\ylength*sin(\yangle)}
+\pgfmathsetmacro{\zx}{\zlength*cos(\zangle)}
+\pgfmathsetmacro{\zy}{\zlength*sin(\zangle)}
+
+\begin{center}
+\begin{tikzpicture}
+[   x={(\xx cm,\xy cm)},
+  y={(\yx cm,\yy cm)},
+  z={(\zx cm,\zy cm)},
+  scale=0.6,
+  rotate around y=-20,
+  rotate=180, transform shape
+]
+
+% coordinates of the vertices (see wikipedia page)
+    % vertices of inscribed cube
+    \coordinate (pd1) at (-1,-1,-1);
+    \coordinate (pd2) at (-1,-1,1);
+    \coordinate (pd3) at (-1,1,-1);
+    \coordinate (pd4) at (-1,1,1);
+    \coordinate (pd5) at (1,-1,-1);
+    \coordinate (pd6) at (1,-1,1);
+    \coordinate (pd7) at (1,1,-1);
+    \coordinate (pd8) at (1,1,1);
+    % "front/back" "outside of cube" points
+    \coordinate (pd9) at (0,-\igr,-\gr);
+    \coordinate (pd10) at (0,-\igr,\gr);
+    \coordinate (pd11) at (0,\igr,-\gr);
+    \coordinate (pd12) at (0,\igr,\gr);
+    % "top/bottom" "outside of cube" points
+    \coordinate (pd13) at (-\igr,-\gr,0);
+    \coordinate (pd14) at (-\igr,\gr,0);
+    \coordinate (pd15) at (\igr,-\gr,0);
+    \coordinate (pd16) at (\igr,\gr,0);
+    % "left/right" "outside of cube" points
+    \coordinate (pd17) at (-\gr,0,-\igr);
+    \coordinate (pd18) at (-\gr,0,\igr);
+    \coordinate (pd19) at (\gr,0,-\igr);
+    \coordinate (pd20) at (\gr,0,\igr);
+    
+% edges on "back"    face of inscribes cube; red
+    \draw[dashed] (pd9) -- (pd11);
+    \draw[dashed] (pd11) -- (pd3);
+    \draw[dashed] (pd11) -- (pd7);
+    \draw[dashed] (pd9) -- (pd1);
+    \draw[dashed] (pd9) -- (pd5);
+% edges on "top"     face of inscribes cube
+    \draw[] (pd14) -- (pd16);
+    \draw[] (pd16) -- (pd8);
+    \draw[] (pd16) -- (pd7);
+    \draw[dashed] (pd14) -- (pd3);
+    \draw[] (pd14) -- (pd4);
+% edges on "left"    face of inscribes cube
+    \draw[dashed] (pd17) -- (pd18);
+    \draw[dashed] (pd17) -- (pd3);
+    \draw[dashed] (pd17) -- (pd1);
+    \draw[] (pd18) -- (pd2);
+    \draw[] (pd18) -- (pd4);
+% edges on "bottom"  face of inscribes cube
+    \draw[] (pd13) -- (pd15);
+    \draw[dashed] (pd13) -- (pd1);
+    \draw[] (pd13) -- (pd2);
+    \draw[] (pd15) -- (pd5);
+    \draw[] (pd15) -- (pd6);
+% edges on "front"   face of inscribes cube
+    \draw[] (pd10) -- (pd12);
+    \draw[] (pd12) -- (pd4);
+    \draw[] (pd12) -- (pd8);
+    \draw[] (pd10) -- (pd2);
+    \draw[] (pd10) -- (pd6);
+% edges on "right"   face of inscribes cube 
+    \draw[] (pd20) -- (pd19);   
+    \draw[] (pd19) -- (pd7);
+    \draw[] (pd19) -- (pd5);
+    \draw[] (pd20) -- (pd8);
+    \draw[] (pd20) -- (pd6);  
+\end{tikzpicture}
+\captionof*{figure}{$\tilde{E}_8$}
+\end{center}
+\end{multicols}
+
+\caption{Three dimensional solids labeled by corresponding extended Dynkin diagrams.}
+\end{figure}
 
 \section{Indecomposable projectives of the skew group algebra S\#G}
-This section is largely based on the book \cite{CMR}. Here we will define the skew group algebra (\cref{def:skew_group_algebra}) and the Gabriel quiver (\cref{def:gabriel_quiver}). We will show in \cref{thm:indec_proj_SG=indec_CG} that the irreducible representations of $G$ are in correspondance with the indecomposable projective modules of the skew group algebra. Finally in \cref{thm:gabriel_equals_mckay} we will show that the Gabriel quiver is isomorphic to the McKay quiver.
+This section is largely based on the book \cite{LW12}. Here we will define the skew group algebra (\cref{def:skew_group_algebra}) and the Gabriel quiver (\cref{def:gabriel_quiver}). We will show in \cref{thm:indec_proj_SG=indec_CG} that the irreducible representations of $G$ are in correspondance with the indecomposable projective modules of the skew group algebra. Finally in \cref{thm:gabriel_equals_mckay} we will show that the Gabriel quiver is isomorphic to the McKay quiver.
 
 This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - Homological Algebra. Since we do not assume knowledge of this we have created appendix \ref{appendix}. We will try to use footnotes to indicate where such theorems are used.
 
@@ -471,7 +659,7 @@ From here, since $\bigwedge\limits^{1} V = V$, we see that $P_j = S \otimes_\C V
 \end{theorem}
 
 \section{The endomorphism ring of $S$ as an $S^G$-module}
-This section is largely based on the article \cite{IyTa} and the book \cite{CMR}.
+This section is largely based on the article \cite{IyTa} and the book \cite{LW12}.
 
 In this section we will show that $S\#G$ is isomorphic to $\End_R(S)$ as rings, where $S$ is the complex power series ring in 2 variables, $G$ is a finite subgroup of $SL_2(\C)$, and $R = S^G$ is the fixed ring of $S$ by $G$. This will be the longest proof in this thesis and we have therefore decided to split it up into several steps. The proof will be done by constructing an explicit isomorphism.
 \begin{center}
@@ -762,7 +950,7 @@ D(\mathfrak{p}) = \left\lbrace g \in G \; \middle| \; g(\mathfrak{p}) = \mathfra
 Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Let $e$ be the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$, and let $f$ be the degree of the field extension $R_\mathfrak{q}/\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}$. Then the order of the decomposition group $|D(\mathfrak{p})|$ is $ef$.
 
 \begin{proof}
-Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction that it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the {\color{red} approximation lemma?} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$.
+Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction that it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the prime avoidance lemma \cite[Lemma~3.2]{Eis95} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$.
 
 The orbit-stabilizer theorem states that the size of an orbit is the same as the index of the stabilizer group. Note that $D(\mathfrak{p})$ is exactly the stabilizer of $\mathfrak{p}$. Then since $G$ acts transitively we have that $|\{ \mathfrak{p}_i \}| = |G|/|D(\mathfrak{p})|$. In particular this set is finite, say $r := |\{ \mathfrak{p}_i \}|$, and $|G| = |D(\mathfrak{p})|\cdot r$.
 
@@ -774,7 +962,7 @@ Since the order of $G$ is $|G|=efr$ {\color{red} ??} it follows that $|D(\mathfr
 Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Then the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$, denoted by $e$, divides order of the inertia group $|T(\mathfrak{p})|$.
 
 \begin{proof}
-Since $\mathfrak{p}$ is invariant under the action of $D(\mathfrak{p})$, also its complement will be. This means the group action on $S_\mathfrak{p}$ given by $g(\frac{s}{t}) = \frac{s^g}{t^g}$ is well defined whenever $g$ is in $D(\mathfrak{p})$. This also gives a well defined group action on $S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$. Since this action fixes $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q}$ we get a map from $D(\mathfrak{p})$ to the galois group of the field extension $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$. If we can show that the kernel of this map is $T(\mathfrak{p})$, then we get that $|D(\mathfrak{p})/T(\mathfrak{p})|$ divides the order of the galois group which equals the order of the field extension. Then since $|D(\mathfrak{p})| = ef$ we get that $ef \Big| |T(\mathfrak{p})|f$, and that $e$ divides $T(\mathfrak{p})$.
+Since $\mathfrak{p}$ is invariant under the action of $D(\mathfrak{p})$, also its complement will be. This means the group action on $S_\mathfrak{p}$ given by $g(\frac{s}{t}) = \frac{s^g}{t^g}$ is well defined whenever $g$ is in $D(\mathfrak{p})$. This also gives a well defined group action on $S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$. Since this action fixes $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q}$ we get a map from $D(\mathfrak{p})$ to the galois group of the field extension $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$ \cite[Theorem~7.1.1]{Cox12}. If we can show that the kernel of this map is $T(\mathfrak{p})$, then we get that $|D(\mathfrak{p})/T(\mathfrak{p})|$ divides the order of the galois group which equals the order of the field extension \cite[Theorem~7.1.5]{Cox12}. Then since $|D(\mathfrak{p})| = ef$ we get that $ef \Big| |T(\mathfrak{p})|f$, and that $e$ divides $T(\mathfrak{p})$.
 
 First we see that $T(\mathfrak{p})$ is contained in the kernel. Since $\frac{s}{t} = \frac{\prod_{g \neq 1}t^g s}{\prod_g t^g}$ where $g$ ranges over the elements of $T(\mathfrak{p})$, we have that all fractions in $S_\mathfrak{p}$ can be written with a denominator invariant under $T(\mathfrak{p})$. Then since $s^g - s \in \mathfrak{p}$ whenever $s$ is in $S$ and $g$ is in $T(\mathfrak{p})$ we get that $\left(\frac{s}{t}\right)^g - \frac{s}{t} \in \mathfrak{p}S_\mathfrak{p}$ for all $\frac{s}{t} \in S_\mathfrak{p}$ and $g \in T(\mathfrak{p})$. Thus the action of $T(\mathfrak{p})$ on $S_\mathfrak{p}/\mathfrak{p}S_\mathfrak{p}$ is trivial.
 
@@ -896,13 +1084,13 @@ Let $\mathfrak{q}$ be a height one prime ideal of $R$ and let $\mathfrak{p}$ be 
 0 \ar[r] & I  \ar[r] & S_\mathfrak{p} \otimes_{R_\mathfrak{q}} S_\mathfrak{p}  \ar[r]{}{\mu} & S_\mathfrak{p}  \ar[r] & 0
 \end{tikzcd}
 \end{center}
-is a split exact sequence. Since $S_\mathfrak{q} := R_\mathfrak{q} \otimes_R S$ lies between $R_\mathfrak{q}$ and $S_\mathfrak{p}$ we then have that
+is a split exact sequence. Since $S_\mathfrak{q} := R_\mathfrak{q} \otimes_R S$ lies between $R_\mathfrak{q}$ and $S_\mathfrak{p}$ the proposition \cite[Proposition~A.2]{AB59} gives that
 \begin{center}
 \begin{tikzcd}
 0 \ar[r] & I  \ar[r] & S_\mathfrak{q} \otimes_{R_\mathfrak{q}} S_\mathfrak{q}  \ar[r]{}{\mu} & S_\mathfrak{q}  \ar[r] & 0
 \end{tikzcd}
 \end{center}
-also splits {\color{red} ?????}. Then by \cref{thm:separable_implies_ringiso} we have that the map
+also splits. Then by \cref{thm:separable_implies_ringiso} we have that the map
 \begin{equation}
 \label{eq:localized_gamma}
 \begin{tikzcd}
@@ -967,7 +1155,7 @@ Since we are interested in the MCM modules that appear as $R$-direct summands of
 \label{prop:direct_summand_MCM}
 Let $R$ be a local ring with depth of $R$ equaling it's Krull dimension, that is $R$ is CM. If $M$ is an MCM $R$-module, and $N$ is a direct summand of $M$ then $N$ is also MCM.
 \begin{proof}
-We write $M$ as $N \oplus X$. Since $M$ is MCM we have that $0 = \Ext^i_R(M) = \Ext^i_R(N) \oplus \Ext^i_R(X)$ for all $i$ less than the Krull dimension of $R$. This means the depth of $N$ is greater than or equal to the Krull dimension of $R$. Since the depth of a module cannot exceed the Krull dimension of the ring {\color{red} refference} we have that $N$ is MCM.
+We write $M$ as $N \oplus X$. Since $M$ is MCM we have that $0 = \Ext^i_R(M) = \Ext^i_R(N) \oplus \Ext^i_R(X)$ for all $i$ less than the Krull dimension of $R$. This means the depth of $N$ is greater than or equal to the Krull dimension of $R$. Since the depth of a module cannot exceed the Krull dimension of the ring \cite[\href{https://stacks.math.columbia.edu/tag/0BK4}{Tag 0BK4}]{stacks-project} we have that $N$ is MCM.
 \end{proof}
 \end{prop}
 
@@ -987,9 +1175,9 @@ Now that we have shown a general relationship between the depths of local rings 
 
 \begin{theorem}
 \label{thm:S_MCM}
-Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then $R$ is a CM and $S$ is an MCM $R$-module.
+Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then $R$ is CM and $S$ is an MCM $R$-module.
 \begin{proof}
-Since $S$ is the complex power series ring in two variables we have that $\dim S = \depth_SS=2$. By \cref{lem:depth_of_S_less_than_R} we have that $\depth_SS \leq \depth_RR$. Since the depth of a module never exceeds the Krull dimension of the ring {\color{red}refference} we have that $\depth_SR \leq \dim S$. Lastly we saw in the first section that $R$ always equals $\C\llbracket u, v, w \rrbracket/\langle f \rangle$ for an irreducible polynomial $f$. Thus we have that $\dim R = 2 = \dim S$. Putting this together we get
+Since $S$ is the complex power series ring in two variables we have that $\dim S = \depth_SS=2$. By \cref{lem:depth_of_S_less_than_R} we have that $\depth_SS \leq \depth_RR$. Since the depth of a module never exceeds the Krull dimension of the ring we have that $\depth_SR \leq \dim S$. Lastly we saw in the first section that $R$ always equals $\C\llbracket u, v, w \rrbracket/\langle f \rangle$ for an irreducible polynomial $f$. Thus we have that $\dim R = 2 = \dim S$. Putting this together we get
 \begin{align*}
 \dim R = \dim S = \depth_SS \leq \depth_RR \leq \dim_R
 \end{align*}
@@ -997,7 +1185,7 @@ and thus $\dim R = \depth_RR$, which means $R$ is CM. \cref{lem:depth_of_S_less_
 \end{proof}
 \end{theorem}
 
-Note that \cref{prop:direct_summand_MCM} gives that all the $R$-direct summands of $S$ are MCM $R$-modules. This holds true if we let $G$ be any finite subgroup of $GL_n(\C)$. The proof of the case where $G \subset GL_n(\C)$ goes in much the same way, but we need some algebraic geometry to show that $\dim R = \dim S$. An interesting fact that we will not prove here is that when $G$ is a finite subgroup of $SL_2(\C)$ the converse holds. That is, all MCM $R$-modules can be written as the sum of $R$-direct summands of $S$.
+Note that \cref{prop:direct_summand_MCM} gives that all the $R$-direct summands of $S$ are MCM $R$-modules. This holds true if we let $G$ be any finite subgroup of $GL_n(\C)$. The proof of the case where $G \subset GL_n(\C)$ goes in much the same way, but we need some algebraic geometry to show that $\dim R = \dim S$. An interesting fact that we will not prove here is that when $G$ is a finite subgroup of $SL_2(\C)$ the converse holds. 
 
 \begin{theorem}
 Let $S$ be the complex power series ring in two variables, $G$ a finite subgroup of $SL_2(\C)$ acting on $S$ by linear change of variables, and $R=S^G$ the fixed ring. Then there is a one-to-one correspondence between the indecomposable projective $S\#G$-modules and the indecomposable MCM $R$-modules appearing as $R$-direct summands of $S$.
@@ -1009,7 +1197,14 @@ In \cref{thm:skew_group_algerba_equals_endomorphsim_ring} we showed that $S\#G \
 \end{proof}
 \end{theorem}
 
-This last theorem concludes the part of the McKay correspondence that we will prove in this thesis. Another interesting part of the thesis we have not shown is that the Auslander-Reiten quiver of the indecomposable MCM modules appearing as an $R$-direct summand of $S$ is isomorphic to the Gabriel quiver. If the reader is interested they can read further in {\color{red} refferences and further readings}.
+\begin{theorem}
+Let $S$, $G$, and $R$ be as defined above. Then all indecomposable MCM $R$-modules are direct summands of $S$.
+\begin{proof}
+The proof is ommited here, but can be found in \cite[Theorem~6.3]{LW12} or in Herzog's original paper \cite{Her78}.
+\end{proof}
+\end{theorem}
+
+This last theorem concludes the part of the McKay correspondence that we will prove in this thesis. Another interesting part of the thesis we have not shown is that the Auslander-Reiten quiver of the indecomposable MCM modules appearing as an $R$-direct summand of $S$ is isomorphic to the Gabriel quiver. If the reader is interested they can read further in \cite[Chapter~5, Chapter~6, Chapter~13]{LW12}.
 
 \begin{appendices}
 \section{Representation theory}
@@ -1149,6 +1344,8 @@ and
 \end{appendices}
 
 \bibliography{intro_bib,mybib}
+%\bibliography{mybib}
+%\bibliography{intro_bib}
 \bibliographystyle{alpha}
 
 \section*{Questions}
