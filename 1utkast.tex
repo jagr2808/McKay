@@ -245,7 +245,7 @@ Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the fi
 };
 
 \end{tikzpicture}
-\captionof*{figure}{$\tilde{D}_5$ \color{red} dont think it should be 5???}
+\captionof*{figure}{$\tilde{D}_8$}
 \end{center}
 
 %pyramid
@@ -662,7 +662,7 @@ From here, since $\bigwedge\limits^{1} V = V$, we see that $P_j = S \otimes_\C V
 \end{theorem}
 
 \section{The endomorphism ring of $S$ as an $S^G$-module}
-This section is largely based on the article \cite{IyTa} and the book \cite{LW12}.
+This section is largely based on the article by Iyama and Takahashi \cite{IyTa} and the book by Leuschke and Wiegand \cite{LW12}.
 
 In this section we will show that $S\#G$ is isomorphic to $\End_R(S)$ as rings, where $S$ is the complex power series ring in 2 variables, $G$ is a finite subgroup of $SL_2(\C)$, and $R = S^G$ is the fixed ring of $S$ by $G$. This will be the longest proof in this thesis and we have therefore decided to split it up into several steps. The proof will be done by constructing an explicit isomorphism:
 \begin{center}
@@ -934,7 +934,7 @@ Then since $B$ is a domain we get that either $b = b^g$ or $\sum_i x_i  y_i^g = 
 we see that the claim holds. We can now calculate $\gamma(\tilde{\mu}(ev_\epsilon(f \otimes \rho)))$:
 \begin{align*}
 \gamma \left[ \tilde{\mu} \left[ (f \otimes \rho)(\epsilon) \right] \right] (b) &=\\
-\gamma \left[ \tilde{\mu} \left[ (f \otimes \rho)(\sum_i x_i \otimes y_i) \right] \right] (b) &=\\
+\gamma \left[ \tilde{\mu} \left[ (f \otimes \rho)\left(\sum_i x_i \otimes y_i \right) \right] \right] (b) &=\\
 \gamma \left[ \tilde{\mu} \left[ \sum_i f(x_i) \otimes \rho(y_i) \right] \right] (b) &=\\
 \gamma \left[ \sum_i f(x_i) \sum_g y_i^g \cdot g \right] (b) &=\\
 \gamma \left[ \sum_g \sum_i f(x_i) y_i^g \cdot g \right] (b) &=\\
@@ -981,11 +981,17 @@ D(\mathfrak{p}) = \left\lbrace g \in G \; \middle| \; g(\mathfrak{p}) = \mathfra
 Let $S$ be the complex power series ring in $n$ variables, let $G$ be  a finite subgroup of $GL_n(\C)$ acting on $S$, and let $\mathfrak{p}$ be a height one prime ideal of $S$. Denote by $R$ the fixed ring $S^G$ and let $\mathfrak{q} = R \cap \mathfrak{p}$. Let $e$ be the ramification index of $R_\mathfrak{q} \subset S_\mathfrak{p}$, and let $f$ be the degree of the field extension $R_\mathfrak{q}/\mathfrak{q} \subset S_\mathfrak{p}/\mathfrak{p}$. Then the order of the decomposition group $|D(\mathfrak{p})|$ is $ef$.
 
 \begin{proof}
-Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction that it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the prime avoidance lemma \cite[Lemma~3.2]{Eis95} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$.
+Let $\{ \mathfrak{p}_i \}$ be the set of prime ideals in $S$ lying over $\mathfrak{q}$. The group $G$ acts on the set by permuting the ideals. We will show that this group action is transitive. Assume for the sake of contradiction that it is not and that there is a prime ideal $\mathfrak{p}_t$ such that $g(\mathfrak{p}) \neq \mathfrak{p}_t$ for all $g \in G$. Then by the prime avoidance lemma \cite[Lemma~3.2]{Eis95} we have that there is an $a \in \mathfrak{p}_t$ such that $a^g \not\in \mathfrak{p}$ for any $g \in G$. Now consider $x = \prod_{g \in G} a^g$. Clearly $x$ is in $R$ and thus in $\mathfrak{q}$, but since none of the factors of $x$ are in $\mathfrak{p}$ we must have that $x \not\in \mathfrak{p}$. This is a contradiction, thus the action of $G$ is transitive on $\{ \mathfrak{p}_i \}$. Since the $G$ is a finite group we have that $\{ \mathfrak{p}_i \}$ is a finite set, say $r := |\{ \mathfrak{p}_i \}|$.
 
-The orbit-stabilizer theorem states that the size of an orbit is the same as the index of the stabilizer group. Note that $D(\mathfrak{p})$ is exactly the stabilizer of $\mathfrak{p}$. Then since $G$ acts transitively we have that $|\{ \mathfrak{p}_i \}| = |G|/|D(\mathfrak{p})|$. In particular this set is finite, say $r := |\{ \mathfrak{p}_i \}|$, and $|G| = |D(\mathfrak{p})|\cdot r$.
+Now let $\mathfrak{p}_t$ be a prime ideal lying over $\mathfrak{q}$ and let $g$ be an element of $G$ such that $g(\mathfrak{p}) = \mathfrak{p}_t$. Consider $R_\mathfrak{q}$ and $S_\mathfrak{p}$ as subsets of their respective fields of fractions. Then we have $g(S_\mathfrak{p}) = S_{\mathfrak{p}_t}$ and $g(\mathfrak{p}^e S_\mathfrak{p}) = \mathfrak{p}_t^e S_{\mathfrak{p}_t}$. This means that the ramification index, $e$, and degree of field extension, $f$, only rely on $\mathfrak{q}$ and not which prime ideal lying over $\mathfrak{q}$ we choose. 
 
-Since the order of $G$ is $|G|=efr$ {\color{red} ??} it follows that $|D(\mathfrak{p})| = ef$.
+Now we want show that there is an isomorphism of rings $S/\mathfrak{q}S \cong \prod_{i=1}^r S/\mathfrak{p}_i^e S$, given by $\left( x + \mathfrak{q}S \mapsto (x + \mathfrak{p}_i^e S)_{i=1}^r \right)$. The map is clearly injective since $\mathfrak{q}S \subseteq \mathfrak{p}_i^e S$. The fact that it's surjective is a consequence of the approximation lemma \cite[p.12]{Serre}, which states that for any finite set of prime ideals $\{ \mathfrak{p}_i \}$, integers $\{e_i\}$, and elements of your ring $\{x_i\}$ there is an element $x$ such that $x-x_i \in \mathfrak{p}_i^{e_i}$.
+
+Taking the field of fractions of $S/\mathfrak{q}S$ and $\prod_{i=1}^r S/\mathfrak{p}_i^e S$, and comparing $A_\mathfrak{q}/\mathfrak{q}A_\mathfrak{q}$-dimension, we see that $|G| = efr$.
+
+The orbit-stabilizer theorem states that the size of an orbit is the same as the index of the stabilizer group. Note that $D(\mathfrak{p})$ is exactly the stabilizer of $\mathfrak{p}$. Then since $G$ acts transitively we have that $|\{ \mathfrak{p}_i \}| = |G|/|D(\mathfrak{p})|$. In particular this set is finite, say $r := |\{ \mathfrak{p}_i \}|$, and $|G| = |D(\mathfrak{p})|\cdot r$. Since the order of $G$ is $|G|=efr$ {\color{red} ??} \cite[Proposition~19]{Serre} it follows that $|D(\mathfrak{p})| = ef$.
+
+{\color{red} I still don't fully understand this, maybe need to just cite or see if we can figure it out.}
 \end{proof}
 \end{lemma}
 
@@ -1258,7 +1264,7 @@ If $R$ is a ring and $M_1$ and $M_2$ are two modules we define their \textit{dir
 \label{def:simple}
 A \textit{submodule} is a subset of a module which is also a module. A non-zero module with no non-trivial proper submodules is called \textit{simple}.
 \end{defin}
-
+\iffalse
 \begin{theorem}
 \label{schur}
 (Schur's Lemma) Let $G$ be a group and $V$ and $W$ be two irreducible representations of $G$. If $f:V \to W$ is a $G$-linear map then $f$ is a 0 if $V$ and $W$ are not isomorphic, and a scaling of identity (up to change of basis) if they are isomorphic.
@@ -1267,6 +1273,7 @@ Start by assuming $f$ is non-zero. Then we will show that $V$ and $W$ are isomor
 Now assume $f: V \to V$ is a $G$-linear map, then we want to show that $f$ is simply a scaling of identity. Since $f$ is a linear map on a complex vector space it must have at least one eigenvalue, say $\lambda \in \C$. Let $v$ be in the eigenspace $\lambda$. Since $f(gv) = g f(v) = \lambda gv$ for all $g$ in $G$ we have that $gv$ is also in the eigenspace. This means the eigenspace is a subrepresentation, and since $V$ is irreducible it must equal all of $V$. This means that $f$ is just scaling by $\lambda$.
 \end{proof}
 \end{theorem}
+\fi
 
 \begin{defin}
 \label{def:exact_functor}
@@ -1350,6 +1357,7 @@ If $M$ and $N$ are modules then the $i$th extension group, $\Ext^i(M, N)$, is co
 Note that the definition of $\Ext^i(M, N)$ is independent of choice of projective resolution. An important property of $\Ext$ that is used in this thesis is the long exact sequence in $\Ext$-groups.
 
 \begin{theorem}
+\label{thm:LES_ext}
 For any module $M$ and short exact sequence of modules:
 \begin{center}
 \begin{tikzcd}
@@ -1374,11 +1382,13 @@ and
 
 \end{appendices}
 
+\clearpage
+
 \bibliography{intro_bib,mybib}
 %\bibliography{mybib}
 %\bibliography{intro_bib}
 \bibliographystyle{alpha}
-
+\iffalse
 \section*{Questions}
 McKay graph seem to be made without the trivial representation, thus with the trivial representation we actually have extended dynkin diagrams. This is fine, but it means my table is wrong. Should be $\tilde{A}_{n-1}$ instead of $A_n$, don't know about the others.
 
@@ -1391,5 +1401,5 @@ Does separable $\implies$ projective use the fact that C is the center? How shou
 In Serre's local fields prop 10, why is $B'/pB'$ a degree $n = |G|$ $A'/pA'$-algebra? Alternatively why is $|G|=efr$?
 
 Should I make the distinction between CM and MCM modules? Should I say that $\depth M \leq \dim M \leq \dim R$, $\depth M \leq \dim M$ is proven on stacks so can be refference, maybe there's a better reffernece.
-
+\fi
 \end{document}
