@@ -213,11 +213,13 @@ $\C \llbracket u, v, w \rrbracket/\langle u^5 + v^3 + w^2 \rangle$
 \end{center}
 \end{minipage}
 
-%{\color{red} There is a 1-1 relationship between the finite subgroups of $SL_2(\C)$ and $SU(2)$. There is a 2-1 relationship between $SU(2)$ and $SO(3)$ which induces either a 2-1 or a 1-1 relationship on subgroups depending on wether they contain $-I$. How to formulate this nicely? below seems unprecise/not correct...}
-
-Since the finite subgroups of $SL_2(\C)$ are conjugate to finite subgroups in $SU(2)$, and there is a 2-1 map from $SU(2)$ to $SO(3)$ we can associate the finite subgroups of $SL_2(\C)$ to finite subgroups of $SO(3)$. Specifically each finite subgroup of $SL_2(\C)$ has a surjective group homomorphism to a finite subgroup of $SO(3)$ with kernel either of order 2 or 1. Since $SO(3)$ is the group of 3-dimensional roatations, the subgroups of $SO(3)$ is exactly the symmetry groups of solid figures. In figure~\ref{fig:3d_solids} below, there are some illustrations of solid figures labeled with the extended Dynkin diagrams coming from the subgroup of $SL_2(\C)$ which their symmetry group can be associated with.
-
-%Since the finite subgroups of $SL_2(\C)$ has a 2-to-1 correspondence with the finite subgroups of $SO(3)$, and $SO(3)$ is the group of 3D rotations, they can be associated with symmetry groups of solids. Specifically each finite subgroup of $SL_2(\C)$ has a surjective group homomorphism to a finite subgroup of $SO(3)$ with kernel either of order 2 or 1. In figure~\ref{fig:3d_solids} below, there are some illustrations of solid figures labeled with the extended Dynkin diagrams coming from the subgroup of $SL_2(\C)$ which their symmetry group corresponds to.
+Since the finite subgroups of $SL_2(\C)$ are conjugate to finite subgroups in $SU(2)$, and there is a short exact sequence
+\begin{center}
+\begin{tikzcd}
+0 \ar[r] & \{ \pm I \} \ar[r] & SU(2) \ar[r] & SO(3) \ar[r] & 0 
+\end{tikzcd}
+\end{center}
+we can associate the finite subgroups of $SL_2(\C)$ to finite subgroups of $SO(3)$. Specifically each finite subgroup of $SL_2(\C)$ has a surjective group homomorphism to a finite subgroup of $SO(3)$ with kernel either of order 2 or 1. Since $SO(3)$ is the group of 3-dimensional rotations, the subgroups of $SO(3)$ is exactly the symmetry groups of solid figures. In figure~\ref{fig:3d_solids} below, there are some illustrations of solid figures labeled with the extended Dynkin diagrams coming from the subgroup of $SL_2(\C)$ which their symmetry group can be associated with.
 
 \begin{figure}[h!]
 \vspace{3cm}
@@ -506,7 +508,7 @@ Since the finite subgroups of $SL_2(\C)$ are conjugate to finite subgroups in $S
 \end{figure}
 
 \clearpage
-\section{Indecomposable projectives of the skew group algebra S\#G}
+\section{Indecomposable projectives of the skew group algebra}
 This section is largely based on the book by Leuschke and Wiegand \cite{LW12}. Here we will define the skew group algebra (\cref{def:skew_group_algebra}) and the Gabriel quiver (\cref{def:gabriel_quiver}). We will show in \cref{thm:indec_proj_SG=indec_CG} that the irreducible representations of $G$ are in correspondence with the indecomposable projective modules of the skew group algebra. Finally in \cref{thm:gabriel_equals_mckay} we will show that the Gabriel quiver is isomorphic to the McKay quiver.
 
 This section will use definitions and theorems from representation theory as taught in the courses MA3203 - Ring Theory and MA3204 - Homological Algebra. Since we do not assume knowledge of this we have created appendix \ref{appendix}. We will try to use footnotes to indicate where such theorems are used.
@@ -710,7 +712,7 @@ I \ar[hook, r] & S_\mathfrak{q} \otimes_{R_{\mathfrak{q}}} S_\mathfrak{q} \ar[tw
 \end{center}
 We will use this splitting in \cref{thm:separable_implies_ringiso} to construct an inverse for $S_\mathfrak{q}\#G \to \End_{R_{\mathfrak{q}}}(S_\mathfrak{q})$. Finally we will show that since we get an isomorphism whenever we localize at a height one prime ideal, \cref{lem:height_one_iso} and \cref{thm:skew_group_algerba_equals_endomorphsim_ring} will give us that the map is an isomorphism.
 
-\subsection{Commutative algebra}
+\subsection{Definitions}
 
 \begin{defin}
 If $A$ is a local ring with residual field $k$ we define the \textit{depth} of a module, $M$, to be the minimal $n$ such that $\Ext^n_A(k, M)$ is non-zero\footnote{The extension group is defined in \cref{def:Ext} on page \pageref{def:Ext}.}. We write $\depth_A(M)$ for this or simply $\depth(M)$ when which ring we are using is clear.
@@ -972,7 +974,7 @@ This means that $\gamma$ is an epimorphism and then also an isomorphism.
 \end{proof}
 \end{theorem}
 
-\subsection{Unramified extensions in codimension 1}
+\subsection{Unramified extensions in codimension one}
 
 \begin{prop}
 Let $S$ be the complex power series ring in $n$ variables, $G$  a finite subgroup of $GL_n(\C)$ acting on $S$ by linear change of variables, and $R = S^G$ the fixed ring of $S$. Then $S$ is a finitely generated $R$-module of rank $|G|$.
@@ -1006,7 +1008,7 @@ Now let $\mathfrak{p}_t$ be a prime ideal lying over $\mathfrak{q}$ and let $g$ 
 
 Now we want to consider the localization of $S$ as an $R$-module, and show that there is an isomorphism of rings $S_\mathfrak{q}/\mathfrak{q}S_\mathfrak{q} \cong \prod_{i=1}^r S_\mathfrak{q}/\mathfrak{p}_i^e S_\mathfrak{q}$, given by $\left( x + \mathfrak{q}S_\mathfrak{q} \mapsto (x + \mathfrak{p}_i^e S_\mathfrak{q})_{i=1}^r \right)$. The map is clearly injective since $\mathfrak{q}S_\mathfrak{q} \subseteq \mathfrak{p}_i^e S_\mathfrak{q}$. The fact that it's surjective is a consequence of the approximation lemma \cite[p.12]{Serre}, which states that for any finite set of prime ideals $\{ \mathfrak{p}_i \}$, integers $\{e_i\}$, and elements of your ring $\{x_i\}$ there is an element $x$ such that $x-x_i \in \mathfrak{p}_i^{e_i}$.
 
-By a similar proof to \cite[Proposition~5.4]{LW12} we can show that $S_\mathfrak{q}$ is a rank $|G|$ $R_\mathfrak{q}$-module. Since $R_\mathfrak{q}$ is a principle ideal domain and $S_\mathfrak{q}$ is an integral domain, the structure theorem for principle ideal domains gives that $S_\mathfrak{q}$ is free. Therefore $S_\mathfrak{q}/\mathfrak{q}S_\mathfrak{q}$ is a dimension $|G|$ $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q}$-vector space.
+By a similar proof to \cite[Proposition~5.4]{LW12} we can show that $S_\mathfrak{q}$ is a rank $|G|$ $R_\mathfrak{q}$-module. Since $R_\mathfrak{q}$ is a principal ideal domain and $S_\mathfrak{q}$ is an integral domain, the structure theorem for principal ideal domains gives that $S_\mathfrak{q}$ is free. Therefore $S_\mathfrak{q}/\mathfrak{q}S_\mathfrak{q}$ is a dimension $|G|$ $R_\mathfrak{q}/\mathfrak{q}R_\mathfrak{q}$-vector space.
 
 Now by comparing ranks of the two isomorphic rings we get 
 \begin{align*}
@@ -1015,7 +1017,6 @@ Now by comparing ranks of the two isomorphic rings we get
 \end{align*} 
 
 The orbit-stabilizer theorem states that the size of an orbit is the same as the index of the stabilizer group. Note that $D(\mathfrak{p})$ is exactly the stabilizer of $\mathfrak{p}$. Then since $G$ acts transitively we have that $|\{ \mathfrak{p}_i \}| = |G|/|D(\mathfrak{p})|$. In particular $|G| = |D(\mathfrak{p})|\cdot r$. Since the order of $G$ is $|G|=efr$ it follows that $|D(\mathfrak{p})| = ef$.
-%{\color{red} ??} \cite[Proposition~19]{Serre}
 \end{proof}
 \end{lemma}
 
@@ -1178,7 +1179,7 @@ This means that for each height one prime of $R$, the localization of $\gamma$ i
 \end{proof}
 \end{theorem}
 
-\section{Maximal Cohen-Macaulay modules of $S^G$}
+\section{Maximal Cohen-Macaulay $S^G$-modules}
 \begin{defin}
 If $R$ is a ring we define its \textit{Krull dimension} to be the maximum length of a chain of prime ideals in $R$.
 \end{defin}
