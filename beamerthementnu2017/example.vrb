@@ -1,0 +1,18 @@
+\frametitle{McKay and Gabriel quiver}
+	\begin{theorem}
+		The McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic.
+		\begin{proof}
+		Let $V = \mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C = S / \mathfrak{m}$ is
+		\begin{center}
+		\begin{tikzcd}
+		0  \arrow{r} & S \otimes_\C \bigwedge\limits^n V  \arrow{r}{\partial_n} & \cdots \arrow{r}{\partial_2} & S \otimes_\C \bigwedge\limits^{1} V \arrow{r}{\partial_1} & S \arrow{r} & 0.
+		\end{tikzcd}
+		\end{center}
+		Applying $- \otimes_\C W$ we get
+		\begin{center}
+		\begin{tikzcd}
+		\cdots \ar[r] & S \otimes_\C V \otimes W \ar[r] & S \otimes_\C W \ar[r] & 0.
+		\end{tikzcd}
+		\end{center}
+		\end{proof}
+	\end{theorem}

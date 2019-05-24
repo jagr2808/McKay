@@ -4,6 +4,7 @@
 
 \usepackage{stmaryrd}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 
 % Use the NTNU-temaet for beamer 
 % \usetheme[style=ntnu|simple|vertical|horizontal, 
@@ -155,24 +156,100 @@
 
 \begin{frame}
 	\frametitle{Gabriel quiver}
+	\begin{defin}
+		The \textit{Gabriel quiver} of an algebra, $A$ (where projective covers exist) has verticies the simple $A$-modules. If $M$ and $N$ are simple $A$-modules with minimal projective resolutions:
+		\begin{center}
+		$
+		\cdots \to P^M_1 \to P^M_0 \to 0
+		$
+		\hspace{1cm}
+		and
+		\hspace{1cm}
+		$
+		\cdots \to P^N_1 \to P^N_0 \to 0
+		$.
+		\end{center}
+		Then there is an arrow from $M$ to $N$ iff $P^N_0$ is a direct summand of $P^M_1$.
+	\end{defin}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Example of Gabriel quiver}
+	\begin{example}
+		\begin{center}
+		$S = \C\llbracket x, y \rrbracket$, $G= \langle g \rangle$, $g = \begin{pmatrix}
+		0 & 1\\
+		1 & 0
+		\end{pmatrix}$, $\mathfrak{m} = \langle x, y \rangle_{S\#G}$
+		\end{center}
+		$$ S\#G \cong S \otimes_\C \langle I + g \rangle \oplus S \otimes_\C \langle I - g \rangle $$
+		%$$\mathfrak{m} \otimes_\C \langle I + g \rangle \cong S(x+y) \otimes_\C \langle I + g \rangle  \oplus S(x-y) \otimes_\C \langle I + g \rangle $$
+		%$$ \mathfrak{m} \otimes_\C \langle I - g \rangle \cong S(x+y) \otimes_\C \langle I - g \rangle  \oplus S(x-y) \otimes_\C \langle I - g \rangle $$
+		\begin{center}
+		\begin{tikzcd}
+		\langle I + g \rangle \ar[r, <->] \ar[loop left] & \langle I - g \rangle \ar[loop right]
+		\end{tikzcd}
+		\end{center}
+	\end{example}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{The indecomposable projective $S\#G$-modules}
+	\begin{theorem}
+		There's a correspondance between the irreducible $G$ representations and the indecomposable projective $S\#G$-modules given by
+		\begin{center}
+		\begin{tikzcd}
+		\left\lbrace \begin{matrix}
+		\text{indecomposable projective}\\
+		S\#G\text{-modules}
+		\end{matrix} \right\rbrace \ar[r, <->]
+		& 
+		\left\lbrace \begin{matrix}
+		\text{irreducible }\\
+		\C G\text{ representations}
+		\end{matrix} \right\rbrace\\
+		\mathcal{F}: P \arrow[mapsto]{r} & P/\mathfrak{m}P\\
+		\mathcal{G}: S \otimes_\C W & W \arrow[mapsto]{l}
+		\end{tikzcd}
+		\end{center}
+	\end{theorem}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{McKay and Gabriel quiver}
+	\begin{theorem}
+		The McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic.
+		\begin{proof}
+		Let $V = \mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C = S / \mathfrak{m}$ is
+		\begin{center}
+		\begin{tikzcd}
+		0  \arrow{r} & S \otimes_\C \bigwedge\limits^n V  \arrow{r}{\partial_n} & \cdots \arrow{r}{\partial_2} & S \otimes_\C \bigwedge\limits^{1} V \arrow{r}{\partial_1} & S \arrow{r} & 0.
+		\end{tikzcd}
+		\end{center}
+		Applying $- \otimes_\C W$ we get
+		\begin{center}
+		\begin{tikzcd}
+		\cdots \ar[r] & S \otimes_\C V \otimes W \ar[r] & S \otimes_\C W \ar[r] & 0.
+		\end{tikzcd}
+		\end{center}
+		\end{proof}
+	\end{theorem}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Main theorem}
-  \begin{defin}
-    {\LaTeX} makes things easier.
-  \end{defin}
-  \begin{theorem}
-  	This is a theorem 
-  \begin{proof}
-    For details, see Flynn~\cite{latex}.
-  \end{proof}
-  \end{theorem}
+  %\frametitle{Questions?}
+	\begin{center}  
+	\vspace{2cm}
+    \begingroup
+      \fontsize{40pt}{12pt}\selectfont
+      Questions? 
+    \endgroup
+  	\end{center}	
 \end{frame}
 
-\begin{frame}
-  \frametitle{References}
-  \printbibliography
-\end{frame}
+%\begin{frame}
+%  \frametitle{References}
+%  \printbibliography
+%\end{frame}
 
 \end{document}
