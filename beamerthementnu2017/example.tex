@@ -71,7 +71,7 @@
 
 \begin{frame}
 	\frametitle{McKay correspondance}
-	The theorem involves $G \leq SL_2(\C)$, $S= \C \llbracket x, y \rrbracket$, and $R = S^G$. It establishes a correspondence between:
+	The theorem involves $G \leq SL_2(\C)$ finite group, $S= \C \llbracket x, y \rrbracket$, and $R = S^G$. It establishes a correspondence between:
 	\begin{itemize}
 		\item The irreducible representations of $G$; 
 		\item The indecomposable projective modules of the skew group algebra $S\#G$;
@@ -148,9 +148,9 @@
 		0 & 1
 		\end{pmatrix}, g:= \begin{pmatrix}
 		0 & 1\\
-		-1 & 0
+		1 & 0
 		\end{pmatrix} \right\}$. \\
-		Then $x \cdot e + y\cdot g$ and $(x-y) \cdot g$ are in $S\#G$, and their product is $$(x \cdot e + y\cdot g)((x-y) \cdot g) = x(x-y) \cdot g - y(x+y) \cdot e$$
+		Then $x \cdot e + y\cdot g$ and $(x-y) \cdot g$ are in $S\#G$, and their product is $$(x \cdot e + y\cdot g)((x-y) \cdot g) = x(x-y) \cdot g + y(y-x) \cdot e$$
 	\end{example}
 \end{frame}
 
@@ -218,7 +218,7 @@
 \begin{frame}[fragile]
 	\frametitle{McKay and Gabriel quiver}
 	\begin{theorem}
-		The McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic.
+		The McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic when $G$ is finite subgroup of $GL_n(\C)$.
 		\begin{proof}
 		Let $V = \mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C = S / \mathfrak{m}$ is
 		\begin{center}

@@ -1,6 +1,6 @@
 \frametitle{McKay and Gabriel quiver}
 	\begin{theorem}
-		The McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic.
+		The McKay quiver of $G$ and the Gabriel quiver of $S\#G$ are isomorphic when $G$ is finite subgroup of $GL_n(\C)$.
 		\begin{proof}
 		Let $V = \mathfrak{m}/\mathfrak{m}^2$. Then the minimal projective resolution of $\C = S / \mathfrak{m}$ is
 		\begin{center}
