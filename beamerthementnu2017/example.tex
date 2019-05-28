@@ -65,7 +65,7 @@
 	\begin{itemize}
 		\item Statement of the McKay correspondance
 		\item History and motivation
-		\item examples and proofs
+		\item Examples and proofs
 	\end{itemize}
 \end{frame}
 
@@ -83,6 +83,7 @@
 \begin{frame}
 	\frametitle{History and motivation}
 	\begin{itemize}
+		\item $G \leq SL_2(\C)$,  $S = \C\llbracket x, y \rrbracket$, $R = S^G$
 		\item Kleinian singularities, $\C^2 / G$
 		%Felix Klein 1884
 		\item Resolution graphs ADE Dynkin diagrams 
@@ -95,6 +96,9 @@
 
 \begin{frame}
 	\frametitle{The McKay quiver}
+	\begin{defin}
+		A representation of a group $G$ is a group-homomorphsim $G \to GL_n(\C)$.
+	\end{defin}
 	\begin{defin}
 		The McKay quiver of $G$ has verticies the irreducible representations of $G$, and an arrow from $W$ to $W'$ iff $W'$ appears as a direct summand of $V \otimes_\C W$, where $V$ is the cannonical representation.
 	\end{defin}
@@ -114,6 +118,7 @@
 	\end{example}
 \end{frame}
 
+\iffalse
 \begin{frame}
 	\frametitle{Non-Dynkin example}
 	\begin{example}
@@ -136,6 +141,24 @@
 		\end{center}
 	\end{example}
 \end{frame}
+\fi
+
+\begin{frame}[fragile]
+	\frametitle{Non-Dynkin example}
+	\begin{example}
+	\begin{center}
+		$G = \langle g \rangle \cong \Z/2\Z$, $g = \begin{pmatrix}
+		0 & 1\\
+		1 & 0
+		\end{pmatrix}$
+	\end{center}
+	\begin{center}
+		\begin{tikzcd}
+		V_0 \ar[r, <->] \ar[loop left] & V_{-1} \ar[loop right]
+		\end{tikzcd}
+	\end{center}
+	\end{example}
+\end{frame}
 
 \begin{frame}
 	\frametitle{The skew group algebra}
@@ -154,22 +177,17 @@
 	\end{example}
 \end{frame}
 
-\begin{frame}
+%rewrite about projective covers
+\begin{frame}[fragile]
 	\frametitle{Gabriel quiver}
 	\begin{defin}
-		The \textit{Gabriel quiver} of an algebra, $A$ (where projective covers exist) has verticies the simple $A$-modules. If $M$ and $N$ are simple $A$-modules with minimal projective resolutions:
+		The \textit{Gabriel quiver} of an algebra, $A$ (where projective covers exist) has verticies the indecomposable projective $A$-modules. If $P$ and $Q$ are indecomposable projectives there's an arrow from $P$ to $Q$ if $Q$ is a direct summand of the projetive cover of the radical of $P$.
 		\begin{center}
-		$
-		\cdots \to P^M_1 \to P^M_0 \to 0
-		$
-		\hspace{1cm}
-		and
-		\hspace{1cm}
-		$
-		\cdots \to P^N_1 \to P^N_0 \to 0
-		$.
+		\begin{tikzcd}
+		& P_1 \ar[d, bend right, swap]{}{\pi} \ar[->>, dr] & & P\\
+		& Q \ar[u, bend right, swap]{}{\iota} & Rad P \ar[ur, hook]
+		\end{tikzcd}
 		\end{center}
-		Then there is an arrow from $M$ to $N$ iff $P^N_0$ is a direct summand of $P^M_1$.
 	\end{defin}
 \end{frame}
 
@@ -187,7 +205,7 @@
 		%$$ \mathfrak{m} \otimes_\C \langle I - g \rangle \cong S(x+y) \otimes_\C \langle I - g \rangle  \oplus S(x-y) \otimes_\C \langle I - g \rangle $$
 		\begin{center}
 		\begin{tikzcd}
-		\langle \mathrm{I} + g \rangle \ar[r, <->] \ar[loop left] & \langle \mathrm{I} - g \rangle \ar[loop right]
+		S \otimes \langle \mathrm{I} + g \rangle \ar[r, <->] \ar[loop left] & S \otimes \langle \mathrm{I} - g \rangle \ar[loop right]
 		\end{tikzcd}
 		\end{center}
 	\end{example}
@@ -208,10 +226,11 @@
 		\text{irreducible }\\
 		G\text{ representations}
 		\end{matrix} \right\rbrace\\
-		\mathcal{F}: P \arrow[mapsto]{r} & P/\mathfrak{m}P\\
-		\mathcal{G}: S \otimes_\C W & W \arrow[mapsto]{l}
+		P \arrow[mapsto]{r} & P/\mathfrak{m}P\\
+		S \otimes_\C W & W \arrow[mapsto]{l}
 		\end{tikzcd}
 		\end{center}
+		Where $S = \C\llbracket x_1, \cdots, x_n \rrbracket$, $G \leq GL_n(\C)$, and $\mathfrak{m} = \langle x_1, \cdots, x_n \rangle_{S\#G}$.
 	\end{theorem}
 \end{frame}
 
@@ -234,6 +253,24 @@
 		\end{center}
 		\end{proof}
 	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Summary}
+	When $G \leq SL_2(\C)$ is a finite group, $S = \C\llbracket x, y \rrbracket$, and $R=S^G$ there's a correspondance between:
+	\begin{itemize}
+		\item \textbf{The irreducible representations of $G$;}
+		\item \textbf{The indecomposable projective modules of the skew group algebra $S\#G$;}
+		\item The indecomposable projective modules of the endomorphism ring $\End_R(S)$;
+		\item The indecomposable MCM modules of $R$.
+	\end{itemize}
+	There's isomorphisms of quivers:
+	\begin{itemize}
+		\item \textbf{The McKay quiver of $G$;}
+		\item \textbf{The Gabriel quiver of $S\#G$;}
+		\item The Gabriel quiver of $\End_R(S)$;
+		\item The Auslander-Reiten quiver of the MCM $R$-modules.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
